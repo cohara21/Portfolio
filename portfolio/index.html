@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — UX Designer & Researcher</title>
+  <meta name="description" content="Portfolio of a UX Designer & Researcher. Selected projects, case studies, and contact." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/text-type.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <!-- SVG icon symbols (used throughout the site) -->
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.png" alt="" width="36" height="36"></a>
+
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <a class="nav-tag" href="resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-photo hero-photo--fade">
+            <img src="images/index/headshotanimation.png" alt="Carson O'Hara">
+          </div>
+          <div class="hero-typed text-type-wrap"><span class="text-type-target"></span></div>
+        </div>
+      </div>
+      <a href="#projects" class="hero-scroll-hint" aria-label="Scroll to projects">
+        <svg class="icon icon--down" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+      </a>
+    </section>
+
+    <!-- Selected Projects -->
+    <section class="section container" id="projects">
+      <h2 class="section-title">My Favorite Projects <a href="work.html" class="see-all-link">See All <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a></h2>
+
+      <!-- Projects carousel: auto-pans horizontally. Duplicated items for seamless looping -->
+      <div class="projects-carousel" aria-label="Selected projects carousel">
+        <div class="carousel-track" aria-hidden="false">
+          <article class="project-card">
+            <div class="project-thumb thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div class="project-content">
+              <h3>Big Bus Savannah</h3>
+              <p class="muted">Redesign of park-and-ride experience for tourists. Research-led design to simplify ticketing and boarding flows.</p>
+              <a class="link" href="case-study-bigbus.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
+            <div class="project-content">
+              <h3>Mose</h3>
+              <p class="muted">AI assistant for caretakers of individuals with dementia, providing personalized support and guidance.</p>
+              <a class="link" href="case-study-mose.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+            </div>
+          </article>
+
+          <!-- duplicate for seamless loop -->
+          <article class="project-card is-duplicate">
+            <div class="project-thumb thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div class="project-content">
+              <h3>Big Bus Savannah</h3>
+              <p class="muted">Redesign of park-and-ride experience for tourists. Research-led design to simplify ticketing and boarding flows.</p>
+              <a class="link" href="case-study-bigbus.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+            </div>
+          </article>
+
+          <article class="project-card is-duplicate">
+            <div class="project-thumb thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
+            <div class="project-content">
+              <h3>Mose</h3>
+              <p class="muted">AI assistant for caretakers of individuals with dementia, providing personalized support and guidance.</p>
+              <a class="link" href="case-study-mose.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brief About -->
+    <section class="section about-brief container">
+      <div class="about-inner">
+        <div class="about-photo">
+          <img src="images/index/aboutme.webp" alt="Carson O'Hara" style="width:100%;height:100%;object-fit:cover;object-position:75% center;border-radius:12px;">
+        </div>
+        <div class="about-copy">
+          <h2>About Me</h2>
+          <p class="muted">I’m a UX designer and researcher who loves turning user insights into beautiful, usable interfaces. I work at the intersection of product, research, and design to deliver solutions that matter.</p>
+          <p><a class="link" href="about.html">Learn More About Me</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section contact-cta container" id="contact">
+      <div class="cta-inner">
+        <h2>Let’s work together</h2>
+        <p class="muted">I’m open to freelance work and new opportunities. Let’s build something great.</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="mailto:your.email@example.com">Email Me</a>
+          <a class="btn outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Your Name</div>
+      <div class="footer-right">
+        <a class="social" href="#">Twitter</a>
+        <a class="social" href="#">Dribbble</a>
+        <a class="social" href="#">GitHub</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

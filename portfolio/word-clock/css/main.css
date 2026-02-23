@@ -1,0 +1,209 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.back-to-portfolio{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #0f172a;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.back-to-portfolio:hover,
+.back-to-portfolio:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+time {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90vmin;
+    height: 90vmin;
+    background-color: rgba(0, 0, 0, 0.65);
+    font-family: sans-serif;
+    font-size: 3.5vmin;
+}
+
+.letter {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 255, 26, 0.5);
+    transition: 2s;
+    font-size: 0.5em;
+    filter: blur(2px);
+}
+
+.letterOn {
+    color: rgb(0, 255, 26);
+    font-size: 1em;
+    filter: blur(0px);
+}
+
+:root {
+    --horizontalMargin: 15%;
+    --verticalMargin: 9%;
+    --numberofColumns: 25;
+    --numberofRows: 10
+}
+
+.col0 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 0 );
+}
+
+.col1 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 1 );
+}
+
+.col2 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 2 );
+}
+
+.col3 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 3 );
+}
+
+.col4 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 4 );
+}
+
+.col5 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 5 );
+}
+
+.col6 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 6 );
+}
+
+.col7 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 7 );
+}
+
+.col8 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 8 );
+}
+
+.col9 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 9 );
+}
+
+.col10 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 10 );
+}
+
+.col11 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 11 );
+}
+
+.col12 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 12 );
+}
+
+.col13 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 13 );
+}
+
+.col14 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 14 );
+}
+
+.col15 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 15 );
+}
+
+.col16 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 16 );
+}
+
+.col17 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 17 );
+}
+
+.col18 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 18 );
+}
+
+.col19 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 19 );
+}
+
+.col20 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 20 );
+}
+
+.col21 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 21 );
+}
+
+.col22 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 22 );
+}
+
+.col23 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 23 );
+}
+
+.col24 {
+    left: calc( var(--horizontalMargin) + ((100% - var(--horizontalMargin) * 2) / (var(--numberofColumns) - 1 ) ) * 24 );
+}
+
+
+.row0 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 0 );
+}
+
+.row1 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 1 );
+}
+
+.row2 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 2 );
+}
+
+.row3 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 3 );
+}
+
+.row4 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 4 );
+}
+
+.row5 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 5 );
+}
+
+.row6 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 6 );
+}
+
+.row7 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 7 );
+}
+
+.row8 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 8 );
+}
+
+.row9 {
+    top: calc( var(--verticalMargin) + ((100% - var(--verticalMargin) * 2) / (var(--numberofRows) - 1 ) ) * 9 );
+}
+
+

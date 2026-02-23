@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Big Bus Savannah — Case Study</title>
+  <meta name="description" content="Case study for Big Bus Savannah" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="case-study">
+  <!-- SVG icon symbols (used throughout the site) -->
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.png" alt="" width="36" height="36"></a>
+        <a class="header-back" href="work.html" aria-label="Back to work"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></a>
+      </div>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="work.html" class="nav-link active">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="resume.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="case-hero">
+      <div class="hero-media">
+        <img class="hero-image" src="images/case-study-bigbus/bannerbigbus.webp" alt="Big Bus Savannah banner" loading="eager" decoding="async">
+      </div>
+    </section>
+
+    <div class="case-wrap container">
+      <div class="case-overview-convoy">
+        <div class="case-title-row">
+          <div class="case-title-block">
+            <h2>Big Bus Savannah</h2>
+            <p class="case-subtitle">Gamified AR tour experience</p>
+          </div>
+          <div class="case-meta-block">
+            <div class="case-meta-item"><span class="case-meta-label">Year</span><span class="case-meta-value">Fall 2025</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Duration</span><span class="case-meta-value">10 weeks</span></div>
+          </div>
+        </div>
+        <hr class="case-overview-sep" aria-hidden="true">
+        <div class="case-overview-grid">
+          <div class="case-overview-col">
+            <h3>Overview</h3>
+            <p>Big Bus Savannah is a gamified tour experience reimagining urban tourism through AR storytelling and gamification. By shifting from passive narration to an interactive, reward-based ecosystem, we established a distinctive presence in a saturated market and solved key accessibility challenges.</p>
+          </div>
+          <div class="case-overview-col">
+            <h3>My Roles</h3>
+            <p>UX Designer &amp; Researcher focusing on the overall tour experience, interaction flows, and accessibility. Collaborated closely with Grayce Richardson, Haven Burke, and Gabby Lewis on AR/AI integration and content design, using Figma, Photoshop, and Illustrator to bring the vision to life.</p>
+          </div>
+        </div>
+      </div>
+
+      <article class="case-main">
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Problem</p>
+          <h2>In a city of stories, history is getting lost in the noise.</h2>
+          <p>Savannah’s tourism market is one of the most saturated in the country, yet the experience remains stagnant. Traditional tours rely on verbal narration that is easily drowned out by city noise and remains inaccessible to the hearing-impaired. For younger travelers, these passive tours feel like a lecture rather than an adventure, leading to low engagement and a "one-and-done" market cycle.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Research</p>
+          <h2>Understanding the gap between the guide and the guest.</h2>
+          <p>We took to the streets, participating in over a dozen walking and trolley tours to identify the breaking points. Our interviews with tour guides revealed a desperate need to reach younger demographics, while tourists expressed a desire for more control and visual immersion. We realized that the problem wasn't a lack of history—it was a lack of interactivity.</p>
+          <div class="case-media-grid">
+            <img class="case-image" src="images/case-study-bigbus/tourphoto.webp" alt="Tour research photo from Savannah street tours" loading="lazy" decoding="async">
+            <img class="case-image" src="images/case-study-bigbus/sketchesbrainstorming.webp" alt="Journey mapping and ideation sketches for Big Bus Savannah" loading="lazy" decoding="async">
+          </div>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Solution</p>
+          <h2>History brought to life through gamified exploration.</h2>
+
+          <h3>AR Storytelling</h3>
+          <p>We integrated AR experiences at key landmarks, like the Mary Tew House, allowing buildings to transform and historical characters to appear in real-time. This turned passive observation into an immersive time-travel experience.</p>
+
+          <h3>The Artifact Gallery</h3>
+          <p>To drive exploration, we implemented an "Artifact Gallery." Users unlock badges and collect virtual artifacts as they navigate the city, turning a standard tour into a reward-driven scavenger hunt.</p>
+
+          <div class="design-gallery">
+            <button class="gallery-nav-btn gallery-prev-btn" aria-label="Previous image">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>
+            </button>
+            <div class="gallery-viewport">
+              <div class="gallery-slides">
+                <div class="gallery-slide active">
+                  <img src="images/case-study-bigbus/artifactsphone.png" alt="Artifacts phone screen showing collected tour artifacts" loading="lazy">
+                </div>
+                <div class="gallery-slide">
+                  <img src="images/case-study-bigbus/big home screen 1.png" alt="Big Bus Savannah home screen with tour selection" loading="lazy">
+                </div>
+                <div class="gallery-slide">
+                  <img src="images/case-study-bigbus/marylow.png" alt="AR storytelling screen at the Mary Tew House" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <button class="gallery-nav-btn gallery-next-btn" aria-label="Next image">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+            </button>
+          </div>
+          <div class="gallery-indicator">
+            <span class="gallery-counter">1 / 3</span>
+          </div>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Impact</p>
+          <h2>Redefining the tour experience for a new generation.</h2>
+          <p>By pivoting from a traditional guide-led model to a self-guided AR ecosystem, we solved the accessibility gap while creating a scalable, high-replayability product. The result is a tour experience that naturally attracts younger audiences and differentiates Big Bus in a crowded market.</p>
+        </section>
+
+        <nav class="case-study-nav">
+          <a class="case-nav-link case-nav-link--back" href="work.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Back to Work</a>
+          <a class="case-nav-link case-nav-link--next" href="case-study-mose.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Your Name</div>
+      <div class="footer-right">
+        <a class="social" href="#">Twitter</a>
+        <a class="social" href="#">Dribbble</a>
+        <a class="social" href="#">GitHub</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
