@@ -134,9 +134,24 @@ document.addEventListener('DOMContentLoaded', function(){
     carousels.forEach(car => {
       const track = car.querySelector('.carousel-track');
       if(!track) return;
-      // total width of track (contains duplicated items). We want half of it (the original set).
-      const total = track.scrollWidth;
-      const scrollWidth = total / 2;
+      const cards = Array.from(track.querySelectorAll('.project-card, .project-card-large'));
+      if(!cards.length) return;
+
+      // Measure the first "real" set directly so loop distance stays exact even
+      // when card sizing changes and the duplicated half is not perfectly 50/50.
+      let firstSet = cards.filter(card => !card.classList.contains('is-duplicate'));
+      if(!firstSet.length){
+        // Fallback if markup has no duplicate markers.
+        const total = track.scrollWidth;
+        track.style.setProperty('--scrollWidth', (total / 2) + 'px');
+        return;
+      }
+
+      // Include the gaps between first-set items in the travel distance.
+      const gapValue = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap || '0') || 0;
+      const cardsWidth = firstSet.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+      const gapsWidth = Math.max(0, firstSet.length - 1) * gapValue;
+      const scrollWidth = cardsWidth + gapsWidth;
       track.style.setProperty('--scrollWidth', scrollWidth + 'px');
     });
   }
@@ -420,7 +435,12 @@ document.addEventListener('DOMContentLoaded', function(){
       closeBtn.classList.add('pressed');
       setTimeout(()=>{ closeBtn.classList.remove('pressed'); try{ closeBtn.blur(); }catch(_){}; closeModal(); }, 160);
     });
-    overlay.addEventListener('click', closeModal);
+    // Allow clicking the blurred background to close (but not the image or controls)
+    modal.addEventListener('click', (e) => {
+      // If click is inside the image frame or on controls, do nothing
+      if(e.target.closest('.media-wrap, .gallery-controls, .gallery-close')) return;
+      closeModal();
+    });
 
     // keyboard navigation for modal
     document.addEventListener('keydown', (e) => {

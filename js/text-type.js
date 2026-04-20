@@ -20,6 +20,7 @@
     var showCursor = opts.showCursor !== false;
     var cursorCharacter = opts.cursorCharacter !== undefined ? opts.cursorCharacter : '|';
     var cursorBlinkDuration = opts.cursorBlinkDuration !== undefined ? opts.cursorBlinkDuration : 0.5;
+    var onComplete = typeof opts.onComplete === 'function' ? opts.onComplete : null;
 
     var displayedText = '';
     var currentCharIndex = 0;
@@ -46,6 +47,7 @@
 
     function run() {
       var currentText = textArray[currentTextIndex] || '';
+      var segments = Array.from(currentText);
 
       if (isDeleting) {
         if (displayedText === '') {
@@ -55,14 +57,14 @@
           timeoutId = setTimeout(run, pauseDuration);
           return;
         }
-        displayedText = displayedText.slice(0, -1);
+        displayedText = Array.from(displayedText).slice(0, -1).join('');
         contentSpan.textContent = displayedText;
         timeoutId = setTimeout(run, deletingSpeed);
         return;
       }
 
-      if (currentCharIndex < currentText.length) {
-        displayedText += currentText[currentCharIndex];
+      if (currentCharIndex < segments.length) {
+        displayedText += segments[currentCharIndex];
         currentCharIndex += 1;
         contentSpan.textContent = displayedText;
         timeoutId = setTimeout(run, typingSpeed);
@@ -77,6 +79,7 @@
           if (contentSpan.textContent.indexOf(hand) !== -1) {
             contentSpan.innerHTML = contentSpan.textContent.replace(new RegExp(hand, 'g'), '<span class="wave-emoji">' + hand + '</span>');
           }
+          if (onComplete) onComplete();
           return;
         }
         timeoutId = setTimeout(function () {
@@ -99,18 +102,38 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var target = document.querySelector('.hero .text-type-target');
-    if (target) {
-      initTextType('.hero .text-type-target', {
-        text: "Hi, I'm Carson \uD83C\uDFBE'Hara \uD83D\uDC4B\na Student Athlete at The Savannah College of Art and Design\nstudying UX Design",
-        typingSpeed: 75,
-        pauseDuration: 1500,
-        deletingSpeed: 50,
-        loop: false,
-        showCursor: true,
-        cursorCharacter: '_',
-        cursorBlinkDuration: 0.5,
-        initialDelay: 400
-      });
+    if (!target) return;
+
+    var subtitle = document.querySelector('.hero .hero-subtitle');
+
+    if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+      target.classList.add('text-type');
+      var contentSpan = document.createElement('span');
+      contentSpan.className = 'text-type__content';
+      contentSpan.setAttribute('aria-live', 'polite');
+      contentSpan.innerHTML = '<span class="hero-typed__first-line">Hi, I\'m Carson \uD83C\uDFBE\'Hara \uD83D\uDC4B</span>';
+      target.appendChild(contentSpan);
+      if (subtitle) subtitle.classList.add('is-visible');
+      return;
     }
+
+    initTextType('.hero .text-type-target', {
+      text: "Hi, I'm Carson \uD83C\uDFBE'Hara \uD83D\uDC4B",
+      typingSpeed: 75,
+      pauseDuration: 1500,
+      deletingSpeed: 50,
+      loop: false,
+      showCursor: true,
+      cursorCharacter: '_',
+      cursorBlinkDuration: 0.5,
+      initialDelay: 400,
+      onComplete: function () {
+        if (!subtitle) return;
+        // Ensure transition triggers reliably.
+        requestAnimationFrame(function () {
+          subtitle.classList.add('is-visible');
+        });
+      }
+    });
   });
 })();

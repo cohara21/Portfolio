@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Photography — Carson O'Hara</title>
-  <meta name="description" content="Photography showcase" />
+  <title>Coral Keepers — Case Study</title>
+  <meta name="description" content="Case study coming soon." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
 </head>
-<body class="photography-page">
+<body class="case-study case-study-coral-keepers">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
     <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
   </svg>
+
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <div class="header-left">
@@ -44,38 +46,53 @@
   </header>
 
   <main id="main" class="container">
-    <!-- main kept for accessibility landmarks; primary content (gallery) sits outside to span wider -->
-  </main>
-
-  <!-- Gallery and aligned hero (both use gallery-container so left edges match) -->
-  <section class="section">
-    <div class="gallery-container">
-  <div class="hero fade-in" style="padding-top:56px;">
-        <h1>Photography Showcase</h1>
-        <p class="muted">Browse the visual gallery. Click any image to enlarge and navigate through the set.</p>
+    <section class="case-hero case-hero-full">
+      <div class="hero-media">
+        <img class="hero-image" src="images/work/CoralKeepersHeader.png?v=126afdc6b6c4" alt="Coral Keepers project hero" loading="eager" decoding="async">
       </div>
+      <a href="#case-content" class="hero-scroll-hint" aria-label="Scroll to content">
+        <svg class="icon icon--down" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+      </a>
+    </section>
 
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- gallery items generated via JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox modal -->
-  <div id="gallery-modal" class="gallery-modal" aria-hidden="true">
-    <div class="gallery-overlay" data-close="true"></div>
-    <div class="gallery-frame" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="gallery-media" id="gallery-media" aria-live="polite">
-        <div class="media-wrap" id="media-wrap">
-          <button class="gallery-close" aria-label="Close"><svg class="icon icon-close" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg><span class="visually-hidden">Close</span></button>
-          <div class="gallery-controls">
-            <button class="gallery-nav-arrow gallery-prev" aria-label="Previous image"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></button>
-            <button class="gallery-nav-arrow gallery-next" aria-label="Next image"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button>
+    <div class="case-wrap container" id="case-content">
+      <div class="case-overview-convoy fade-in">
+        <div class="case-title-row">
+          <div class="case-title-block">
+            <h2>Coral Keepers</h2>
+            <p class="case-subtitle">Coming soon</p>
+          </div>
+          <div class="case-meta-block">
+            <div class="case-meta-item"><span class="case-meta-label">Status</span><span class="case-meta-value">In progress</span></div>
+          </div>
+        </div>
+        <hr class="case-overview-sep" aria-hidden="true">
+        <div class="case-overview-grid">
+          <div class="case-overview-col">
+            <h3>Overview</h3>
+            <p>Placeholder content for the Coral Keepers case study. This page is intentionally minimal while the case study is still being built.</p>
+          </div>
+          <div class="case-overview-col">
+            <h3>My Role</h3>
+            <p>Placeholder role description.</p>
           </div>
         </div>
       </div>
+
+      <article class="case-main">
+        <section class="case-phase case-section-spaced fade-in">
+          <p class="case-phase-label">Coming soon</p>
+          <h2>This case study is in progress.</h2>
+          <p>Check back soon for the full story, including research, iterations, and final outcomes.</p>
+        </section>
+
+        <nav class="case-study-nav fade-in">
+          <a class="case-nav-link case-nav-link--back" href="work.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Back to Work</a>
+          <a class="case-nav-link case-nav-link--next" href="case-study-finra.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        </nav>
+      </article>
     </div>
-  </div>
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -89,3 +106,4 @@
   </footer>
 </body>
 </html>
+

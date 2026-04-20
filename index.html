@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — UX Designer & Researcher</title>
+  <title>Carson O'Hara — UX Designer</title>
   <meta name="description" content="Portfolio of a UX Designer & Researcher. Selected projects, case studies, and contact." />
 
   <!-- Google Fonts -->
@@ -36,6 +36,7 @@
             <li><a href="index.html" class="nav-link active">Home</a></li>
             <li><a href="work.html" class="nav-link">Work</a></li>
             <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="resume.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
           </ul>
         </nav>
       </div>
@@ -58,6 +59,8 @@
             <img src="images/index/headshotanimation.png" alt="Carson O'Hara">
           </div>
           <div class="hero-typed text-type-wrap"><span class="text-type-target"></span></div>
+          <div class="hero-subtitle">a Student Athlete at The Savannah College of Art and Design
+studying UX Design</div>
         </div>
       </div>
       <a href="#projects" class="hero-scroll-hint" aria-label="Scroll to projects">
@@ -69,43 +72,80 @@
     <section class="section container" id="projects">
       <h2 class="section-title">My Favorite Projects <a href="work.html" class="see-all-link">See All <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a></h2>
 
-      <!-- Projects carousel: auto-pans horizontally. Duplicated items for seamless looping -->
+      <!-- Mobile only: same large cards as Work page (Mose + Big Bus) -->
+      <div class="projects-mobile-only project-grid">
+        <article class="project-card-large fade-in" data-link="case-study-mose.html">
+          <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose AI Assistant thumbnail]"></div>
+          <div>
+            <h3>Mose</h3>
+          </div>
+        </article>
+        <article class="project-card-large fade-in" data-link="case-study-bigbus.html">
+          <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+          <div>
+            <h3>Big Bus Savannah</h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- Projects carousel: auto-pans horizontally. Duplicated items for seamless looping (hidden on mobile) -->
       <div class="projects-carousel" aria-label="Selected projects carousel">
         <div class="carousel-track" aria-hidden="false">
-          <article class="project-card">
-            <div class="project-thumb thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
-            <div class="project-content">
-              <h3>Big Bus Savannah</h3>
-              <p class="muted">Redesign of park-and-ride experience for tourists. Research-led design to simplify ticketing and boarding flows.</p>
-              <a class="link" href="case-study-bigbus.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+          <!-- FINRA first -->
+          <article class="project-card-large" data-link="case-study-finra.html">
+            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro collaboration thumbnail]"></div>
+            <div>
+              <h3>FINRA x SCADpro</h3>
+              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
 
-          <article class="project-card">
-            <div class="project-thumb thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
-            <div class="project-content">
+          <!-- Mose -->
+          <article class="project-card-large" data-link="case-study-mose.html">
+            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
+            <div>
               <h3>Mose</h3>
-              <p class="muted">AI assistant for caretakers of individuals with dementia, providing personalized support and guidance.</p>
-              <a class="link" href="case-study-mose.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+              <p class="muted">Empathetic AI enhancing dementia care and safety</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
+            </div>
+          </article>
+
+          <!-- Big Bus Savannah -->
+          <article class="project-card-large" data-link="case-study-bigbus.html">
+            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div>
+              <h3>Big Bus Savannah</h3>
+              <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
 
           <!-- duplicate for seamless loop -->
-          <article class="project-card is-duplicate">
-            <div class="project-thumb thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
-            <div class="project-content">
-              <h3>Big Bus Savannah</h3>
-              <p class="muted">Redesign of park-and-ride experience for tourists. Research-led design to simplify ticketing and boarding flows.</p>
-              <a class="link" href="case-study-bigbus.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+          <article class="project-card-large is-duplicate" data-link="case-study-finra.html">
+            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro collaboration thumbnail]"></div>
+            <div>
+              <h3>FINRA x SCADpro</h3>
+              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
 
-          <article class="project-card is-duplicate">
-            <div class="project-thumb thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
-            <div class="project-content">
+          <article class="project-card-large is-duplicate" data-link="case-study-mose.html">
+            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose AI Assistant project thumbnail]"></div>
+            <div>
               <h3>Mose</h3>
-              <p class="muted">AI assistant for caretakers of individuals with dementia, providing personalized support and guidance.</p>
-              <a class="link" href="case-study-mose.html"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> View Case Study</a>
+              <p class="muted">Empathetic AI enhancing dementia care and safety</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card-large is-duplicate" data-link="case-study-bigbus.html">
+            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div>
+              <h3>Big Bus Savannah</h3>
+              <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
         </div>
@@ -116,36 +156,35 @@
     <section class="section about-brief container">
       <div class="about-inner">
         <div class="about-photo">
-          <img src="images/index/aboutme.webp" alt="Carson O'Hara" style="width:100%;height:100%;object-fit:cover;object-position:75% center;border-radius:12px;">
+          <article class="about-profile-card">
+            <div class="about-profile-media">
+              <img src="images/index/headshot.jpg" alt="Carson O'Hara">
+            </div>
+            <div class="about-profile-footer">
+              <div class="about-profile-meta">
+                <p class="about-profile-username">@carson-ohara</p>
+                <a class="about-profile-link" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+              <a class="about-profile-connect" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">+ Connect</a>
+            </div>
+          </article>
         </div>
         <div class="about-copy">
           <h2>About Me</h2>
           <p class="muted">I’m a UX designer and researcher who loves turning user insights into beautiful, usable interfaces. I work at the intersection of product, research, and design to deliver solutions that matter.</p>
-          <p><a class="link" href="about.html">Learn More About Me</a></p>
+          <p><a class="btn outline" href="about.html">More About Me</a></p>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="section contact-cta container" id="contact">
-      <div class="cta-inner">
-        <h2>Let’s work together</h2>
-        <p class="muted">I’m open to freelance work and new opportunities. Let’s build something great.</p>
-        <div class="cta-actions">
-          <a class="btn primary" href="mailto:your.email@example.com">Email Me</a>
-          <a class="btn outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="footer-left">© <span id="year"></span> Your Name</div>
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
-        <a class="social" href="#">Twitter</a>
-        <a class="social" href="#">Dribbble</a>
-        <a class="social" href="#">GitHub</a>
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

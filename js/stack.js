@@ -17,7 +17,8 @@
     'images/about/stadium8.webp',
     'images/about/stadium9.webp',
     'images/about/stadium10.webp',
-    'images/about/stadium11.webp'
+    'images/about/stadium11.webp',
+    'images/about/stadium12.webp'
   ];
 
   var AUTOPLAY_DELAY   = 2500;   // ms between advances
