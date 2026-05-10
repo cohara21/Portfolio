@@ -43,99 +43,169 @@
     </div>
   </header>
 
-  <main id="main" class="container">
-    <!-- Hero: big statement + Read more -->
-    <section class="about-hero">
-      <div id="about-silk-bg" class="about-silk-bg" aria-hidden="true"></div>
-      <div class="about-hero-fade" aria-hidden="true"></div>
-      <h1>I am a UX Designer and college athlete dedicated to building reliable, functional systems that prioritize efficiency over flash. I apply a competitor’s discipline to creating zero-friction user experiences.</h1>
-      <a href="#in-short" class="hero-scroll-hint" aria-label="Scroll to content">
-        <svg class="icon icon--down" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
-      </a>
+  <main id="main" class="container about-layout">
+    <section class="about-bio-section fade-in">
+      <div class="about-bio-image">
+        <img src="images/about/playingpicture.webp" alt="Carson O'Hara playing tennis" loading="lazy">
+      </div>
+      <div class="about-bio-copy">
+        <p class="about-section-kicker">About</p>
+        <h1>UX designer, student athlete, and systems thinker.</h1>
+        <p>I am a UX designer studying at The Savannah College of Art and Design, where I combine research, prototyping, and visual design to create reliable digital experiences. My background as a college tennis player shapes how I work: disciplined, collaborative, and focused on making every interaction feel efficient and useful.</p>
+        <p>I am especially interested in products that simplify complex tasks. Whether I am designing an AI care assistant, rethinking a tour experience, or exploring role-based financial dashboards, I try to turn user insights into clear flows that help people move with confidence.</p>
+      </div>
     </section>
 
-    <!-- In Short -->
-    <section id="in-short" class="about-section-block">
-      <h2>Background</h2>
-      <div class="about-in-short-grid">
-        <div>
-          <p>I am a college tennis player from Boise, Idaho, and a dedicated sports enthusiast who has attended over 100 games across a wide variety of leagues and sports.</p>
+    <section class="about-technical-section fade-in" aria-label="Skills, platforms, and languages">
+      <div class="about-technical-grid">
+        <div class="about-technical-column">
+          <h2>SKILLS</h2>
+          <ul>
+            <li>UX/UI Design</li>
+            <li>UX Research</li>
+            <li>Wireframing</li>
+            <li>Prototyping</li>
+            <li>Information Architecture</li>
+            <li>Visual Design</li>
+            <li>Sports Photography</li>
+            <li>Strategic Thinking</li>
+          </ul>
         </div>
-        <div class="about-stack-wrap">
-          <div id="about-stack" class="stack-container" aria-label="Stadium photos"></div>
+        <div class="about-technical-column">
+          <h2>PLATFORMS</h2>
+          <div class="about-platforms-carousel" aria-label="Platforms carousel">
+            <div class="about-platforms-track">
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe Illustrator">
+                <img src="images/about/logo%20carousel/Adobe_Illustrator_CC_icon.png" alt="Adobe Illustrator icon" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe Photoshop">
+                <img src="images/about/logo%20carousel/Adobe_Photoshop_CC_icon.png" alt="Adobe Photoshop icon" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe InDesign">
+                <img src="images/about/logo%20carousel/Adobe_InDesign_CC_icon.png" alt="Adobe InDesign icon" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Cursor">
+                <img src="images/about/logo%20carousel/cursor_icon.svg" alt="Cursor icon" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--figma" title="Figma">
+                <img src="images/about/logo%20carousel/Figma_Logo.svg" alt="Figma logo" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--github" title="GitHub">
+                <img src="images/about/logo%20carousel/GitHub_Logo.svg" alt="GitHub logo" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--replit" title="Replit">
+                <img src="images/about/logo%20carousel/Replit_Logo.svg" alt="Replit logo" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--vscode" title="Visual Studio Code">
+                <img src="images/about/logo%20carousel/Visual_Studio_Code_logo.png" alt="Visual Studio Code logo" loading="lazy" decoding="async">
+              </div>
+
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe Illustrator" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Adobe_Illustrator_CC_icon.png" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe Photoshop" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Adobe_Photoshop_CC_icon.png" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Adobe InDesign" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Adobe_InDesign_CC_icon.png" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--icon" title="Cursor" aria-hidden="true">
+                <img src="images/about/logo%20carousel/cursor_icon.svg" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--figma" title="Figma" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Figma_Logo.svg" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--github" title="GitHub" aria-hidden="true">
+                <img src="images/about/logo%20carousel/GitHub_Logo.svg" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--replit" title="Replit" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Replit_Logo.svg" alt="" loading="lazy" decoding="async">
+              </div>
+              <div class="platform-app-tile platform-app-tile--logo platform-app-tile--vscode" title="Visual Studio Code" aria-hidden="true">
+                <img src="images/about/logo%20carousel/Visual_Studio_Code_logo.png" alt="" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-technical-column">
+          <h2>LANGUAGES</h2>
+          <ul>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Why SCAD? Why UX? -->
-    <section class="about-section-block about-section-block--pushed">
-      <div class="about-section-block-grid">
-        <div>
-          <h2>Why SCAD? Why UX?</h2>
-          <p>I chose SCAD for its focus on real-world design and the chance to learn alongside people from every discipline. The UX program lets me turn research and empathy into products that actually help people—whether that's a better tour experience in Savannah or a clearer app flow.</p>
-          <p>Projects like Big Bus Savannah showed me how much impact design can have when it's grounded in user research and iteration. I'm here to keep building that kind of work.</p>
-        </div>
-        <div class="about-block-img">
-          <img src="images/about/playingpicture.webp" alt="Carson O'Hara playing tennis" loading="lazy">
-        </div>
+    <section class="about-resume-section fade-in">
+      <h2 class="about-resume-heading">EXPERIENCE</h2>
+      <div class="about-resume-list">
+        <article class="about-resume-entry">
+          <h3>Contio</h3>
+          <p>Design Intern | 2026-Present</p>
+        </article>
+        <article class="about-resume-entry">
+          <h3>FINRA x SCADpro</h3>
+          <p>UX Designer | Jan 2026 - March 2026</p>
+        </article>
+        <article class="about-resume-entry">
+          <h3>SCAD Tennis</h3>
+          <p>Graphic Designer &amp; Photographer | 2022-2025</p>
+        </article>
+        <article class="about-resume-entry">
+          <h3>SBE</h3>
+          <p>Graphic Designer | 2022-2024</p>
+        </article>
+        <article class="about-resume-entry">
+          <h3>SCAD</h3>
+          <p>Student Athlete · UX Design (B.F.A.) | 2022-Present</p>
+        </article>
       </div>
     </section>
 
-    <!-- Life at SCAD -->
-    <section class="about-section-block">
-      <h2>Life at SCAD</h2>
-      <p>Between classes and tennis, I'm deep in design challenges, team projects, and side work in photography and graphic design. Staying active in sports keeps me sharp and gives me a different lens on teamwork and iteration—both on and off the court.</p>
+    <section class="about-resume-section fade-in">
+      <h2 class="about-resume-heading">EDUCATION</h2>
+      <div class="about-resume-list">
+        <article class="about-resume-entry">
+          <h3>The Savannah College of Art and Design</h3>
+          <p>B.F.A. User Experience Design, Graphic Design Minor | 2022-Present</p>
+        </article>
+        <article class="about-resume-entry">
+          <h3>Rocky Mountain High School</h3>
+          <p>Aug 2018 - May 2022</p>
+        </article>
+      </div>
     </section>
 
-    <!-- What's Next -->
-    <section class="about-section-block">
-      <h2>So What's Next?</h2>
-      <p>I'm focused on finishing strong at SCAD, growing my portfolio with more case studies, and looking for opportunities to bring UX research and design into real products. If you're working on something that could use a user-centered perspective, I'd love to connect.</p>
-    </section>
-
-    <!-- Experiences -->
-    <section class="about-section-block">
-      <h2>Experience</h2>
-      <ul class="about-experience-list">
-        <li class="about-experience-item">
-          <span class="about-experience-company">SCAD</span>
-          <span class="about-experience-dates">2022-Present</span>
-          <span class="about-experience-role">Student Athlete · UX Design (B.F.A.)</span>
-        </li>
-        <li class="about-experience-item">
-          <span class="about-experience-company">SCAD Tennis</span>
-          <span class="about-experience-dates">2023-Present</span>
-          <span class="about-experience-role">Graphic Designer & Photographer</span>
-        </li>
-        <li class="about-experience-item">
-          <span class="about-experience-company">SBE</span>
-          <span class="about-experience-dates">2022-2024</span>
-          <span class="about-experience-role">Graphic Designer</span>
-        </li>
+    <section class="about-resume-section fade-in">
+      <h2 class="about-resume-heading">INTERESTS</h2>
+      <ul class="about-interest-list">
+        <li>Tennis</li>
+        <li>Skiing</li>
+        <li>Traveling</li>
+        <li>Photography</li>
+        <li>Swimming</li>
+        <li>Golf</li>
+        <li>Football</li>
+        <li>Basketball (I love LeBron)</li>
       </ul>
     </section>
 
-    <!-- Awards (optional – add real entries when you have them) -->
- 
-
-    <!-- Education -->
-    <section class="about-section-block about-section-block--no-line">
-      <h2>Education</h2>
-      <div class="about-education">
-        <div class="about-education-item">
-          <span class="about-experience-company">The Savannah College of Art and Design</span>
-          <span class="about-experience-dates">2022—Present</span>
-        </div>
-        <p>B.F.A. User Experience Design</p>
-        <p>Graphic Design Minor</p>
+    <section class="about-stadium-section fade-in">
+      <div class="about-stadium-copy">
+        <p class="about-section-kicker">Stadiums</p>
+        <h2>Sports are a big part of how I see design.</h2>
+        <p>I have attended over 100 games across different leagues and sports. Hover the photo stack to fan through a few of the stadium moments that keep me inspired.</p>
+      </div>
+      <div class="about-stack-wrap">
+        <div id="about-stack" class="stack-container" aria-label="Stadium photos"></div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section contact-cta">
+    <section class="section contact-cta fade-in">
       <h2>Want to work together?</h2>
       <p class="muted">Get in touch and let's talk about your product challenges.</p>
-      <p><a class="btn primary" href="mailto:contact@carsonohara.com"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> Get in Touch</a></p>
+      <p><a class="btn primary" href="mailto:carsonohara78@gmail.com"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> Get in Touch</a></p>
     </section>
   </main>
 
@@ -144,7 +214,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">Email</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  function decorateHeroIntro(text) {
+    var decorated = text;
+    var tennisBall = '\uD83C\uDFBE';
+    var hand = '\uD83D\uDC4B';
+    if (decorated.indexOf(tennisBall) !== -1) {
+      decorated = decorated.replace(new RegExp(tennisBall, 'g'), '<span class="tennis-ball-emoji" tabindex="0">' + tennisBall + '</span>');
+    }
+    if (decorated.indexOf(hand) !== -1) {
+      decorated = decorated.replace(new RegExp(hand, 'g'), '<span class="wave-emoji">' + hand + '</span>');
+    }
+    return decorated;
+  }
+
   function initTextType(selector, options) {
     var el = document.querySelector(selector);
     if (!el) return;
@@ -74,11 +87,8 @@
       if (textArray.length >= 1) {
         if (!loop && currentTextIndex === textArray.length - 1) {
           if (cursorSpan) cursorSpan.classList.add('text-type__cursor--hidden');
-          // Wrap wave emoji in span for hover animation
-          var hand = '\uD83D\uDC4B';
-          if (contentSpan.textContent.indexOf(hand) !== -1) {
-            contentSpan.innerHTML = contentSpan.textContent.replace(new RegExp(hand, 'g'), '<span class="wave-emoji">' + hand + '</span>');
-          }
+          // Add hero emoji interactions after typing completes.
+          contentSpan.innerHTML = decorateHeroIntro(contentSpan.textContent);
           if (onComplete) onComplete();
           return;
         }
@@ -111,7 +121,7 @@
       var contentSpan = document.createElement('span');
       contentSpan.className = 'text-type__content';
       contentSpan.setAttribute('aria-live', 'polite');
-      contentSpan.innerHTML = '<span class="hero-typed__first-line">Hi, I\'m Carson \uD83C\uDFBE\'Hara \uD83D\uDC4B</span>';
+      contentSpan.innerHTML = '<span class="hero-typed__first-line">' + decorateHeroIntro("Hi, I'm Carson \uD83C\uDFBE'Hara \uD83D\uDC4B") + '</span>';
       target.appendChild(contentSpan);
       if (subtitle) subtitle.classList.add('is-visible');
       return;
