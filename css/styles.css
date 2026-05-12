@@ -151,9 +151,9 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 
 /* Hero */
 .hero{min-height:100vh;padding:80px 0 40px;position:relative;display:flex;align-items:center;justify-content:center}
-.hero:has(.hero-copy){height:100vh;min-height:100vh;padding:0;margin:0;align-items:flex-start;padding-top:130px}
+.hero:has(.hero-copy){height:100vh;min-height:100vh;padding:0;margin:0;align-items:flex-start;padding-top:168px}
 @media (max-width:768px){
-  .hero:has(.hero-copy){padding-top:80px}
+  .hero:has(.hero-copy){padding-top:112px}
 }
 .hero:has(.hero-copy) .hero-inner{height:auto;display:flex;align-items:center;justify-content:center;padding-top:0}
 .hero:not(:has(.hero-copy)){min-height:auto;padding:92px 0 20px;display:block}
@@ -187,6 +187,9 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   font-weight:700;
   line-height:1;
   vertical-align:baseline;
+  /* Widen hover target upward so the cursor can reach the tooltip without losing hover */
+  padding-top:20px;
+  margin-top:-20px;
 }
 .tennis-ball-emoji::after{
   content:"I've been playing tennis since I was 8";
@@ -520,25 +523,32 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   width:min(100% - 48px, 1200px);
   max-width:1200px;
   min-width:0;
-  padding-top:var(--space-3xl);
+  padding-top:calc(var(--space-3xl) + 20px);
 }
 .about-bio-section{
   display:grid;
-  grid-template-columns:minmax(220px, 340px) minmax(0, 800px);
+  grid-template-columns:minmax(180px, 40%) minmax(0, 1fr);
   gap:var(--space-xl);
-  align-items:center;
+  align-items:stretch;
   margin-bottom:var(--space-2xl);
 }
 .about-bio-image{
-  width:100%;
+  width:min(calc(90% + 8px), 468px);
+  max-width:100%;
+  justify-self:start;
+  align-self:stretch;
+  min-height:0;
+  position:relative;
   border-radius:24px;
   overflow:hidden;
   box-shadow:0 18px 42px rgba(15,23,42,0.12);
   border:1px solid rgba(15,23,42,0.06);
 }
 .about-bio-image img{
+  position:absolute;
+  inset:0;
   width:100%;
-  aspect-ratio:4 / 5;
+  height:100%;
   display:block;
   object-fit:cover;
   object-position:center center;
@@ -553,6 +563,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 }
 .about-bio-copy{
   max-width:800px;
+  min-width:0;
 }
 .about-bio-copy h1{
   margin:0 0 var(--space-md);
@@ -666,14 +677,14 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   align-items:center;
   gap:14px;
   width:max-content;
-  animation:about-platforms-scroll 24s linear infinite;
+  animation:about-platforms-scroll 39s linear infinite;
 }
 .about-platforms-carousel:hover .about-platforms-track{
   animation-play-state:paused;
 }
 @keyframes about-platforms-scroll{
   0%{transform:translateX(0)}
-  100%{transform:translateX(-784px)}
+  100%{transform:translateX(-1260px)}
 }
 .platform-app-tile{
   width:84px;
@@ -682,51 +693,30 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:0;
+  box-sizing:border-box;
   background:transparent;
-  border:1px solid transparent;
+  border:none;
   box-shadow:none;
   flex-shrink:0;
-  transition:transform var(--motion-speed) var(--motion-ease), box-shadow var(--motion-speed) var(--motion-ease);
-}
-.platform-app-tile--logo{
-  background:linear-gradient(180deg,#ffffff,#f6f7fb);
-  border:1px solid rgba(15,23,42,0.08);
-  box-shadow:0 8px 20px rgba(15,23,42,0.08);
+  overflow:hidden;
+  transition:transform var(--motion-speed) var(--motion-ease);
 }
 .platform-app-tile img{
-  width:38px;
-  height:38px;
-  object-fit:contain;
+  width:100%;
+  height:100%;
+  border-radius:20px;
+  object-fit:cover;
+  object-position:center;
   display:block;
+  box-sizing:border-box;
 }
-.platform-app-tile--figma{
-  background:#1E1E1E;
-  border-color:#1E1E1E;
-}
-.platform-app-tile--github{
-  background:#000000;
-  border-color:#000000;
-}
-.platform-app-tile--figma img,
-.platform-app-tile--github img,
-.platform-app-tile--replit img{
-  width:46px;
-  height:46px;
-}
-.platform-app-tile--github img{
-  filter:brightness(0) invert(1);
-}
-.platform-app-tile--vscode img{
-  width:52px;
-  height:52px;
-}
-.platform-app-tile--icon img{
-  width:74px;
-  height:74px;
+/* Inset box-shadow on the tile sits under a full-bleed img and disappears — stroke on the img instead */
+.platform-app-tile--inset-stroke img{
+  border:2px solid rgba(15,23,42,0.2);
 }
 .platform-app-tile:hover{
   transform:translateY(-3px) scale(1.02);
-  box-shadow:0 14px 28px rgba(15,23,42,0.14);
 }
 .about-resume-section{
   display:grid;
@@ -784,6 +774,62 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   box-shadow:0 10px 22px rgba(15,23,42,0.08);
   color:var(--color-accent);
 }
+.about-interest-list li.about-interest-basketball{
+  position:relative;
+  z-index:0;
+}
+.about-interest-basketball__pop{
+  position:absolute;
+  left:50%;
+  /* Overlap the pill slightly so there is no "dead air" between tag and popup (hover stays on the li) */
+  bottom:calc(100% - 10px);
+  transform:translateX(-50%) translateY(8px);
+  width:min(200px, 70vw);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 14px 36px rgba(15,23,42,0.22);
+  border:1px solid rgba(15,23,42,0.1);
+  background:#ffffff;
+  z-index:60;
+}
+.about-interest-basketball__pop-media{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+.about-interest-basketball__pop-media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:right bottom;
+  transform:scale(1.12);
+  transform-origin:right bottom;
+}
+.about-interest-basketball__see{
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:5px 11px;
+  border-radius:999px;
+  background:rgba(15,23,42,0.78);
+  color:#ffffff;
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  line-height:1;
+}
+.about-interest-list li.about-interest-basketball:is(:hover,:focus-visible,:focus-within){
+  z-index:50;
+}
+.about-interest-list li.about-interest-basketball:is(:hover,:focus-visible,:focus-within) .about-interest-basketball__pop{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
 .about-stadium-section{
   display:grid;
   grid-template-columns:minmax(0, 1fr) 320px;
@@ -807,15 +853,27 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 @media (max-width:900px){
   .about-page .about-layout{
     width:min(100% - 32px, 1200px);
-    padding-top:80px;
+    padding-top:96px;
   }
   .about-bio-section,
   .about-stadium-section{
     grid-template-columns:1fr;
     gap:var(--space-lg);
   }
+  .about-bio-section{
+    align-items:start;
+  }
   .about-bio-image{
-    max-width:320px;
+    width:min(100%, 388px);
+    max-width:min(100%, 388px);
+    height:auto;
+    align-self:start;
+  }
+  .about-bio-image img{
+    position:static;
+    width:100%;
+    height:auto;
+    aspect-ratio:1 / 1;
   }
   .about-technical-column,
   .about-resume-section{
