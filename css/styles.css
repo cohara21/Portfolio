@@ -949,7 +949,9 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .about-page .about-stack-wrap{position:relative;width:320px;height:320px;flex-shrink:0;overflow:visible}
 .about-page .about-stack-wrap .stack-container{width:100%;height:100%}
 /* Stack component — stacked photo cards */
-.stack-container{position:relative;width:100%;height:100%;isolation:isolate;overflow:visible}
+.stack-container{position:relative;width:100%;height:100%;isolation:isolate;overflow:visible;background:linear-gradient(145deg,#eef2f7,#e8edf4);border-radius:1rem}
+.stack-container--ready{background:transparent}
+.stack-container:not(.stack-container--ready) .stack-card{opacity:0}
 .stack-card{position:absolute;inset:0;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center;transform-origin:50% 100%;transition:transform 0.4s cubic-bezier(0.33,1,0.68,1), opacity 0.22s ease;cursor:pointer;box-shadow:0 8px 24px rgba(15,23,42,0.12);backface-visibility:hidden}
 .stack-card:hover{box-shadow:0 12px 32px rgba(15,23,42,0.18)}
 .stack-card--fanned{transition-duration:0.3s;transition-timing-function:cubic-bezier(0.33,1,0.68,1)}

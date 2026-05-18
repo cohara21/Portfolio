@@ -47,7 +47,8 @@
       var img = document.createElement('img');
       img.src = STACK_IMAGES[j];
       img.alt = 'Stadium photo ' + (j + 1);
-      img.loading = 'lazy';
+      img.loading = 'eager';
+      img.decoding = 'async';
       card.appendChild(img);
       container.appendChild(card);
       cards.push(card);
@@ -244,13 +245,60 @@
       }
     });
 
+    /* ---- pause autoplay when section scrolls out of view ---- */
+    var section = container.closest('.about-stadium-section');
+    if (section && typeof IntersectionObserver !== 'undefined') {
+      var viewObserver = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) {
+          stopAutoplay();
+        } else if (!fanActive && length > 1) {
+          startAutoplay();
+        }
+      }, { threshold: 0.08, rootMargin: '40px 0px' });
+      viewObserver.observe(section);
+    }
+
     /* ---- init ---- */
+    container.classList.add('stack-container--ready');
     applyOrder();
     if (length > 1) startAutoplay();
   }
 
+  function preloadStackImages(urls) {
+    return Promise.all(urls.map(function (src) {
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = img.onerror = function () { resolve(); };
+        img.src = src;
+      });
+    }));
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    var el = document.getElementById('about-stack');
-    if (el) initStack(el);
+    var container = document.getElementById('about-stack');
+    if (!container || container.dataset.stackInit === 'true') return;
+
+    var section = container.closest('.about-stadium-section') || container;
+
+    function boot() {
+      if (container.dataset.stackInit === 'true') return;
+      container.dataset.stackInit = 'true';
+      preloadStackImages(STACK_IMAGES).then(function () {
+        initStack(container);
+      });
+    }
+
+    if (typeof IntersectionObserver === 'undefined') {
+      boot();
+      return;
+    }
+
+    var bootObserver = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      bootObserver.disconnect();
+      boot();
+    }, { threshold: 0.12, rootMargin: '120px 0px' });
+
+    bootObserver.observe(section);
   });
 })();
