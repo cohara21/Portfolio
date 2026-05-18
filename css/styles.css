@@ -447,7 +447,10 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 
 /* About brief */
 .about-inner{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
-
+.about-copy > p{
+  max-width:min(100%, 38rem);
+  line-height:1.65;
+}
 /* Make the 'Learn More About Me' link in the homepage about brief visually indicate it's clickable */
 .about-brief .link{color:inherit;transition:color var(--motion-speed) var(--motion-ease)}
 .about-brief .link:hover,.about-brief .link:focus-visible{color:var(--color-accent)}
