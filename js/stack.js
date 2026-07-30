@@ -6,19 +6,21 @@
 (function () {
   'use strict';
 
+  // 640px derivatives for the 320px card (2x DPR). The 3024px originals live
+  // alongside in images/about/ and are ~89x more pixels than this box can show.
   var STACK_IMAGES = [
-    'images/about/stadium1.webp',
-    'images/about/stadium2.webp',
-    'images/about/stadium3.webp',
-    'images/about/stadium4.webp',
-    'images/about/stadium5.webp',
-    'images/about/stadium6.webp',
-    'images/about/stadium7.webp',
-    'images/about/stadium8.webp',
-    'images/about/stadium9.webp',
-    'images/about/stadium10.webp',
-    'images/about/stadium11.webp',
-    'images/about/stadium12.webp'
+    'images/about/stack-640/stadium1.webp',
+    'images/about/stack-640/stadium2.webp',
+    'images/about/stack-640/stadium3.webp',
+    'images/about/stack-640/stadium4.webp',
+    'images/about/stack-640/stadium5.webp',
+    'images/about/stack-640/stadium6.webp',
+    'images/about/stack-640/stadium7.webp',
+    'images/about/stack-640/stadium8.webp',
+    'images/about/stack-640/stadium9.webp',
+    'images/about/stack-640/stadium10.webp',
+    'images/about/stack-640/stadium11.webp',
+    'images/about/stack-640/stadium12.webp'
   ];
 
   var AUTOPLAY_DELAY   = 2500;   // ms between advances
