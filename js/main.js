@@ -277,10 +277,15 @@ document.addEventListener('DOMContentLoaded', function(){
       ];
     }
     
+    // Modal keeps the full-resolution originals; the grid uses 640px thumbs.
+    // Thumbs render in a ~316px column, so the originals (up to 4640x5800)
+    // were roughly 90x more pixels than the grid could ever show.
     const items = imageFiles.map((src, idx) => ({
       src,
       alt: `${altPrefix} ${idx + 1}`
     }));
+
+    const thumbFor = (src) => src.replace(/\/([^/]+)$/, '/thumbs/$1');
 
     // Determine number of columns based on screen width
     const getColumns = () => {
@@ -314,12 +319,12 @@ document.addEventListener('DOMContentLoaded', function(){
       const btn = document.createElement('button');
       btn.className = 'gallery-thumb';
       btn.setAttribute('data-index', i);
-      btn.setAttribute('data-src', src); // Store source in data attribute
+      btn.setAttribute('data-src', thumbFor(src)); // grid uses the thumb; modal uses the original
       btn.setAttribute('aria-label', `Open image ${i + 1}`);
-      
+
       // Load top 2 rows immediately, others will be lazy loaded
       if(i < topTwoRows){
-        loadImageIntoButton(btn, src);
+        loadImageIntoButton(btn, thumbFor(src));
       }
       
       // keyboard accessible
