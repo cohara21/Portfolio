@@ -51,6 +51,9 @@
     if (!showCursor) cursorSpan.classList.add('text-type__cursor--hidden');
 
     el.classList.add('text-type');
+    // The markup ships with the real heading text so the <h1> is never empty
+    // without JS. Clear it here before the typing effect takes over.
+    el.textContent = '';
     el.appendChild(contentSpan);
     if (showCursor) el.appendChild(cursorSpan);
 
@@ -118,6 +121,7 @@
 
     if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
       target.classList.add('text-type');
+      target.textContent = '';
       var contentSpan = document.createElement('span');
       contentSpan.className = 'text-type__content';
       contentSpan.setAttribute('aria-live', 'polite');

@@ -1110,6 +1110,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .case-overview-convoy{padding-bottom:32px;margin-bottom:0}
 .case-title-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px 24px;margin-bottom:0}
 .case-title-block{flex:1 1 auto}
+.case-overview-convoy .case-title-block h1,
 .case-overview-convoy .case-title-block h2{font-size:2rem;font-weight:700;color:var(--color-text);margin:0 0 4px;line-height:1.2}
 .case-subtitle{font-size:1rem;font-weight:400;color:var(--color-muted);margin:0}
 .case-meta-block{display:flex;flex-direction:column;gap:16px;flex-shrink:0;text-align:right;align-items:flex-end}
@@ -1121,6 +1122,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .case-overview-col h3{font-size:1.125rem;font-weight:700;color:var(--color-text);margin:0 0 10px}
 .case-overview-col p{font-size:1rem;font-weight:400;color:var(--color-text);margin:0;line-height:1.6}
 @media (min-width:640px){
+  .case-overview-convoy .case-title-block h1,
   .case-overview-convoy .case-title-block h2{font-size:2.5rem}
   .case-overview-grid{grid-template-columns:1fr 1fr}
 }
