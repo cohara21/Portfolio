@@ -26,6 +26,7 @@
   var ROTATION_DEG     = 4;
   var SCALE_STEP       = 0.06;
   var VISIBLE_STACK_SIZE = 6;
+  var CRITICAL_IMAGE_COUNT = 3;   // images that must load before the stack renders
   var FAN_STEP_X       = 52;
   var FAN_TILT_DEG     = 24;
   var FAN_ORIGIN_X     = '50%';
@@ -49,6 +50,9 @@
       img.alt = 'Stadium photo ' + (j + 1);
       img.loading = 'eager';
       img.decoding = 'async';
+      // Cards deeper in the stack aren't read until the rotation reaches them,
+      // so they shouldn't compete with above-the-fold work for bandwidth.
+      img.fetchPriority = j < CRITICAL_IMAGE_COUNT ? 'high' : 'low';
       card.appendChild(img);
       container.appendChild(card);
       cards.push(card);
@@ -264,14 +268,19 @@
     if (length > 1) startAutoplay();
   }
 
-  function preloadStackImages(urls) {
-    return Promise.all(urls.map(function (src) {
-      return new Promise(function (resolve) {
-        var img = new Image();
-        img.onload = img.onerror = function () { resolve(); };
-        img.src = src;
-      });
-    }));
+  function loadImage(src) {
+    return new Promise(function (resolve) {
+      var img = new Image();
+      img.onload = img.onerror = function () { resolve(); };
+      img.src = src;
+    });
+  }
+
+  // Only the top few cards are legible in the stacked state, so waiting on the
+  // whole set before rendering anything costs seconds for no visible benefit.
+  // Block on these, then let the rest stream in behind the rendered stack.
+  function preloadCriticalImages(urls) {
+    return Promise.all(urls.slice(0, CRITICAL_IMAGE_COUNT).map(loadImage));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -283,7 +292,7 @@
     function boot() {
       if (container.dataset.stackInit === 'true') return;
       container.dataset.stackInit = 'true';
-      preloadStackImages(STACK_IMAGES).then(function () {
+      preloadCriticalImages(STACK_IMAGES).then(function () {
         initStack(container);
       });
     }
