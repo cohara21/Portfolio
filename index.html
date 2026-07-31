@@ -72,18 +72,18 @@ Currently designing at Contio.</div>
     <section class="section container" id="projects">
       <h2 class="section-title">My Favorite Projects <a href="work.html" class="see-all-link">See All <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a></h2>
 
-      <!-- Mobile only: same large cards as Work page (Mose + Big Bus) -->
+      <!-- Mobile only: top two projects (hidden on desktop, where the carousel shows all four) -->
       <div class="projects-mobile-only project-grid">
-        <article class="project-card-large fade-in" data-link="case-study-mose.html">
-          <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose connected care system thumbnail]"></div>
+        <article class="project-card-large fade-in" data-link="case-study-coral-keepers.html">
+          <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
           <div>
-            <h3>Mose</h3>
+            <h3>Coral Keepers</h3>
           </div>
         </article>
-        <article class="project-card-large fade-in" data-link="case-study-bigbus.html">
-          <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+        <article class="project-card-large fade-in" data-link="case-study-finra.html">
+          <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
           <div>
-            <h3>Big Bus Savannah</h3>
+            <h3>FINRA x SCADpro</h3>
           </div>
         </article>
       </div>
@@ -91,9 +91,17 @@ Currently designing at Contio.</div>
       <!-- Projects carousel: auto-pans horizontally. Duplicated items for seamless looping (hidden on mobile) -->
       <div class="projects-carousel" aria-label="Selected projects carousel">
         <div class="carousel-track" aria-hidden="false">
-          <!-- FINRA first -->
+          <article class="project-card-large" data-link="case-study-coral-keepers.html">
+            <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
+            <div>
+              <h3>Coral Keepers</h3>
+              <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
+            </div>
+          </article>
+
           <article class="project-card-large" data-link="case-study-finra.html">
-            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro collaboration thumbnail]"></div>
+            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
             <div>
               <h3>FINRA x SCADpro</h3>
               <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
@@ -101,19 +109,8 @@ Currently designing at Contio.</div>
             </div>
           </article>
 
-          <!-- Mose -->
-          <article class="project-card-large" data-link="case-study-mose.html">
-            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose connected care system thumbnail]"></div>
-            <div>
-              <h3>Mose</h3>
-              <p class="muted">Balancing independence and oversight in dementia care</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          </article>
-
-          <!-- Big Bus Savannah -->
           <article class="project-card-large" data-link="case-study-bigbus.html">
-            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah thumbnail]"></div>
             <div>
               <h3>Big Bus Savannah</h3>
               <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
@@ -121,30 +118,48 @@ Currently designing at Contio.</div>
             </div>
           </article>
 
-          <!-- duplicate for seamless loop -->
-          <article class="project-card-large is-duplicate" data-link="case-study-finra.html">
-            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro collaboration thumbnail]"></div>
+          <article class="project-card-large" data-link="case-study-mose.html">
+            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose thumbnail]"></div>
             <div>
-              <h3>FINRA x SCADpro</h3>
-              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
+              <h3>Mose</h3>
+              <p class="muted">Balancing independence and oversight in dementia care</p>
               <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
 
-          <article class="project-card-large is-duplicate" data-link="case-study-mose.html">
-            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose connected care system thumbnail]"></div>
+          <!-- duplicated for seamless loop -->
+          <article class="project-card-large is-duplicate" data-link="case-study-coral-keepers.html">
+            <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
             <div>
-              <h3>Mose</h3>
-              <p class="muted">Balancing independence and oversight in dementia care</p>
+              <h3>Coral Keepers</h3>
+              <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card-large is-duplicate" data-link="case-study-finra.html">
+            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
+            <div>
+              <h3>FINRA x SCADpro</h3>
+              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
               <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
 
           <article class="project-card-large is-duplicate" data-link="case-study-bigbus.html">
-            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah project thumbnail]"></div>
+            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah thumbnail]"></div>
             <div>
               <h3>Big Bus Savannah</h3>
               <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
+              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card-large is-duplicate" data-link="case-study-mose.html">
+            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose thumbnail]"></div>
+            <div>
+              <h3>Mose</h3>
+              <p class="muted">Balancing independence and oversight in dementia care</p>
               <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
             </div>
           </article>
