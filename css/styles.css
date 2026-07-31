@@ -302,7 +302,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 
 /* Coral Keepers thumbnail + coming-soon hover */
 .project-thumb-large.thumb-coral-keepers{
-  background-image:url('../images/work/CoralKeepersHeader.png?v=126afdc6b6c4');
+  background-image:url('../images/work/CoralKeepersHeader.webp');
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
