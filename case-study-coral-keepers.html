@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Coral Keepers — Case Study</title>
-  <meta name="description" content="Case study coming soon." />
+  <meta name="description" content="A 20-week capstone bringing coral restoration into classrooms. I designed and built the digital product: four surfaces, a coral simulation, and Cory, an AI assistant grounded in live tank data." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
@@ -14,10 +14,10 @@
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
     <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
     <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
   </svg>
-
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="site-header">
@@ -48,7 +48,7 @@
   <main id="main" class="container">
     <section class="case-hero case-hero-full">
       <div class="hero-media">
-        <img class="hero-image" src="images/work/CoralKeepersHeader.png?v=126afdc6b6c4" alt="Coral Keepers project hero" loading="eager" decoding="async">
+        <img class="hero-image" src="images/case-study-coral-keepers/student-home.webp" alt="Coral Keepers student dashboard showing the live tank feed, AI health score, and coral simulation" loading="eager" decoding="async" width="1400" height="756">
       </div>
       <a href="#case-content" class="hero-scroll-hint" aria-label="Scroll to content">
         <svg class="icon icon--down" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
@@ -56,28 +56,153 @@
     </section>
 
     <div class="case-wrap container" id="case-content">
-      <div class="case-overview-convoy fade-in">
+      <div class="case-overview-convoy">
         <div class="case-title-row">
           <div class="case-title-block">
             <h1>Coral Keepers</h1>
-            <p class="case-subtitle">Coming soon</p>
+            <p class="case-subtitle">Classroom coral restoration, with an AI that knows the tank</p>
           </div>
           <div class="case-meta-block">
-            <div class="case-meta-item"><span class="case-meta-label">Status</span><span class="case-meta-value">In progress</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Year</span><span class="case-meta-value">2026</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Duration</span><span class="case-meta-value">20 weeks</span></div>
+          </div>
+        </div>
+        <hr class="case-overview-sep" aria-hidden="true">
+        <div class="case-overview-grid">
+          <div class="case-overview-col">
+            <h3>Overview</h3>
+            <p>Coral restoration depends on specialists, limited funding, and a small number of local nurseries. Coral Keepers turns classrooms into coral nurseries: a reef tank with live sensors, a curriculum, and a digital platform that lets students grow coral and return it to research partners. Our senior capstone, built over 20 weeks.</p>
+          </div>
+          <div class="case-overview-col">
+            <h3>My Role</h3>
+            <p>I designed and built the digital product. Four interfaces, a coral simulation, and Cory — an AI assistant grounded in live tank data. Built in Next.js with Gemini 2.5 Flash. Team: Courtenay Rushing led the team, Giuseppe Mollo led the physical tank, Emmaline designed Cory as a character. Research in the first half was all of us.</p>
           </div>
         </div>
       </div>
 
       <article class="case-main">
-        <section class="case-phase case-section-spaced fade-in">
-          <p class="case-phase-label">Coming soon</p>
-          <h2>This case study is in progress.</h2>
-          <p>Check back soon for the full story, including research, iterations, and final outcomes.</p>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Problem</p>
+          <h2>Coral restoration doesn't scale, because it depends on specialists.</h2>
+          <p>Roughly 90% of the world's reefs are projected to be threatened by 2030. Restoration works — the science is understood — but it runs through marine biologists, grant funding, and localized nurseries. There simply aren't enough people doing it, and no obvious way to add more.</p>
         </section>
 
-        <nav class="case-study-nav fade-in">
-          <a class="case-nav-link case-nav-link--back" href="work.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Back to Work</a>
-          <a class="case-nav-link case-nav-link--next" href="case-study-finra.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Research</p>
+          <h2>The research changed what we were building.</h2>
+          <p>We spent the first ten weeks on research as a full team: 12 interviews with marine biologists, reef researchers, and academics, plus site visits to the Skidaway Institute of Oceanography and Gray's Reef Ocean Discovery Center. Over 545 data points, affinitized.</p>
+          <p>We started out designing in-ocean coral health monitoring — sensors on real reefs, feeding data to scientists. The interviews took that apart. The constraint wasn't measurement. Researchers already knew what was happening to the reefs. The constraint was labor and scale: too few people, too little funding, too slow.</p>
+          <p>So we rewrote the problem. Not <em>how do we monitor reefs better</em>, but <em>how do we let far more people participate in growing coral</em>. Every decision after that came from the second question, including the one that put a tank in a classroom instead of a sensor in the ocean.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Architecture</p>
+          <h2>Three contexts, not one responsive app.</h2>
+          <p>Our research produced distinct user archetypes, and they don't share a context. A teacher checking the tank between classes, a student working through an assignment, and a room glancing at a wall display are three different jobs with three different attention budgets. I built for them separately rather than collapsing them into one responsive layout.</p>
+          <p><strong>The iPad monitor</strong> is ambient. It sits by the tank and shows vitals and nothing else — readable across a classroom, no interaction required.</p>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/ipad-monitor.webp" alt="The iPad tank monitor showing an AI health score of 93 percent with Cory as the gauge needle, plus temperature, pH, salinity and redox readings" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+          <p><strong>The teacher app</strong> is for monitoring away from the tank and escalating to a real biologist when something looks wrong.</p>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/phone-vitals.webp" alt="The teacher phone app showing tank health score, an AI-written recap of tank conditions, and core vitals" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+          <p><strong>The web platform</strong> is the depth — coursework, assignments, class teams, the live tank feed, and the simulation. It's where the actual teaching happens.</p>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/teacher-home.webp" alt="The teacher web dashboard with live tank feed, AI health score, active assignments and class teams" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+          <p>Splitting them also meant I could ship and iterate on each one independently, which mattered with a fixed deadline and one person building.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">The Simulation</p>
+          <h2>Making bleaching something you cause, not something you read about.</h2>
+          <p>Coral bleaching is the hard idea in this curriculum. It's what happens when stressed coral expels the algae living in its tissue and loses its color — and it's usually taught as a diagram with an arrow.</p>
+          <p>The simulation lets students drag temperature, salinity, pH, and redox and watch the AI health score respond. Push the temperature up and the score falls. Push it far enough and Cory bleaches: he drains of color, the whole scene desaturates with him, and the score turns red.</p>
+          <p>The science <em>is</em> the visual mechanic. Nobody has to explain what bleaching looks like, because the student just caused it.</p>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/simulation-healthy.webp" alt="Coral simulation at 100 percent health with Cory bright orange in a colorful underwater room" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/simulation-stressed.webp" alt="Coral simulation at 75 percent health after raising the temperature to 100 degrees, with Cory visibly subdued" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/simulation-bleached.webp" alt="Coral simulation at 25 percent health with Cory fully bleached to white and the entire scene desaturated" loading="lazy" decoding="async" width="1400" height="756">
+          </div>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Building Cory</p>
+          <h2>The hard part was getting an AI to actually know the tank.</h2>
+
+          <h3>First we built a fake, then we threw it away</h3>
+          <p>The first version of Cory wasn't AI. It was keyword matching — type certain words, get a canned response we'd written. It demoed fine. It would have kept demoing fine, and we could have called it AI-powered, because from the outside you can't tell.</p>
+          <p>We scrapped it and wired in Gemini 2.5 Flash. Harder, and more annoying, and the right call: a canned-response bot can't answer a question nobody anticipated, which is the entire point of putting an assistant in a classroom.</p>
+
+          <h3>Grounding it in live data across an iframe</h3>
+          <p>The real problem showed up immediately. Cory would answer confidently about the tank and get the numbers wrong, because he had no actual connection to them.</p>
+          <p>The architecture made this genuinely difficult. The platform is HTML, CSS, and JavaScript. Cory is a separate app in a different framework, embedded in an iframe — a compromise I made deliberately, because the alternative was rebuilding the entire site from scratch to accommodate one feature. An iframe doesn't share memory with the page around it. Getting live tank readings across that boundary, reliably, in the right order, was the hardest thing I did on this project and the most satisfying to fix.</p>
+          <p>The result is a <code>tankData</code> payload passed to Cory with each message. You can still see the seam: load Cory standalone, with no host page to feed him, and <code>tankData</code> arrives empty.</p>
+
+          <h3>Teaching it to say "I don't know"</h3>
+          <p>Once data was flowing, the remaining risk was the model filling gaps with plausible inventions. For a tool aimed at kids learning science, a confident wrong number is worse than no number — they have no way to catch it.</p>
+          <p>So Cory is instructed never to state a reading he hasn't been given. The rule holds under the worst case: with no tank data at all, asked directly for a salinity number, he says he doesn't have a current reading rather than producing one.</p>
+
+          <h3>Where the guardrails stop</h3>
+          <p>I also constrained his scope so he'd stay on coral. That holds for ordinary use and fails against a user who instructs around it — tell him to ignore coral and ask for something else and he'll oblige. That's the current limit of prompt-level guardrails generally, not a quirk of this build. For a product going into real classrooms, enforcement would need to move server-side, validating responses before they're returned rather than asking the model nicely.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Testing</p>
+          <h2>Only 60% of users could find Cory.</h2>
+          <p>We ran three rounds of testing — two remote rounds with educators, and a final in-person round with students at demo day. The clearest failure was discoverability: in testing, only 60% of users located Cory at all. The best feature in the product was invisible to two out of five people.</p>
+          <p>The original button didn't read as a chat. I built several alternatives, A/B tested them, and shipped the one that won: larger, and shaped like the messaging affordance people already recognize. Discoverability improved.</p>
+          <p>It's a small change. It's also the only claim on this page backed by a number I actually measured, which is why it's here.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">System</p>
+          <h2>One design system, five deployments.</h2>
+          <p>Five separately deployed apps will drift apart unless something holds them together. I built a component library — color, type, buttons, the vitals card — and worked from it across all of them. It's why the iPad monitor and the phone app look like the same product despite being built separately.</p>
+          <p>Cory does double duty in that system. Emmaline designed him as a character; I made him an instrument. He sits inside the health gauge as the needle, and he has six states wired to live tank values, so his condition <em>is</em> the readout. It's the same trick as the simulation: the data doesn't need a legend, because the mascot is already showing you.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Demo Day</p>
+          <h2>What hours of strangers using it actually taught me.</h2>
+          <p>We showed the tank and the platform to students and faculty. I stood with it for hours, which is the part I'd recommend to anyone — you learn things watching that no test protocol produces.</p>
+          <p>Almost everyone asked Cory to tell them a joke. Not about coral. They wanted to find out whether he was real. He obliged, and for the first stretch it was delightful — and then, over hours of people asking the same thing, he started repeating himself. The illusion held for one visitor and broke for anyone standing nearby.</p>
+          <p>That's a real product problem I wouldn't have predicted: response diversity under repeated identical prompts. It also told me something about the audience. People probe an AI's edges before they trust its middle, and Cory's edges were the least-designed part of him.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">What I'd Do Differently</p>
+          <h2>What's still broken.</h2>
+          <p><strong>The curriculum is a shell.</strong> Real lessons written by people who teach marine science is the difference between a demo and a product. We had assignment structure, not content.</p>
+          <p><strong>The health scores aren't synced.</strong> Each surface runs the same simulation logic against its own variable, so the iPad and the phone can disagree about the same tank. It needs one shared source of truth, which means a backend we didn't have time to build.</p>
+          <p><strong>The iframe leaks.</strong> Embedding a differently-built app costs me clean responsive behavior — breakpoints overlap where the two systems meet. It bought a working AI in the time available, and I'd pay it again, but it's a real seam.</p>
+          <p><strong>Cory's guardrails are talk-around-able,</strong> and for a classroom product they need to be enforced server-side.</p>
+          <p><strong>Cory's formatting doesn't render.</strong> The model returns markdown and the widget prints it literally, so emphasis shows up as asterisks.</p>
+          <p><strong>He needs to be smarter.</strong> Deeper coral knowledge, and genuinely varied responses instead of a pool that runs dry — which is exactly what demo day exposed.</p>
+        </section>
+
+        <section class="case-phase case-section-spaced">
+          <p class="case-phase-label">Try It</p>
+          <h2>All of it is live.</h2>
+          <p>These are the actual deployed applications, not prototypes.</p>
+          <p>
+            <a class="btn outline" href="https://coral-keepers-student.vercel.app/" target="_blank" rel="noopener">Student platform <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="btn outline" href="https://coral-keepers-teacher.vercel.app/" target="_blank" rel="noopener">Teacher platform <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="btn outline" href="https://ck-ipad.vercel.app/" target="_blank" rel="noopener">Tank monitor <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="btn outline" href="https://coral-keepers-app-phone.vercel.app/" target="_blank" rel="noopener">Teacher mobile app <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+          </p>
+          <p class="muted">Coral Keepers was a team capstone. Courtenay Rushing led the team, Giuseppe Mollo led the physical tank design and build, and Emmaline designed Cory as a character. Research was a whole-team effort. The digital product described on this page is my work.</p>
+        </section>
+
+        <nav class="case-study-nav" aria-label="Case study projects">
+          <a class="case-nav-link case-nav-link--back" href="case-study-bigbus.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Previous Project</a>
+          <a class="case-nav-link case-nav-link--next" href="case-study-mose.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
         </nav>
       </article>
     </div>
@@ -95,4 +220,3 @@
   </footer>
 </body>
 </html>
-
