@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
+  <script defer src="js/case-toc.js"></script>
 </head>
 <body class="case-study case-study-coral-keepers">
   <!-- SVG icon symbols (used throughout the site) -->
@@ -55,6 +56,8 @@
       </a>
     </section>
 
+    <nav class="case-toc" aria-label="Sections in this case study"></nav>
+
     <div class="case-wrap container" id="case-content">
       <div class="case-overview-convoy">
         <div class="case-title-row">
@@ -87,13 +90,13 @@
         </div>
         <p class="muted" style="margin-top:12px">The classroom tank, led and built by Giuseppe Mollo. Everything below is the software that runs on it.</p>
 
-        <section class="case-phase case-section-spaced">
+        <section id="problem" class="case-phase case-section-spaced">
           <p class="case-phase-label">Problem</p>
           <h2>Coral restoration doesn't scale, because it depends on specialists.</h2>
           <p>Roughly 90% of the world's reefs are projected to be threatened by 2030. Restoration works — the science is understood — but it runs through marine biologists, grant funding, and localized nurseries. There simply aren't enough people doing it, and no obvious way to add more.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="research" class="case-phase case-section-spaced">
           <p class="case-phase-label">Research</p>
           <h2>The research changed what we were building.</h2>
           <p>We spent the first ten weeks on research as a full team: 12 interviews with marine biologists, reef researchers, and academics, plus site visits to the Skidaway Institute of Oceanography and Gray's Reef Ocean Discovery Center. Over 545 data points, affinitized.</p>
@@ -101,7 +104,7 @@
           <p>So we rewrote the problem. Not <em>how do we monitor reefs better</em>, but <em>how do we let far more people participate in growing coral</em>. Every decision after that came from the second question, including the one that put a tank in a classroom instead of a sensor in the ocean.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="architecture" class="case-phase case-section-spaced">
           <p class="case-phase-label">Architecture</p>
           <h2>Three contexts, not one responsive app.</h2>
           <div class="case-media">
@@ -109,8 +112,8 @@
           </div>
           <p class="muted" style="margin-top:12px">The service runs longer than the software. Six phases from polyp to reef, four people involved — educator, student, driver, marine biologist — and the digital product only touches part of it.</p>
 
-          <p>Our research produced distinct user archetypes, and they don't share a context. A teacher checking the tank between classes, a student working through an assignment, and a room glancing at a wall display are three different jobs with three different attention budgets. I built for them separately rather than collapsing them into one responsive layout.</p>
-          <p><strong>The iPad monitor</strong> is ambient. It sits by the tank and shows vitals and nothing else — readable across a classroom, no interaction required.</p>
+          <p>Our research produced distinct user archetypes, and they don't share a context. A teacher checking the tank between classes, a student working an assignment, and a room glancing at a wall display are three jobs with three different attention budgets — so I built three surfaces rather than one responsive layout. It also let me ship and iterate on each independently, which mattered with a fixed deadline and one person building.</p>
+          <p><strong>The iPad monitor</strong> is ambient. It sits by the tank, shows vitals and nothing else, and needs no interaction.</p>
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/ipad-monitor.webp" alt="The iPad tank monitor showing an AI health score of 93 percent with Cory as the gauge needle, plus temperature, pH, salinity and redox readings" loading="lazy" decoding="async" width="1567" height="751">
           </div>
@@ -118,11 +121,10 @@
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/phone-vitals.webp" alt="The teacher phone app showing tank health score, an AI-written recap of tank conditions, and core vitals" loading="lazy" decoding="async" width="1567" height="751">
           </div>
-          <p><strong>The web platform</strong> is the depth — coursework, assignments, class teams, the live tank feed, and the simulation. It's where the actual teaching happens.</p>
+          <p><strong>The web platform</strong> is the depth — coursework, assignments, class teams, live tank feed, simulation. Where the teaching happens.</p>
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/teacher-home.webp" alt="The teacher web dashboard with live tank feed, AI health score, active assignments and class teams" loading="lazy" decoding="async" width="1567" height="751">
           </div>
-          <p>Splitting them also meant I could ship and iterate on each one independently, which mattered with a fixed deadline and one person building.</p>
 
           <h3>Where the navigation came from</h3>
           <div class="case-media">
@@ -139,7 +141,7 @@
           <p>Cory is down in the bottom-left corner of the first page, already sitting inside the health gauge. He was a mascot long before he was an assistant.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="simulation" class="case-phase case-section-spaced">
           <p class="case-phase-label">The Simulation</p>
           <h2>Making bleaching something you cause, not something you read about.</h2>
           <p>Coral bleaching is the hard idea in this curriculum. It's what happens when stressed coral expels the algae living in its tissue and loses its color — and it's usually taught as a diagram with an arrow.</p>
@@ -156,33 +158,22 @@
           </div>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section class="case-phase case-section-spaced" id="cory">
           <p class="case-phase-label">Building Cory</p>
           <h2>The hard part was getting an AI to actually know the tank.</h2>
 
-          <h3>Cory became an assistant because the dashboard failed</h3>
-          <p>Cory started as a mascot. He's there in the earliest sketches, sitting inside the health gauge as a way to make a percentage feel like a living thing. What he wasn't, at that point, was an assistant.</p>
-          <p>That came out of testing. We had built the vitals carefully — temperature, pH, salinity, redox, laid out clearly — and watched participants read the numbers without knowing what any of them meant. They wanted to understand why a reading mattered, what a change would do to the coral over time, and whether they should act on it. A well-designed dashboard had told them everything except the thing they needed.</p>
-          <p>So we gave the mascot a job. The assistant is an answer to a specific failure: the data was legible and the meaning wasn't.</p>
+          <p>Cory started as a mascot — he's in the earliest sketches, sitting inside the health gauge. He became an assistant because of testing. We'd built the vitals carefully, and watched participants read the numbers without knowing what any of them meant, or whether to act. A well-designed dashboard had told them everything except the thing they needed. So we gave the mascot a job.</p>
 
-          <h3>First we built a fake, then we threw it away</h3>
-          <p>The first version of Cory wasn't AI. It was keyword matching — type certain words, get a canned response we'd written. It demoed fine. It would have kept demoing fine, and we could have called it AI-powered, because from the outside you can't tell.</p>
-          <p>We scrapped it and wired in Gemini 2.5 Flash. Harder, and more annoying, and the right call: a canned-response bot can't answer a question nobody anticipated, which is the entire point of putting an assistant in a classroom.</p>
+          <p><strong>The first version wasn't AI.</strong> It was keyword matching — type certain words, get a canned response. It demoed fine, and we could have shipped it calling it AI-powered, because from the outside you can't tell. We scrapped it for Gemini 2.5 Flash instead, on the grounds that a canned-response bot can't answer a question nobody anticipated, which is the whole point of putting an assistant in a classroom.</p>
 
-          <h3>Grounding it in live data across an iframe</h3>
-          <p>The real problem showed up immediately. Cory would answer confidently about the tank and get the numbers wrong, because he had no actual connection to them.</p>
-          <p>The architecture made this genuinely difficult. The platform is HTML, CSS, and JavaScript. Cory is a separate app in a different framework, embedded in an iframe — a compromise I made deliberately, because the alternative was rebuilding the entire site from scratch to accommodate one feature. An iframe doesn't share memory with the page around it. Getting live tank readings across that boundary, reliably, in the right order, was the hardest thing I did on this project and the most satisfying to fix.</p>
-          <p>The result is a <code>tankData</code> payload passed to Cory with each message. You can still see the seam: load Cory standalone, with no host page to feed him, and <code>tankData</code> arrives empty.</p>
+          <p><strong>Then he started getting the numbers wrong.</strong> The platform is plain HTML, CSS and JavaScript; Cory is a separate app in a different framework, embedded in an iframe — a compromise I took deliberately rather than rebuild the site for one feature. An iframe doesn't share memory with the page around it, so getting live readings across that boundary reliably was the hardest thing I did here, and the most satisfying to fix. The result is a <code>tankData</code> payload sent with every message. You can still see the seam: open Cory standalone and <code>tankData</code> arrives empty.</p>
 
-          <h3>Teaching it to say "I don't know"</h3>
-          <p>Once data was flowing, the remaining risk was the model filling gaps with plausible inventions. For a tool aimed at kids learning science, a confident wrong number is worse than no number — they have no way to catch it.</p>
-          <p>So Cory is instructed never to state a reading he hasn't been given. The rule holds under the worst case: with no tank data at all, asked directly for a salinity number, he says he doesn't have a current reading rather than producing one.</p>
+          <p><strong>He's also instructed never to state a reading he hasn't been given.</strong> For kids learning science a confident wrong number is worse than no number, because they can't catch it. The rule holds under the worst case — no tank data at all, asked directly for salinity, and he says he doesn't have it rather than inventing one.</p>
 
-          <h3>Where the guardrails stop</h3>
-          <p>I also constrained his scope so he'd stay on coral. That holds for ordinary use and fails against a user who instructs around it — tell him to ignore coral and ask for something else and he'll oblige. That's the current limit of prompt-level guardrails generally, not a quirk of this build. For a product going into real classrooms, enforcement would need to move server-side, validating responses before they're returned rather than asking the model nicely.</p>
+          <p><strong>The scope guardrail is weaker.</strong> He'll stay on coral for ordinary use and fail against anyone who instructs around it. That's the limit of prompt-level guardrails generally, not a quirk of this build — for real classrooms, enforcement has to move server-side.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="testing" class="case-phase case-section-spaced">
           <p class="case-phase-label">Testing</p>
           <h2>The success rates hid the real problems.</h2>
           <p>We tested in two ways: moderated sessions with educators — including a teacher who ran us straight through her mental model of Google Classroom and Gizmos — and an unmoderated study in Maze with five participants across three tasks.</p>
@@ -204,19 +195,17 @@
 
           <p><strong>The most useful finding hid behind a 100% success rate.</strong> On the vital-history task every participant succeeded, quickly and confidently — and one of them, while looking directly at the right screen, said “I don't know where tank health is.” The feature was in the right place; the word on it was wrong. “Insights” didn't map to what she was hunting for. Success metrics said the task passed. The transcript said the label failed.</p>
 
-          <p><strong>Task one is the same lesson inverted.</strong> Everyone created the announcement. Nobody enjoyed it — 2.67 average confidence, and one participant took six and a half minutes, stuck in the messaging flow. A 100% success rate on a task people rated “difficult” is a warning, not a result. The plus button was undiscoverable, and announcements and messages were too easy to confuse.</p>
-
-          <p>Testing also caught Cory mid-repair. One participant's session notes read “this was before we fixed the Cory AI, so he wasn't really answering” — the grounding work described above happened between sessions, and the difference is visible across the transcripts.</p>
+          <p><strong>Task one is the same lesson inverted.</strong> Everyone created the announcement; nobody enjoyed it — 2.67 confidence, one participant stuck for six and a half minutes in the messaging flow. A 100% success rate on a task people rate “difficult” is a warning, not a result.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="system" class="case-phase case-section-spaced">
           <p class="case-phase-label">System</p>
           <h2>One design system, five deployments.</h2>
-          <p>Five separately deployed apps will drift apart unless something holds them together. I built a component library — color, type, buttons, the vitals card — and worked from it across all of them. It's why the iPad monitor and the phone app look like the same product despite being built separately.</p>
-          <p>Cory does double duty in that system. Emmaline Kim designed him as a character; I made him an instrument. He sits inside the health gauge as the needle, and he has six states wired to live tank values, so his condition <em>is</em> the readout. It's the same trick as the simulation: the data doesn't need a legend, because the mascot is already showing you.</p>
+          <p>Five separately deployed apps drift apart unless something holds them together, so I worked from a component library — colour, type, buttons, the vitals card — across all of them.</p>
+          <p>Cory does double duty in it. Emmaline Kim designed him as a character; I made him an instrument. He sits in the health gauge as the needle with six states wired to live values, so his condition <em>is</em> the readout — the same trick as the simulation. The data doesn't need a legend because the mascot is already showing you.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="demo-day" class="case-phase case-section-spaced">
           <p class="case-phase-label">Demo Day</p>
           <h2>A third round of testing, run on the floor.</h2>
           <p>We treated demo day as a real testing round rather than a showcase. Twelve people ran two tasks on the student interface — told what to do, not how — and fifty-six filled out a micro-survey, bribed with stickers and candy.</p>
@@ -242,16 +231,14 @@
             </table>
           </div>
 
-          <p>Those numbers are strong and they deserve an asterisk. This was a self-selected crowd at a student exhibition, standing in front of a coral tank, being handed candy. People who wander over to a demo are already predisposed to like it, and nobody had to live with the product for a semester. It's a good signal on comprehension and appeal; it is not evidence the thing works in a classroom.</p>
-          <p>The part I'd recommend to anyone is standing with it for hours. You learn things watching that no test protocol produces.</p>
+          <p>Those numbers deserve an asterisk. This was a self-selected crowd at a student exhibition, standing in front of a coral tank, being handed candy — and nobody had to live with the product for a semester. Good signal on comprehension and appeal; not evidence it works in a classroom.</p>
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/demo-day.webp" alt="The Coral Keepers demo day setup, with the physical tank and the digital platform running side by side" loading="lazy" decoding="async" width="1347" height="637">
           </div>
-          <p>Almost everyone asked Cory to tell them a joke. Not about coral. They wanted to find out whether he was real. He obliged, and for the first stretch it was delightful — and then, over hours of people asking the same thing, he started repeating himself. The illusion held for one visitor and broke for anyone standing nearby.</p>
-          <p>That's a real product problem I wouldn't have predicted: response diversity under repeated identical prompts. It also told me something about the audience. People probe an AI's edges before they trust its middle, and Cory's edges were the least-designed part of him.</p>
+          <p>The unplanned finding came from standing with it for hours. Almost everyone asked Cory to tell them a joke — not about coral; they wanted to know whether he was real. He obliged, and after a few hours of the same request he started repeating himself. The illusion held for one visitor and broke for anyone standing nearby. Response diversity under repeated prompts is a real product problem I wouldn't have predicted, and it told me something about the audience: people probe an AI's edges before they trust its middle, and Cory's edges were the least-designed part of him.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="reflection" class="case-phase case-section-spaced">
           <p class="case-phase-label">What I'd Do Differently</p>
           <h2>What's still broken.</h2>
           <p><strong>The curriculum is a shell.</strong> Real lessons written by people who teach marine science is the difference between a demo and a product. We had assignment structure, not content.</p>
@@ -262,7 +249,7 @@
           <p><strong>He needs to be smarter.</strong> Deeper coral knowledge, and genuinely varied responses instead of a pool that runs dry — which is exactly what demo day exposed.</p>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="try-it" class="case-phase case-section-spaced">
           <p class="case-phase-label">Try It</p>
           <h2>All of it is live.</h2>
           <p>These are the actual deployed applications, not prototypes.</p>
