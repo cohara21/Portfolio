@@ -75,7 +75,7 @@
           </div>
           <div class="case-overview-col">
             <h3>My Role</h3>
-            <p>I designed and built the digital product. Four interfaces, a coral simulation, and Cory — an AI assistant grounded in live tank data. Built in Next.js with Gemini 2.5 Flash. Team: Courtenay Rushing led the team, Giuseppe Mollo led the physical tank, Emmaline designed Cory as a character. Research in the first half was all of us.</p>
+            <p>I designed and built the digital product — four interfaces, the coral simulation, and Cory, an AI assistant grounded in live tank data. Next.js with Gemini 2.5 Flash. A five-person team: Courtenay Rushing ran the project, Baz DiFiglia drove research, Emmaline Kim led branding and created Cory as a character, Giuseppe Mollo designed and built the tank. The first ten weeks of research were all of us.</p>
           </div>
         </div>
       </div>
@@ -160,17 +160,36 @@
 
         <section class="case-phase case-section-spaced">
           <p class="case-phase-label">Testing</p>
-          <h2>Only 60% of users could find Cory.</h2>
-          <p>We ran three rounds of testing — two remote rounds with educators, and a final in-person round with students at demo day. The clearest failure was discoverability: in testing, only 60% of users located Cory at all. The best feature in the product was invisible to two out of five people.</p>
-          <p>The original button didn't read as a chat. I built several alternatives, A/B tested them, and shipped the one that won: larger, and shaped like the messaging affordance people already recognize. Discoverability improved.</p>
-          <p>It's a small change. It's also the only claim on this page backed by a number I actually measured, which is why it's here.</p>
+          <h2>The success rates hid the real problems.</h2>
+          <p>We tested in two ways: moderated sessions with educators — including a teacher who ran us straight through her mental model of Google Classroom and Gizmos — and an unmoderated study in Maze with five participants across three tasks.</p>
+
+          <div class="case-table-wrap">
+            <table class="case-table">
+              <thead>
+                <tr><th>Task</th><th>Success</th><th>Avg. time</th><th>Confidence</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Create an announcement (phone)</td><td>100%</td><td>3m 03s</td><td>2.67 — difficult to neutral</td></tr>
+                <tr><td>Ask Cory whether the tank is healthy</td><td>60%</td><td>3m 51s</td><td>3.75</td></tr>
+                <tr><td>Find the tank's vital history</td><td>100%</td><td>1m 35s</td><td>4.25 — confident</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Cory wasn't legible as a chat.</strong> Three of five participants struggled to identify the bubble as the way to talk to him. One never found it at all. Another mistook the flipping stat cards for a Cory interaction — she thought reading the numbers <em>was</em> the conversation. I rebuilt the affordance larger and closer to a conventional chat shape.</p>
+
+          <p><strong>The most useful finding hid behind a 100% success rate.</strong> On the vital-history task every participant succeeded, quickly and confidently — and one of them, while looking directly at the right screen, said “I don't know where tank health is.” The feature was in the right place; the word on it was wrong. “Insights” didn't map to what she was hunting for. Success metrics said the task passed. The transcript said the label failed.</p>
+
+          <p><strong>Task one is the same lesson inverted.</strong> Everyone created the announcement. Nobody enjoyed it — 2.67 average confidence, and one participant took six and a half minutes, stuck in the messaging flow. A 100% success rate on a task people rated “difficult” is a warning, not a result. The plus button was undiscoverable, and announcements and messages were too easy to confuse.</p>
+
+          <p>Testing also caught Cory mid-repair. One participant's session notes read “this was before we fixed the Cory AI, so he wasn't really answering” — the grounding work described above happened between sessions, and the difference is visible across the transcripts.</p>
         </section>
 
         <section class="case-phase case-section-spaced">
           <p class="case-phase-label">System</p>
           <h2>One design system, five deployments.</h2>
           <p>Five separately deployed apps will drift apart unless something holds them together. I built a component library — color, type, buttons, the vitals card — and worked from it across all of them. It's why the iPad monitor and the phone app look like the same product despite being built separately.</p>
-          <p>Cory does double duty in that system. Emmaline designed him as a character; I made him an instrument. He sits inside the health gauge as the needle, and he has six states wired to live tank values, so his condition <em>is</em> the readout. It's the same trick as the simulation: the data doesn't need a legend, because the mascot is already showing you.</p>
+          <p>Cory does double duty in that system. Emmaline Kim designed him as a character; I made him an instrument. He sits inside the health gauge as the needle, and he has six states wired to live tank values, so his condition <em>is</em> the readout. It's the same trick as the simulation: the data doesn't need a legend, because the mascot is already showing you.</p>
         </section>
 
         <section class="case-phase case-section-spaced">
@@ -205,7 +224,7 @@
             <a class="btn outline" href="https://ck-ipad.vercel.app/" target="_blank" rel="noopener">Tank monitor <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
             <a class="btn outline" href="https://coral-keepers-app-phone.vercel.app/" target="_blank" rel="noopener">Teacher mobile app <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
           </p>
-          <p class="muted">Coral Keepers was a team capstone. Courtenay Rushing led the team, Giuseppe Mollo led the physical tank design and build, and Emmaline designed Cory as a character. Research was a whole-team effort. The digital product described on this page is my work.</p>
+          <p class="muted">Coral Keepers was a five-person capstone by team #ReefHuggers. Courtenay Rushing ran the project, Baz DiFiglia drove the research, Emmaline Kim led design and created Cory as a character, and Giuseppe Mollo designed and built the physical tank. The first ten weeks of research were all of us.</p>
         </section>
 
         <nav class="case-study-nav" aria-label="Case study projects">

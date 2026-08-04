@@ -1019,6 +1019,14 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .case-overview-convoy .case-title-block h2{font-size:2rem;font-weight:700;color:var(--color-text);margin:0 0 4px;line-height:1.2}
 .case-subtitle{font-size:1rem;font-weight:400;color:var(--color-muted);margin:0}
 
+/* Data tables inside case study prose */
+.case-table-wrap{overflow-x:auto;margin:24px 0}
+.case-table{border-collapse:collapse;width:100%;font-size:0.9375rem}
+.case-table th,.case-table td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(15,23,42,0.08)}
+.case-table th{font-weight:600;color:var(--color-muted);font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.04em}
+.case-table td{color:var(--color-text)}
+.case-table tbody tr:last-child td{border-bottom:0}
+
 /* Participant quotes inside case study prose */
 .case-quote{
   margin:20px 0;
