@@ -141,6 +141,10 @@
           <p class="case-phase-label">Building Cory</p>
           <h2>The hard part was getting an AI to actually know the tank.</h2>
 
+          <h3>Cory exists because the dashboard failed</h3>
+          <p>Cory wasn't in the original design. We built the vitals first — temperature, pH, salinity, redox, laid out clearly — and testing showed people could read the numbers and not know what any of them meant. Participants wanted to understand why a reading mattered, what a change would do to the coral over time, and whether they should act. A well-designed dashboard had told them everything except the thing they needed.</p>
+          <p>So the assistant is an answer to a specific failure: the data was legible and the meaning wasn't. That's what Cory is for, and it's why he sits inside the interface rather than beside it.</p>
+
           <h3>First we built a fake, then we threw it away</h3>
           <p>The first version of Cory wasn't AI. It was keyword matching — type certain words, get a canned response we'd written. It demoed fine. It would have kept demoing fine, and we could have called it AI-powered, because from the outside you can't tell.</p>
           <p>We scrapped it and wired in Gemini 2.5 Flash. Harder, and more annoying, and the right call: a canned-response bot can't answer a question nobody anticipated, which is the entire point of putting an assistant in a classroom.</p>
@@ -194,8 +198,32 @@
 
         <section class="case-phase case-section-spaced">
           <p class="case-phase-label">Demo Day</p>
-          <h2>What hours of strangers using it actually taught me.</h2>
-          <p>We showed the tank and the platform to students and faculty. I stood with it for hours, which is the part I'd recommend to anyone — you learn things watching that no test protocol produces.</p>
+          <h2>A third round of testing, run on the floor.</h2>
+          <p>We treated demo day as a real testing round rather than a showcase. Twelve people ran two tasks on the student interface — told what to do, not how — and fifty-six filled out a micro-survey, bribed with stickers and candy.</p>
+
+          <div class="case-table-wrap">
+            <table class="case-table">
+              <thead><tr><th>Task</th><th>Success</th></tr></thead>
+              <tbody>
+                <tr><td>Interact with the coral simulation</td><td>10 / 12 — 84%</td></tr>
+                <tr><td>Take the “Coral Bleaching 101” quiz</td><td>12 / 12 — 100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-table-wrap">
+            <table class="case-table">
+              <thead><tr><th>Micro-survey statement (n=56)</th><th>Agreed</th></tr></thead>
+              <tbody>
+                <tr><td>A viable way to involve the public in real scientific work</td><td>100% — 85.7% strongly</td></tr>
+                <tr><td>Would motivate me to contribute to conservation</td><td>98.2% — 83.9% strongly</td></tr>
+                <tr><td>Increased my understanding of why coral conservation matters</td><td>100% — 96.4% strongly</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Those numbers are strong and they deserve an asterisk. This was a self-selected crowd at a student exhibition, standing in front of a coral tank, being handed candy. People who wander over to a demo are already predisposed to like it, and nobody had to live with the product for a semester. It's a good signal on comprehension and appeal; it is not evidence the thing works in a classroom.</p>
+          <p>The part I'd recommend to anyone is standing with it for hours. You learn things watching that no test protocol produces.</p>
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/demo-day.webp" alt="The Coral Keepers demo day setup, with the physical tank and the digital platform running side by side" loading="lazy" decoding="async" width="1347" height="637">
           </div>
