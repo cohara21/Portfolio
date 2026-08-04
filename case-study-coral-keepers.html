@@ -104,6 +104,11 @@
         <section class="case-phase case-section-spaced">
           <p class="case-phase-label">Architecture</p>
           <h2>Three contexts, not one responsive app.</h2>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/service-blueprint.webp" alt="The Coral Keepers service blueprint: six phases from polyp growth to reef impact, mapped across user actions, front stage, back stage and supporting systems, for four user types" loading="lazy" decoding="async" width="2000" height="1025">
+          </div>
+          <p class="muted" style="margin-top:12px">The service runs longer than the software. Six phases from polyp to reef, four people involved — educator, student, driver, marine biologist — and the digital product only touches part of it.</p>
+
           <p>Our research produced distinct user archetypes, and they don't share a context. A teacher checking the tank between classes, a student working through an assignment, and a room glancing at a wall display are three different jobs with three different attention budgets. I built for them separately rather than collapsing them into one responsive layout.</p>
           <p><strong>The iPad monitor</strong> is ambient. It sits by the tank and shows vitals and nothing else — readable across a classroom, no interaction required.</p>
           <div class="case-media">
@@ -118,6 +123,13 @@
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/teacher-home.webp" alt="The teacher web dashboard with live tank feed, AI health score, active assignments and class teams" loading="lazy" decoding="async" width="1567" height="751">
           </div>
           <p>Splitting them also meant I could ship and iterate on each one independently, which mattered with a fixed deadline and one person building.</p>
+
+          <h3>Before any of it looked like anything</h3>
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/sketches-wireframes.webp" alt="Hand-drawn wireframe sketches of the tank display and dashboard layouts, annotated with notes on information architecture, chat history and the coral donation flow" loading="lazy" decoding="async" width="1600" height="1088">
+          </div>
+          <p>These are the sketches the surfaces came from. The left page works through the tank display — health percentage, resting state, what happens when a reading drops. The right page is the platform, and the annotations are the useful part: <em>“need to consider I.A.”</em>, <em>“should have chat history”</em>, and a flow tracing what actually happens to a piece of coral from arrival to donation.</p>
+          <p>Cory is down in the bottom-left corner of the first page, already sitting inside the health gauge. He was a mascot long before he was an assistant.</p>
         </section>
 
         <section class="case-phase case-section-spaced">
@@ -141,9 +153,10 @@
           <p class="case-phase-label">Building Cory</p>
           <h2>The hard part was getting an AI to actually know the tank.</h2>
 
-          <h3>Cory exists because the dashboard failed</h3>
-          <p>Cory wasn't in the original design. We built the vitals first — temperature, pH, salinity, redox, laid out clearly — and testing showed people could read the numbers and not know what any of them meant. Participants wanted to understand why a reading mattered, what a change would do to the coral over time, and whether they should act. A well-designed dashboard had told them everything except the thing they needed.</p>
-          <p>So the assistant is an answer to a specific failure: the data was legible and the meaning wasn't. That's what Cory is for, and it's why he sits inside the interface rather than beside it.</p>
+          <h3>Cory became an assistant because the dashboard failed</h3>
+          <p>Cory started as a mascot. He's there in the earliest sketches, sitting inside the health gauge as a way to make a percentage feel like a living thing. What he wasn't, at that point, was an assistant.</p>
+          <p>That came out of testing. We had built the vitals carefully — temperature, pH, salinity, redox, laid out clearly — and watched participants read the numbers without knowing what any of them meant. They wanted to understand why a reading mattered, what a change would do to the coral over time, and whether they should act on it. A well-designed dashboard had told them everything except the thing they needed.</p>
+          <p>So we gave the mascot a job. The assistant is an answer to a specific failure: the data was legible and the meaning wasn't.</p>
 
           <h3>First we built a fake, then we threw it away</h3>
           <p>The first version of Cory wasn't AI. It was keyword matching — type certain words, get a canned response we'd written. It demoed fine. It would have kept demoing fine, and we could have called it AI-powered, because from the outside you can't tell.</p>
