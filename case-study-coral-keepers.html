@@ -176,9 +176,14 @@
 
           <p><strong>The first version wasn't AI.</strong> It was keyword matching — type certain words, get a canned response. It demoed fine, and we could have shipped it calling it AI-powered, because from the outside you can't tell. We scrapped it for Gemini 2.5 Flash instead, on the grounds that a canned-response bot can't answer a question nobody anticipated, which is the whole point of putting an assistant in a classroom.</p>
 
-          <p><strong>Then he started getting the numbers wrong.</strong> The platform is plain HTML, CSS and JavaScript; Cory is a separate app in a different framework, embedded in an iframe — a compromise I took deliberately rather than rebuild the site for one feature. An iframe doesn't share memory with the page around it, so getting live readings across that boundary reliably was the hardest thing I did here, and the most satisfying to fix. The result is a <code>tankData</code> payload sent with every message. You can still see the seam: open Cory standalone and <code>tankData</code> arrives empty.</p>
+          <p><strong>Then he started getting the numbers wrong.</strong> The platform is plain HTML, CSS and JavaScript; Cory is a separate app in a different framework, embedded in an iframe — a compromise I took deliberately rather than rebuild the site for one feature. An iframe doesn't share memory with the page around it, so getting live readings across that boundary reliably was the hardest thing I did here, and the most satisfying to fix. The result is a <code>tankData</code> payload sent with every message. You can still see the seam: open Cory outside the platform and he falls back on placeholder values, with whole fields missing.</p>
 
-          <p><strong>He's also instructed never to state a reading he hasn't been given.</strong> For kids learning science a confident wrong number is worse than no number, because they can't catch it. The rule holds under the worst case — no tank data at all, asked directly for salinity, and he says he doesn't have it rather than inventing one.</p>
+          <p><strong>He's also instructed never to state a reading he hasn't been given.</strong> For kids learning science a confident wrong number is worse than no number, because they can't catch it. The screenshot below is Cory running standalone, where the salinity field never arrives. Asked for it directly, he says he doesn't have it and reports only the fields he does — rather than filling the gap with a plausible number.</p>
+
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow case-image--narrow" src="images/case-study-coral-keepers/cory-guardrails.webp" alt="Cory chat transcript: asked for the exact salinity reading he answers that he does not have one, giving only temperature and pH; asked who won the Super Bowl he declines and redirects to the tank" loading="lazy" decoding="async" width="650" height="1093">
+          </div>
+          <p class="muted" style="margin-top:12px">Both guardrails in the deployed app. He won't invent the missing reading, and he won't follow the conversation off the reef.</p>
 
           <p><strong>The scope guardrail is weaker.</strong> He'll stay on coral for ordinary use and fail against anyone who instructs around it. That's the limit of prompt-level guardrails generally, not a quirk of this build — for real classrooms, enforcement has to move server-side.</p>
         </section>
@@ -213,6 +218,11 @@
           <h2>One design system, five deployments.</h2>
           <p>Five separately deployed apps drift apart unless something holds them together, so I worked from a component library — colour, type, buttons, the vitals card — across all of them.</p>
           <p>Cory does double duty in it. Emmaline Kim designed him as a character; I made him an instrument. He sits in the health gauge as the needle with six states wired to live values, so his condition <em>is</em> the readout — the same trick as the simulation. The data doesn't need a legend because the mascot is already showing you.</p>
+
+          <div class="case-media">
+            <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/cory-states.webp" alt="Cory's six health states in sequence, from bright orange with arms raised through progressively paler and browner versions to a grey, crumbling figure with crossed-out eyes, above a green-to-grey gradient scale" loading="lazy" decoding="async" width="1280" height="340">
+          </div>
+          <p class="muted" style="margin-top:12px">The six states, pulled from the deployed build. Nobody has to be taught this scale — a seven-year-old reads the last one instantly.</p>
         </section>
 
         <section id="demo-day" class="case-phase case-section-spaced">

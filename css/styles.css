@@ -1057,6 +1057,8 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .case-media{margin-top:26px}
 .case-image{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 18px 40px rgba(15,23,42,0.12)}
 .case-image--no-shadow{box-shadow:none}
+/* Portrait assets (phone frames, chat panels) shouldn't stretch to the full column */
+.case-image--narrow{max-width:400px;margin-left:auto;margin-right:auto}
 
 /* Click-to-enlarge for case-study images (wired by js/case-zoom.js) */
 .case-image.is-zoomable{cursor:zoom-in}
