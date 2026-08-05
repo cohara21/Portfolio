@@ -281,10 +281,10 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 /* Projects grid */
 .section{padding:40px 0}
 .section-title{font-size:1.25rem;margin-bottom:16px}
-.see-all-link{color:var(--color-text);text-decoration:none;font-weight:500;transition:color .2s ease, transform .2s ease;display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:0.9rem}
+.see-all-link{color:var(--color-text);text-decoration:none;font-weight:500;transition:color var(--motion-speed) var(--motion-ease), transform var(--motion-speed) var(--motion-ease);display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:0.9rem}
 .see-all-link:hover{color:var(--color-accent);transform:translateX(4px)}
 .see-all-link .icon{display:inline-block;vertical-align:middle}.project-grid{display:grid;grid-template-columns:1fr;gap:18px}
-.project-card{display:flex;gap:16px;align-items:center;padding:14px;border-radius:12px;border:1px solid rgba(15,23,42,0.04);transition:transform .25s ease, box-shadow .25s ease}
+.project-card{display:flex;gap:16px;align-items:center;padding:14px;border-radius:12px;border:1px solid rgba(15,23,42,0.04);transition:transform var(--motion-slow) var(--motion-ease), box-shadow var(--motion-slow) var(--motion-ease)}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(15,23,42,0.06)}
 .project-thumb-large.thumb-mose{background-image:url('../images/work/moseheader.webp');background-size:cover;background-position:center center;background-repeat:no-repeat}
 .project-thumb-large.thumb-finra{background-image:url('../images/case-study-finra/finra header.webp');background-size:cover;background-position:center center;background-repeat:no-repeat}
@@ -387,7 +387,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   grid-row:1 / span 2;
   align-self:start;
   color:var(--color-text);
-  transition:color .2s ease, transform .2s ease;
+  transition:color var(--motion-speed) var(--motion-ease), transform var(--motion-speed) var(--motion-ease);
 }
 .projects-carousel .project-card-large:hover .project-card-arrow{
   color:var(--color-accent);
@@ -932,7 +932,7 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   overflow:hidden;
   height:450px;
 }
-.project-card-large{transition:transform .25s ease, box-shadow .25s ease}
+.project-card-large{transition:transform var(--motion-slow) var(--motion-ease), box-shadow var(--motion-slow) var(--motion-ease)}
 .project-thumb-large{
   width:100%;
   flex:1 1 auto;
@@ -1093,9 +1093,9 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
 .gallery-slide{min-width:100%;opacity:0;transition:opacity 0.4s ease;height:100%;display:flex;align-items:center;justify-content:center;position:absolute;width:100%;visibility:hidden}
 .gallery-slide.active{opacity:1;visibility:visible;position:relative}
 .gallery-slide img{width:100%;height:100%;display:block;border-radius:8px;max-width:100%;max-height:100%;object-fit:contain;margin:0 auto}
-.gallery-nav-btn{background:white;border:1px solid rgba(15,23,42,0.1);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease,transform 0.2s ease,box-shadow 0.2s ease;flex-shrink:0;color:var(--color-text)}
+.gallery-nav-btn{background:white;border:1px solid rgba(15,23,42,0.1);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color var(--motion-speed) var(--motion-ease),color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),box-shadow var(--motion-speed) var(--motion-ease);flex-shrink:0;color:var(--color-text)}
 .gallery-nav-btn:hover{background:var(--color-accent);color:white;border-color:var(--color-accent);transform:scale(1.05)}
-.gallery-nav-btn:active{transform:scale(0.95)}
+.gallery-nav-btn:active{transform:scale(0.96)}
 .gallery-nav-btn:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 20%, white);outline-offset:4px}
 
 /* Mose prototype carousel: full-width images, arrows overlaid */
@@ -1165,10 +1165,58 @@ textarea{min-height:140px;resize:vertical}
 /* Focus states */
 a:focus,button:focus,input:focus,textarea:focus{outline:2px solid color-mix(in srgb,var(--color-accent) 35%, white);outline-offset:2px}
 
+/* ---------------------------------------------------------------------------
+   Interaction feedback
+   Hover says "this is live"; press says "I heard you". Everything that moves
+   is opt-in under prefers-reduced-motion: no-preference, so a reader who has
+   asked for less motion keeps the colour and shadow cues and loses the travel.
+   --------------------------------------------------------------------------- */
+
+/* Case-study images open full size — say so before the cursor has to. */
+.case-image.is-zoomable{
+  transition:transform var(--motion-speed) var(--motion-ease),
+             box-shadow var(--motion-speed) var(--motion-ease);
+}
+.case-image.is-zoomable:hover{box-shadow:0 14px 32px rgba(15,23,42,0.14)}
+.case-image--no-shadow.is-zoomable:hover{box-shadow:0 10px 26px rgba(15,23,42,0.12)}
+
+@media (prefers-reduced-motion: no-preference){
+  /* Press feedback. 0.96 across the board — the one value that reads as a
+     press without reading as a flinch. Controls that lift on hover keep their
+     lift while pressed, so the press reads as depth and not as a reset. */
+  .case-nav-link:active,
+  .gallery-thumb:active,
+  .case-zoom-close:active{transform:scale(0.96)}
+  .btn:active{transform:translateY(-4px) scale(0.96)}
+  .nav-tag:active{transform:translateY(-2px) scale(0.96)}
+  .about-profile-connect:active{transform:translateY(-1px) scale(0.96)}
+
+  /* Cards keep their hover lift while pressing, so the press reads as
+     depth rather than as the card dropping back down. */
+  .project-card:active,
+  .project-card-large:active,
+  .carousel-track .project-card:active{transform:translateY(-6px) scale(0.96)}
+
+  .case-image.is-zoomable:hover{transform:translateY(-2px)}
+  .case-image.is-zoomable:active{transform:translateY(-2px) scale(0.98)}
+
+  /* Thumbnail drifts in behind the card's clipped corners on hover. */
+  .project-thumb-large{
+    transition:transform var(--motion-slow) var(--motion-ease);
+    transform:scale(1);
+  }
+  .project-card-large:hover .project-thumb-large{transform:scale(1.04)}
+  /* Coral Keepers' thumb is pre-scaled to crop it; step from that, not over it. */
+  .project-thumb-large.thumb-coral-keepers{transform:scale(1.08)}
+  .project-card-large:hover .project-thumb-large.thumb-coral-keepers{transform:scale(1.12)}
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   :root{--motion-speed:0ms;--motion-slow:0ms}
-  .fade-in,.btn,.project-card,.primary-nav a::after,.nav-toggle .hamburger{transition:none !important;animation:none !important}
+  .fade-in,.btn,.project-card,.project-card-large,.primary-nav a::after,
+  .nav-toggle .hamburger,.case-image,.gallery-thumb,.project-thumb-large,
+  .carousel-track,.case-toc a{transition:none !important;animation:none !important}
 }
 
 /* Mobile: hide Resume pill (it lives in hamburger menu), stack nav vertically */
@@ -1262,10 +1310,10 @@ a:focus,button:focus,input:focus,textarea:focus{outline:2px solid color-mix(in s
 /* Photography gallery styles */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .gallery-item{position:relative;overflow:hidden;border-radius:12px}
-.gallery-thumb{display:block;width:100%;padding-top:125%;background-size:cover;background-position:center;border:0;border-radius:12px;cursor:pointer;position:relative;transition:transform .28s var(--motion-ease),box-shadow .28s var(--motion-ease),opacity .3s ease;background-color:rgba(15,23,42,0.04)}
+.gallery-thumb{display:block;width:100%;padding-top:125%;background-size:cover;background-position:center;border:0;border-radius:12px;cursor:pointer;position:relative;transition:transform var(--motion-slow) var(--motion-ease),box-shadow var(--motion-slow) var(--motion-ease),opacity var(--motion-slow) var(--motion-ease);background-color:rgba(15,23,42,0.04)}
 .gallery-thumb:not(.loaded){opacity:0.6}
 .gallery-thumb.loaded{opacity:1}
-.gallery-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,0.06));opacity:0;transition:opacity .18s ease;pointer-events:none;border-radius:12px}
+.gallery-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,0.06));opacity:0;transition:opacity var(--motion-speed) var(--motion-ease);pointer-events:none;border-radius:12px}
 .photography-page .gallery-container,.graphic-design-page .gallery-container{width:65vw;max-width:var(--max-width);min-width:320px;margin:0 auto}
 .gallery-thumb:hover::after,.gallery-thumb:focus::after{opacity:1}
 .gallery-thumb:focus{outline:3px solid color-mix(in srgb,var(--color-accent) 20%, white);outline-offset:6px}
