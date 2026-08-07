@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Coral Keepers — Case Study</title>
-  <meta name="description" content="A 20-week capstone bringing coral restoration into classrooms. I designed and built the digital product: four surfaces, a coral simulation, and Cory, an AI assistant grounded in live tank data." />
+  <meta name="description" content="A 20-week capstone bringing coral restoration into classrooms. I designed and built the digital product: four interfaces, a coral simulation, and Cory, an AI assistant grounded in live tank data." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
@@ -79,7 +79,7 @@
           </div>
           <div class="case-overview-col">
             <h3>My Role</h3>
-            <p>I designed and built the digital product — four interfaces, the coral simulation, and Cory, an AI assistant grounded in live tank data. Next.js with Gemini 2.5 Flash. A five-person team: Courtenay Rushing ran the project, Baz DiFiglia drove research, Emmaline Kim led branding and created Cory as a character, Giuseppe Mollo designed and built the tank. The first ten weeks of research were all of us.</p>
+            <p>I designed and built the digital product — four interfaces across three contexts, the coral simulation, and Cory, an AI assistant grounded in live tank data. Next.js with Gemini 2.5 Flash. One of a five-person team; full credits are at the foot of the page.</p>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/phone-vitals.webp" alt="The teacher phone app showing tank health score, an AI-written recap of tank conditions, and core vitals" loading="lazy" decoding="async" width="1567" height="751">
           </div>
-          <p><strong>The web platform</strong> is the depth — coursework, assignments, class teams, live tank feed, simulation. Where the teaching happens.</p>
+          <p><strong>The web platform</strong> is the depth — coursework, assignments, class teams, live tank feed, simulation. Where the teaching happens. It ships as two apps against one codebase, a teacher build and a student build, because the two jobs diverge far enough that role-switching inside one app would have cost more than maintaining both.</p>
           <div class="case-media">
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/teacher-home.webp" alt="The teacher web dashboard with live tank feed, AI health score, active assignments and class teams" loading="lazy" decoding="async" width="1567" height="751">
           </div>
@@ -150,7 +150,7 @@
             <img class="case-image case-image--no-shadow" src="images/case-study-coral-keepers/card-sort.webp" alt="Four participants' closed card sort results, placing platform features under fixed categories: Calendar, Learn, Messages, Announcements and Profile" loading="lazy" decoding="async" width="2000" height="480">
           </div>
           <p>We ran a closed card sort to settle the platform's navigation — fixed categories, scrambled cards, four participants. The useful result wasn't the consensus, it was the outlier: one participant swept almost everything into a single heading rather than distributing it. When a category can absorb that much, it isn't a category, it's a bin. <strong>Learn</strong> was doing too much work, and it kept doing too much work until we split the coursework out of it.</p>
-          <p>That's the same failure that turned up later in testing, when a participant looked straight at the vitals and said she didn't know where tank health was. Both are naming problems, and naming problems don't show up in success rates.</p>
+          <p>The same failure surfaced again in testing, and I nearly missed it there — because naming problems don't show up in success rates.</p>
 
           <h3>Before any of it looked like anything</h3>
           <div class="case-media">
@@ -181,7 +181,7 @@
           <p class="case-phase-label">Building Cory</p>
           <h2>The hard part was getting an AI to actually know the tank.</h2>
 
-          <p>Cory started as a mascot — he's in the earliest sketches, sitting inside the health gauge. He became an assistant because of testing. We'd built the vitals carefully, and watched participants read the numbers without knowing what any of them meant, or whether to act. A well-designed dashboard had told them everything except the thing they needed. So we gave the mascot a job.</p>
+          <p>Cory became an assistant because of testing. I'd built the vitals carefully, and we watched participants read the numbers without knowing what any of them meant, or whether to act. A well-designed dashboard had told them everything except the thing they needed. So the mascot got a job.</p>
 
           <p><strong>The first version wasn't AI.</strong> It was keyword matching — type certain words, get a canned response. It demoed fine, and we could have shipped it calling it AI-powered, because from the outside you can't tell. We scrapped it for Gemini 2.5 Flash instead, on the grounds that a canned-response bot can't answer a question nobody anticipated, which is the whole point of putting an assistant in a classroom.</p>
 
@@ -200,7 +200,7 @@
         <section id="testing" class="case-phase case-section-spaced">
           <p class="case-phase-label">Testing</p>
           <h2>The success rates hid the real problems.</h2>
-          <p>We tested in two ways: moderated sessions with educators — including a teacher who ran us straight through her mental model of Google Classroom and Gizmos — and an unmoderated study in Maze with five participants across three tasks.</p>
+          <p>We ran three rounds. First, moderated sessions with educators — including a teacher who ran us straight through her mental model of Google Classroom and Gizmos. Second, an unmoderated study in Maze: five participants, three tasks. The third was demo day, which gets its own section below.</p>
 
           <div class="case-table-wrap">
             <table class="case-table">
@@ -222,7 +222,7 @@
 
           <p><strong>Cory wasn't legible as a chat.</strong> Three of five participants struggled to identify the bubble as the way to talk to him. One never found it at all. Another mistook the flipping stat cards for a Cory interaction — she thought reading the numbers <em>was</em> the conversation. I rebuilt the affordance larger and closer to a conventional chat shape.</p>
 
-          <p><strong>The most useful finding hid behind a 100% success rate.</strong> On the vital-history task every participant succeeded, quickly and confidently — and one of them, while looking directly at the right screen, said “I don't know where tank health is.” The feature was in the right place; the word on it was wrong. “Insights” didn't map to what she was hunting for. Success metrics said the task passed. The transcript said the label failed.</p>
+          <p><strong>The most useful finding hid behind a 100% success rate.</strong> On the vital-history task every participant succeeded, quickly and confidently — and one of them, while looking directly at the right screen, said “I don't know where tank health is.” The feature was in the right place; the word on it was wrong. It was called <strong>Insights</strong> then, and “Insights” didn't map to what she was hunting for. Success metrics said the task passed. The transcript said the label failed. It ships as <strong>Vital History</strong> now — the one finding from this round that cost nothing to fix and would never have surfaced from the numbers.</p>
 
           <p><strong>Task one is the same lesson inverted.</strong> Everyone created the announcement; nobody enjoyed it — 2.67 confidence, one participant stuck for six and a half minutes in the messaging flow. A 100% success rate on a task people rate “difficult” is a warning, not a result.</p>
         </section>
@@ -230,7 +230,7 @@
         <section id="system" class="case-phase case-section-spaced">
           <p class="case-phase-label">System</p>
           <h2>One design system, five deployments.</h2>
-          <p>Five separately deployed apps drift apart unless something holds them together, so I worked from a component library — colour, type, buttons, the vitals card — across all of them.</p>
+          <p>Five separately deployed apps — the four interfaces plus Cory, who runs as his own — drift apart unless something holds them together, so I worked from a component library: colour, type, buttons, the vitals card, across all of them.</p>
           <p>Cory does double duty in it. Emmaline Kim designed him as a character; I made him an instrument. He sits in the health gauge as the needle with six states wired to live values, so his condition <em>is</em> the readout — the same trick as the simulation. The data doesn't need a legend because the mascot is already showing you.</p>
 
           <div class="case-media">
@@ -283,7 +283,7 @@
           <p><strong>The curriculum is a shell.</strong> Real lessons written by people who teach marine science is the difference between a demo and a product. We had assignment structure, not content.</p>
           <p><strong>The health scores aren't synced.</strong> Each surface runs the same simulation logic against its own variable, so the iPad and the phone can disagree about the same tank. It needs one shared source of truth, which means a backend we didn't have time to build.</p>
           <p><strong>The iframe leaks.</strong> Embedding a differently-built app costs me clean responsive behavior — breakpoints overlap where the two systems meet. It bought a working AI in the time available, and I'd pay it again, but it's a real seam.</p>
-          <p><strong>Cory's guardrails are talk-around-able,</strong> and for a classroom product they need to be enforced server-side.</p>
+          <p><strong>Cory's guardrails can be talked around.</strong> For a classroom product they need to be enforced server-side.</p>
           <p><strong>Cory's formatting doesn't render.</strong> The model returns markdown and the widget prints it literally, so emphasis shows up as asterisks.</p>
           <p><strong>He needs to be smarter.</strong> Deeper coral knowledge, and genuinely varied responses instead of a pool that runs dry — which is exactly what demo day exposed.</p>
         </section>
@@ -298,7 +298,7 @@
             <a class="btn outline" href="https://ck-ipad.vercel.app/" target="_blank" rel="noopener">Tank monitor <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
             <a class="btn outline" href="https://coral-keepers-app-phone.vercel.app/" target="_blank" rel="noopener">Teacher mobile app <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
           </p>
-          <p class="muted">Coral Keepers was a five-person capstone by team #ReefHuggers. Courtenay Rushing ran the project, Baz DiFiglia drove the research, Emmaline Kim led design and created Cory as a character, and Giuseppe Mollo designed and built the physical tank. The first ten weeks of research were all of us.</p>
+          <p class="muted">Coral Keepers was a five-person capstone by team #ReefHuggers. Courtenay Rushing ran the project, Baz DiFiglia drove the research, Emmaline Kim created Cory as a character and drove the brand system, and Giuseppe Mollo designed and built the physical tank. The first ten weeks of research were all of us.</p>
         </section>
 
         <nav class="case-study-nav" aria-label="Case study projects">
