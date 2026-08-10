@@ -179,6 +179,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const cards = document.querySelectorAll('.project-card, .project-card-large');
     cards.forEach(card => {
       if(card.dataset.clickable === 'true') return; // already processed
+      // Cards that contain a real stretched link are already fully clickable and
+      // keyboard-reachable. Adding role="link" and tabindex here would give them a
+      // second, redundant tab stop, so leave those alone entirely.
+      if(card.querySelector('a.card-link')) return;
       const link = card.querySelector('a[href]');
       const dataLink = card.getAttribute('data-link');
       const targetHref = link ? link.href : (dataLink || null);

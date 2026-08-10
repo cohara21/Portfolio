@@ -320,9 +320,33 @@ a:focus{outline:3px solid color-mix(in srgb, var(--color-accent) 30%, white)}
   box-shadow: 0 18px 40px rgba(15,23,42,0.06);
 }
 
-/* Make cards indicate they are clickable when JS makes them interactive */
-.project-card.clickable, .project-card-large.clickable { cursor: pointer; position:relative; }
-.project-card.clickable:focus, .project-card-large.clickable:focus { outline: 3px solid color-mix(in srgb, var(--color-accent) 18%, white); outline-offset: 4px; }
+/* Cards are real links. The anchor wraps the project name for screen readers and
+   SEO; its ::after stretches over the whole card so the entire surface is a
+   normal link — cmd-click, middle-click and right-click all work. */
+.project-card, .project-card-large { position: relative; }
+/* The anchor itself covers the card. It sits above the white text panel, which
+   is position:relative z-index:1 so it can overlap the thumbnail. */
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+.project-card:has(.card-link), .project-card-large:has(.card-link) { cursor: pointer; }
+.project-card:has(.card-link:focus-visible),
+.project-card-large:has(.card-link:focus-visible) {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 45%, white);
+  outline-offset: 4px;
+}
+/* Anything the reader might click instead of the card sits above the stretch. */
+.project-card .icon-external, .project-card-large .icon-external,
+.project-card-arrow { z-index: 2; }
+
+/* Legacy JS-driven cards (no anchor inside) keep the old affordance */
+.project-card.clickable, .project-card-large.clickable { cursor: pointer; }
+.project-card.clickable:focus-visible, .project-card-large.clickable:focus-visible { outline: 3px solid color-mix(in srgb, var(--color-accent) 18%, white); outline-offset: 4px; }
 
 /* small top-right arrow to indicate card navigates away */
 
