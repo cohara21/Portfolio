@@ -40,16 +40,6 @@ document.addEventListener('DOMContentLoaded', function(){
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  // About page: hide hero scroll hint when user scrolls down
-  const heroScrollHint = document.querySelector('.hero-scroll-hint');
-  if(heroScrollHint){
-    function hideScrollHint(){
-      heroScrollHint.classList.toggle('is-hidden', window.scrollY > 60);
-    }
-    hideScrollHint();
-    window.addEventListener('scroll', hideScrollHint, {passive:true});
-  }
-
   // Smooth scroll for internal links (including back-to-top)
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e){
