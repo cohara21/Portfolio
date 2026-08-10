@@ -53,5 +53,20 @@
     }, { rootMargin: '-90px 0px -55% 0px' });
 
     sections.forEach(function (s) { observer.observe(s); });
+
+    // Keep the rail out of the hero. It sits in the left margin, which over a
+    // full-bleed hero image means dark text on artwork. Reveal it only once the
+    // reader has scrolled past the hero. A scroll listener rather than another
+    // IntersectionObserver: this needs to be correct on first paint, and a
+    // plain measurement is easier to reason about than an observer's timing.
+    var hero = document.querySelector('.case-hero-full .hero-media');
+    if (!hero) { nav.classList.add('is-revealed'); return; }
+
+    function syncRail() {
+      nav.classList.toggle('is-revealed', hero.getBoundingClientRect().bottom <= 80);
+    }
+    window.addEventListener('scroll', syncRail, { passive: true });
+    window.addEventListener('resize', syncRail, { passive: true });
+    syncRail();
   });
 })();
