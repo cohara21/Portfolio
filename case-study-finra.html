@@ -3,26 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
   <title>FINRA x SCADpro | Case Study</title>
-  <meta name="description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Work covered by NDA. Available to discuss on request." />
+  <meta name="description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/case-study-finra.html" />
   <meta property="og:title" content="FINRA x SCADpro | Case Study" />
-  <meta property="og:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Work covered by NDA. Available to discuss on request." />
+  <meta property="og:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <meta property="og:image" content="https://carsonohara.com/images/og/finra.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="FINRA x SCADpro" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FINRA x SCADpro | Case Study" />
-  <meta name="twitter:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Work covered by NDA. Available to discuss on request." />
+  <meta name="twitter:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/finra.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script defer src="js/main.js"></script>
   <script defer src="js/case-zoom.js"></script>
+  <script defer src="js/case-toc.js"></script>
 </head>
 <body class="case-study case-study-finra">
   <!-- SVG icon symbols (used throughout the site) -->
@@ -67,6 +69,8 @@
       </div>
     </section>
 
+    <nav class="case-toc" aria-label="Sections in this case study"></nav>
+
     <div class="case-wrap container" id="case-content">
       <!-- Overview block -->
       <div class="case-overview-convoy fade-in">
@@ -84,11 +88,13 @@
         <div class="case-overview-grid">
           <div class="case-overview-col">
             <h3>Overview</h3>
-            <p>During this 10 week SCADpro collaboration, our team worked with FINRA to research and develop concepts for redesigning their logged-in systems. We focused on creating a cohesive, role-based digital experience that unifies separate platforms into intuitive workflows. Our goal was to simplify how Broker Dealer Staff, Investors, and regulators access and navigate these complex tools.</p>
+            <p>FINRA regulates brokers and brokerage firms in the United States, and the people who deal with it do not all want the same things. Broker dealer staff, investors and regulators each arrive with different work to do, and they arrive across a set of logged in platforms that were never designed to sit together.</p>
+            <p>SCADpro brought our class in for a ten week collaboration to look at the logged in experience. The goal was one login and one dashboard, with access shaped by permissions, across platforms that had never been designed to sit together.</p>
           </div>
           <div class="case-overview-col">
             <h3>My Role</h3>
-            <p>I focused on the research and prototyping phases to help our team understand how other financial institutions handle role-based dashboards. This research gave us a great starting point for our own design decisions. I then worked on building the high-fidelity prototype to show how our unified workflows would actually function in a real-world setting.</p>
+            <p>I ran the comparator research with one teammate, which was our portion of the first phase. Later I helped design screens in Figma with most of the team, then did the bulk of the work turning those screens into a working high fidelity prototype alongside two others. The prototype is the part I own most clearly.</p>
+            <p class="muted">Everything shown here is our team&rsquo;s own work, running on invented data. FINRA&rsquo;s own screens and internal figures are not published.</p>
           </div>
         </div>
       </div>
@@ -98,11 +104,107 @@
         <img class="case-image case-image--no-shadow" src="images/case-study-finra/Finrateamphoto.webp" alt="FINRA x SCADpro team photo" loading="lazy" decoding="async" width="1600" height="1200">
       </div>
 
-      <section class="case-phase fade-in" style="margin-top:40px; margin-bottom:40px;">
-        <p class="case-phase-label">Learn More</p>
-        <h2>Although I can't show any designs, I would love to discuss this amazing project with you!</h2>
-        <p><a class="btn primary" href="mailto:contact@carsonohara.com"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> Contact Me</a></p>
-      </section>
+      <article class="case-main">
+
+        <section id="research" class="case-phase case-section-spaced">
+          <p class="case-phase-label">Research</p>
+          <h2>We started with banks, and the answer turned out to be Discord.</h2>
+          <p>A teammate and I ran the comparator study. We began with financial institutions, since that was the obvious place to look, and widened once we understood what we were actually solving. Four sets, each with a question we wanted answered: how high trust organizations help people act in regulated environments (Chase, Rocket Money, Plaid), how one system changes what it shows depending on who signed in (Discord, Microsoft Teams, Notion), how services shape a screen around intent (Netflix, Amazon, Spotify), and how assistants work against private company data instead of the open web (AWS, Dropbox Dash, Notion AI).</p>
+          <p>Two of them shaped what we built. The first was Discord, which is nowhere near finance and was the most useful thing we looked at. Everyone enters through the same door, and then the sidebar and tools reorganize completely around your role in that particular server. Destructive actions like deleting a channel sit in a separate admin view, so ordinary members never trip over them. Teams and Notion do quieter versions of the same idea.</p>
+          <p>The second was Plaid, for how it manages access rather than how it looks. Data sharing is explicit, limited, and revocable. Access is token based and scoped to a permission rather than to a person. Trust comes from governance rather than from anything on screen, which is close to a specification for what a FINRA login has to do.</p>
+          <p>Between them: one front door, everything behind it reshaped by what you are permitted to do, and permissions treated as the structure rather than as a setting.</p>
+        </section>
+
+        <section id="insight" class="case-phase case-section-spaced">
+          <p class="case-phase-label">The Finding</p>
+          <h2>Job titles turned out to be the wrong way to organize the system.</h2>
+          <p>The obvious way to build permissions is around who somebody is. Give a title, get a dashboard. It is how most enterprise software works and it is what we assumed we would be designing.</p>
+          <p>Our research pointed somewhere else. People do not arrive at a system like this thinking about their title. They arrive with a thing they need to get done, and the same person can need very different things depending on which hat they are wearing that morning. Once we sorted by work rather than by role, the sprawl collapsed into four kinds of task: compliance maintenance, rule interpretation, investment guidance, and data access.</p>
+          <p>That produced the idea we built everything else on, which we called the lobby. One entry point that reads your entitlements when you authenticate, then assembles the space around what you are allowed and expected to do. You should not have to know which of several systems happens to hold your answer.</p>
+          <div class="case-media">
+            <img class="case-image" src="images/case-study-finra/prototype-account-switcher.webp" alt="The account switcher: one person listed across several firms and a separate individual registration, with urgent tasks flagged per account" loading="lazy" decoding="async" width="1456" height="814">
+          </div>
+          <p class="muted" style="margin-top:12px">The account switcher. One person, several firms, one individual registration, and a flag on whichever ones need attention. Everything runs on invented data.</p>
+
+        </section>
+
+        <section id="testing" class="case-phase case-section-spaced">
+          <p class="case-phase-label">Testing</p>
+          <h2>Everyone finished every task, which was not a good result.</h2>
+          <p>We tested a mid fidelity prototype with 18 participants aged 18 to 40 across five tasks: log in with a firm account, use the assistant to learn how to complete Form U4, find where to submit it, read notifications, and switch between accounts. A second version with different visual treatment ran alongside it so we could compare. I helped write the tasks and sat in on most of the sessions.</p>
+          <p>Completion was 100% on every task. Almost nothing else was.</p>
+          <p><strong>Logging in.</strong> No errors at all, and 30% still reported low trust while doing it. The confusion that did show up clustered on one thing: account status and account selection were not obvious.</p>
+          <p><strong>The assistant.</strong> The most friction of any task. 44% hit medium or high confusion, and the cause was discoverability rather than the answers. People could not tell where the assistant began.</p>
+          <p><strong>Finding the submission portal.</strong> Clean on paper, 0% errors. But several people did not recognize text as clickable, so they found it slowly and by accident.</p>
+          <p><strong>Notifications.</strong> The gap between the numbers and reality was widest here. 100% completion, 30% logged errors, and 22% high confusion among people who had just succeeded. They could not tell which account a notification had come from.</p>
+          <p><strong>Switching accounts.</strong> Multiple people said it felt sudden, or disconnected from the rest of the experience. The most common failure across the whole study was feedback: the system doing something without saying so.</p>
+          <p>A completion rate is the easiest number to report and it would have told us the design was finished. The way our team put it afterwards was that trust drops before usability does, and that account switching failed at feedback rather than at function. Nothing was broken. People just could not tell what had happened. That gap became the thing we designed against for the rest of the project.</p>
+          </section>
+
+        <section id="pivot" class="case-phase case-section-spaced">
+          <p class="case-phase-label">Week 7</p>
+          <h2>The client moved the target with a week and a half left.</h2>
+          <p>Our week 7 presentation was meant to confirm the usability improvements. The client took us somewhere else instead. They wanted FINRA.org content pulled into the task workflow rather than sitting next to it, which turned a login redesign into a portal that had to hold together across FinPro, Gateway, and Arbitration.</p>
+          <p>I was disappointed for about a day. It was substantially more work, and we had roughly a week and a half left. It was also the right call, and we went back to the drawing board with a much clearer sense of what they actually wanted.</p>
+        </section>
+
+        <section id="changes" class="case-phase case-section-spaced">
+          <p class="case-phase-label">What We Changed</p>
+          <h2>Three of the fixes came straight off the testing sheet.</h2>
+          <p>Testing is only worth the time it costs if something moves afterwards. Three things did, and each one points back at a specific finding.</p>
+          <p><strong>The assistant moved out of the search bar.</strong> People could not tell where it began, so it stopped sharing a box with search and became its own control. That was the 44% confusion, addressed at its cause rather than with better copy.</p>
+          <p><strong>Account switching became a page instead of a panel.</strong> People said it felt sudden. A panel slides over the work you were in the middle of. A page is somewhere you go, and when you arrive you can see every profile you hold at once.</p>
+          <p><strong>Filings and the sidebar got progress bars and status tags.</strong> The most common failure in the whole study was feedback, so the system started saying what state things were in instead of leaving people to work it out.</p>
+          <p>Two more came out of the client's redirect. The assistant now also lives on FINRA.org itself, with a route back into the dashboard, so the public site and the logged in system stop behaving like separate places. And signing in with a username skips account selection altogether and lands you on the dashboard attached to it.</p>
+          <p>One came from the forum research, where people described losing work to being signed out partway through a filing. The system now asks whether you want to stay.</p>
+        </section>
+
+        <section id="prototype" class="case-phase case-section-spaced">
+          <p class="case-phase-label">Building It</p>
+          <h2>A flow can read perfectly on an artboard and still fall apart.</h2>
+          <p>Most of what our team designed only became real once someone built it. That was mostly me, working with two others, turning the Figma screens into something you could actually sign into and move through.</p>
+          <div class="case-media">
+            <img class="case-image" src="images/case-study-finra/prototype-dashboard.webp" alt="The dashboard, showing work grouped by state: due soon, in progress and updates, with filings tracked by completion" loading="lazy" decoding="async" width="1456" height="814">
+          </div>
+          <p class="muted" style="margin-top:12px">The dashboard groups work by state rather than by which system it came from.</p>
+
+          <p>That included the account switcher, which other people on the team designed and I implemented. It is the piece I would point at first, because it answers the research directly. One person, several firms, one individual registration, and a system that tells you which of those you are currently acting inside. The assistant went in the same way, scoped to filings, compliance and reports rather than being a general chatbot.</p>
+          <div class="case-media">
+            <img class="case-image" src="images/case-study-finra/prototype-assistant.webp" alt="The assistant panel, opening with prompts about filing a Form U4 and checking filing status" loading="lazy" decoding="async" width="1456" height="814">
+          </div>
+          <p class="muted" style="margin-top:12px">The assistant opens on the things people actually come here to do, rather than an empty box.</p>
+
+          <p>The login flow is where the gap showed up. It made sense on the artboards. Coded, clickable, and carrying real state between steps, it did not hold, and the client did not like our first couple of iterations either. We rebuilt it more than once.</p>
+          <p>That is most of what I took from this project. A flow can read perfectly as a sequence of screens and still fall apart the moment someone can move through it at their own pace, in the wrong order, with a decision already made two steps back. I would rather find that out in a prototype than in a handoff.</p>
+        </section>
+
+        <section id="outcome" class="case-phase case-section-spaced">
+          <p class="case-phase-label">How It Landed</p>
+          <h2>They told us they planned to implement it.</h2>
+          <p>We presented in week 10. The client told us they liked it and that they were planning to implement the changes. I do not know whether they have.</p>
+          <p>The most useful part of their feedback was not the praise. The trust gap we had found around the AI, where it plainly made things easier and people still hesitated to lean on it, was the part they engaged with most closely. Having a finding land with people who know the domain far better than you do is a different kind of confirmation than a good testing score.</p>
+          <p>They pushed back too. They were worried the assistant would end up covering the content it was meant to help with, and they asked how we would keep features from duplicating each other as the system grew. Both are fair, and both are the kind of question you only get from someone who has to live with the thing after you leave.</p>
+        </section>
+
+        <section id="reflection" class="case-phase case-section-spaced">
+          <p class="case-phase-label">What I'd Do Differently</p>
+          <h2>I would have asked the embarrassing questions in week one.</h2>
+          <p>None of us had worked in this industry, and the vocabulary alone took weeks to get comfortable with. That was the biggest drag on the project and it was the most fixable. I would spend the first week asking basic questions I was slightly embarrassed to ask, instead of picking it up as I went.</p>
+          <p>Beyond that, I am proud of how the team worked and of what we handed over.</p>
+        </section>
+
+        <section id="try" class="case-phase case-section-spaced">
+          <p class="case-phase-label">Try It</p>
+          <h2>The prototype is live. Sign in with anything.</h2>
+          <p>This is the working build, not a video of one. Any email and password get you in, the two factor code accepts any four digits, and everything after that is the design we handed over. The account switcher is the piece I would look at first: it is the research from the top of this page turned into a screen.</p>
+          <p>It runs on invented data. The firms, filings and people in it are made up.</p>
+          <p>
+            <a class="btn primary" href="https://finra-dashboard-final.replit.app/" target="_blank" rel="noopener">Open the prototype <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a class="btn" href="mailto:contact@carsonohara.com" style="margin-left:8px">Ask me about it</a>
+          </p>
+        </section>
+
+        </article>
 
       <nav class="case-study-nav fade-in" aria-label="Case study projects">
         <a class="case-nav-link case-nav-link--back" href="case-study-bigbus.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Previous Project</a>
@@ -110,9 +212,9 @@
       </nav>
 
       <!--
-        Detailed case study sections intentionally omitted: this engagement is
-        covered by an NDA. The scaffold and the prototype embed were removed
-        from source rather than hidden, so no NDA-covered URLs are published.
+        Published under the SCADpro agreement's portfolio provision: this is our
+        team's own work. No FINRA-owned designs, screenshots or internal figures
+        appear here, and all data in the prototype is invented.
       -->
     </div>
   </main>

@@ -1,6 +1,19 @@
 // main.js — interactions for portfolio
 // Features: hamburger toggle, smooth scroll helpers, header scroll change, fade-in on scroll, back-to-top
 
+// Publish the scrollbar width so full-bleed sections can break out without
+// overflowing. 100vw counts the scrollbar; the content box does not, so a
+// vw-based breakout is wider than the page by exactly this much. Set before
+// first paint rather than on DOMContentLoaded so the hero never renders wrong.
+(function () {
+  function setScrollbarWidth() {
+    var w = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty('--sbw', (w > 0 ? w : 0) + 'px');
+  }
+  setScrollbarWidth();
+  window.addEventListener('resize', setScrollbarWidth, { passive: true });
+})();
+
 document.addEventListener('DOMContentLoaded', function(){
   // Set year in footer
   const yearEl = document.getElementById('year');

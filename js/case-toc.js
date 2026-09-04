@@ -67,6 +67,11 @@
     }
     window.addEventListener('scroll', syncRail, { passive: true });
     window.addEventListener('resize', syncRail, { passive: true });
+    // Landing on a section link scrolls the page after DOMContentLoaded, and
+    // that jump fires no scroll event. Without these the rail stays hidden for
+    // anyone who follows a link the rail itself produced.
+    window.addEventListener('hashchange', syncRail);
+    window.addEventListener('load', syncRail);
     syncRail();
   });
 })();
