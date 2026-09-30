@@ -1,5 +1,5 @@
 // main.js — interactions for portfolio
-// Features: hamburger toggle, smooth scroll helpers, header scroll change, fade-in on scroll, back-to-top
+// Features: menu, smooth scroll, header state, fade-in on scroll, back-to-top, carousels, gallery lightbox
 
 // Publish the scrollbar width so full-bleed sections can break out without
 // overflowing. 100vw counts the scrollbar; the content box does not, so a
@@ -19,27 +19,60 @@ document.addEventListener('DOMContentLoaded', function(){
   const yearEl = document.getElementById('year');
   if(yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollBehavior = reduceMotion ? 'auto' : 'smooth';
+
   // Mobile nav toggle
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-nav');
-  navToggle && navToggle.addEventListener('click', function(){
-    const visible = primaryNav.getAttribute('data-visible') === 'true';
-    primaryNav.setAttribute('data-visible', String(!visible));
-    navToggle.setAttribute('aria-expanded', String(!visible));
+  const menuLinks = primaryNav ? Array.from(primaryNav.querySelectorAll('a')) : [];
+  const menuOpen = () => primaryNav && primaryNav.getAttribute('data-visible') === 'true';
+
+  function setMenu(open, returnFocus, fromKeyboard){
+    if(!primaryNav || !navToggle) return;
+    primaryNav.setAttribute('data-visible', String(open));
+    navToggle.setAttribute('aria-expanded', String(open));
     // toggle visual open class for hamburger morph
-    navToggle.classList.toggle('open', !visible);
-  });
+    navToggle.classList.toggle('open', open);
+    // The menu comes before the toggle in the source (the desktop header needs
+    // that order), so Tab after opening would skip it. Move focus in instead.
+    // Only for keyboard users; a tap shouldn't paint a focus ring on Home.
+    if(open && fromKeyboard && menuLinks[0]) menuLinks[0].focus();
+    if(!open && returnFocus) navToggle.focus();
+  }
+
+  // detail is 0 when the button was activated with Enter or Space
+  navToggle && navToggle.addEventListener('click', (e) => setMenu(!menuOpen(), false, e.detail === 0));
 
   // Close mobile menu when a nav link is clicked
-  document.querySelectorAll('.primary-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      if(primaryNav.getAttribute('data-visible') === 'true'){
-        primaryNav.setAttribute('data-visible', 'false');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.classList.remove('open');
-      }
-    });
+  menuLinks.forEach(link => link.addEventListener('click', () => { if(menuOpen()) setMenu(false, false); }));
+
+  // While open, Tab cycles through the menu links and the toggle only
+  document.addEventListener('keydown', (e) => {
+    if(e.key !== 'Tab' || !menuOpen()) return;
+    const cycle = [...menuLinks, navToggle];
+    const i = cycle.indexOf(document.activeElement);
+    if(i === -1) return;
+    const next = e.shiftKey ? (i - 1 + cycle.length) % cycle.length : (i + 1) % cycle.length;
+    e.preventDefault();
+    cycle[next].focus();
   });
+
+  // Tapping anywhere outside the open menu closes it. That tap only dismisses:
+  // it must not also open the project card that happened to be underneath.
+  document.addEventListener('pointerdown', (e) => {
+    if(!menuOpen() || primaryNav.contains(e.target) || navToggle.contains(e.target)) return;
+    setMenu(false, false);
+    const swallow = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
+    document.addEventListener('click', swallow, {capture:true, once:true});
+    // If no click follows (a scroll or drag), drop the listener
+    setTimeout(() => document.removeEventListener('click', swallow, {capture:true}), 600);
+  });
+
+  // Crossing into the desktop layout resets the menu so it can't reappear open later
+  const desktopQuery = window.matchMedia('(min-width: 769px)');
+  const resetMenu = () => { if(desktopQuery.matches && menuOpen()) setMenu(false, false); };
+  desktopQuery.addEventListener ? desktopQuery.addEventListener('change', resetMenu) : desktopQuery.addListener(resetMenu);
 
   // Header background change on scroll
   const header = document.getElementById('site-header');
@@ -53,15 +86,36 @@ document.addEventListener('DOMContentLoaded', function(){
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  // Smooth scroll for internal links (including back-to-top)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Dark hero (FINRA): flag the header while it overlaps the hero so the
+  // pills and hamburger switch to light-on-dark.
+  const darkHero = document.querySelector('.case-study-finra .case-hero-full, .case-study-contio .case-hero-full');
+  if(darkHero && header && 'IntersectionObserver' in window){
+    const headerH = () => header.getBoundingClientRect().height || 64;
+    let heroObserver;
+    const watchHero = () => {
+      if(heroObserver) heroObserver.disconnect();
+      heroObserver = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('on-dark', entry.isIntersecting);
+      }, {rootMargin: `0px 0px -${Math.round(window.innerHeight - headerH())}px 0px`});
+      heroObserver.observe(darkHero);
+    };
+    watchHero();
+    window.addEventListener('resize', () => { clearTimeout(watchHero.t); watchHero.t = setTimeout(watchHero, 150); });
+  }
+
+  // Smooth scroll for internal links (skip link, table of contents). Focus
+  // moves with the scroll, or the next Tab starts from where the reader was.
+  document.querySelectorAll('a[href^="#"]:not(.back-to-top)').forEach(anchor => {
     anchor.addEventListener('click', function(e){
       const href = this.getAttribute('href');
       if(href.length > 1){
         const target = document.querySelector(href);
         if(target){
           e.preventDefault();
-          target.scrollIntoView({behavior:'smooth', block:'start'});
+          target.scrollIntoView({behavior:scrollBehavior, block:'start'});
+          if(!target.hasAttribute('tabindex') && !target.matches('a, button, input, textarea, select')) target.setAttribute('tabindex', '-1');
+          target.focus({preventScroll:true});
+          if(history.replaceState) history.replaceState(null, '', href);
         }
       }
     });
@@ -80,23 +134,29 @@ document.addEventListener('DOMContentLoaded', function(){
   }, appearOptions);
   faders.forEach(f => appearOnScroll.observe(f));
 
-  // Back to top link handling (if present)
+  // Shared helper for the two overlays: make everything behind the dialog
+  // inert so Tab can't wander onto the page underneath it.
+  window.setBackgroundInert = function(dialogRoot, on){
+    Array.from(document.body.children).forEach(el => {
+      if(el === dialogRoot || el.contains(dialogRoot) || el.tagName === 'SCRIPT') return;
+      if(on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+    });
+  };
+
+  // Back to top: scroll up and put focus back at the start of the page
   const backToTop = document.querySelector('.back-to-top');
   if(backToTop){
     backToTop.addEventListener('click', function(e){
       e.preventDefault();
-      window.scrollTo({top:0,behavior:'smooth'});
+      window.scrollTo({top:0,behavior:scrollBehavior});
+      const logo = document.querySelector('.logo-mark');
+      if(logo) logo.focus({preventScroll:true});
     });
   }
 
   // Close mobile nav with Escape key
   document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && primaryNav.getAttribute('data-visible') === 'true'){
-      primaryNav.setAttribute('data-visible', 'false');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.classList.remove('open');
-      navToggle.focus();
-    }
+    if(e.key === 'Escape' && menuOpen()) setMenu(false, true);
   });
 
   // Highlight active nav link based on pathname
@@ -108,74 +168,6 @@ document.addEventListener('DOMContentLoaded', function(){
       if(href === current) a.classList.add('active');
     }catch(err){/* ignore */}
   });
-
-  // Work page filtering
-  const filterBar = document.querySelector('.filters');
-  if(filterBar){
-    const buttons = filterBar.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('[data-tags]');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        projects.forEach(p => {
-          const tags = p.getAttribute('data-tags').split(',');
-          if(filter === 'all') p.style.display = '';
-          else if(tags.includes(filter)) p.style.display = '';
-          else p.style.display = 'none';
-        });
-      });
-    });
-  }
-
-  // Projects carousel pause-on-hover/focus
-  const carousels = document.querySelectorAll('.projects-carousel');
-  // compute scroll width (half of the duplicated track) so animation moves exactly one full set
-  function setCarouselMetrics(){
-    carousels.forEach(car => {
-      const track = car.querySelector('.carousel-track');
-      if(!track) return;
-      const cards = Array.from(track.querySelectorAll('.project-card, .project-card-large'));
-      if(!cards.length) return;
-
-      // Measure the first "real" set directly so loop distance stays exact even
-      // when card sizing changes and the duplicated half is not perfectly 50/50.
-      let firstSet = cards.filter(card => !card.classList.contains('is-duplicate'));
-      if(!firstSet.length){
-        // Fallback if markup has no duplicate markers.
-        const total = track.scrollWidth;
-        track.style.setProperty('--scrollWidth', (total / 2) + 'px');
-        return;
-      }
-
-      // Include the gaps between first-set items in the travel distance.
-      const gapValue = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap || '0') || 0;
-      const cardsWidth = firstSet.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
-      const gapsWidth = Math.max(0, firstSet.length - 1) * gapValue;
-      const scrollWidth = cardsWidth + gapsWidth;
-      track.style.setProperty('--scrollWidth', scrollWidth + 'px');
-    });
-  }
-  setCarouselMetrics();
-  // Recompute once everything is laid out (fonts/images) so the loop distance is exact.
-  window.addEventListener('load', setCarouselMetrics, { once: true });
-  setTimeout(setCarouselMetrics, 300);
-  let resizeTimer = null;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setCarouselMetrics, 150);
-  });
-  carousels.forEach(car => {
-    const track = car.querySelector('.carousel-track');
-    if(!track) return;
-    car.addEventListener('mouseenter', () => track.classList.add('paused'));
-    car.addEventListener('mouseleave', () => track.classList.remove('paused'));
-    car.addEventListener('focusin', () => track.classList.add('paused'));
-    car.addEventListener('focusout', () => track.classList.remove('paused'));
-  });
-
-  // Note: carousel motion is handled by CSS animation; JS only sets --scrollWidth.
 
   // Make project cards clickable anywhere inside the card
   function makeCardsClickable(){
@@ -212,21 +204,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   makeCardsClickable();
 
-  // Basic form validation placeholder (non-functional form may exist on contact page)
-  const contactForm = document.querySelector('form.contact-form');
-  if(contactForm){
-    contactForm.addEventListener('submit', function(e){
-      const name = contactForm.querySelector('[name="name"]');
-      const email = contactForm.querySelector('[name="email"]');
-      const message = contactForm.querySelector('[name="message"]');
-      let ok = true;
-      if(!name.value.trim()){ok=false;name.focus();alert('Please enter your name.');}
-      else if(!email.value.trim()){ok=false;email.focus();alert('Please enter your email.');}
-      else if(!message.value.trim()){ok=false;message.focus();alert('Please enter a message.');}
-      if(!ok) e.preventDefault();
-    });
-  }
-
   // Photography gallery: generate placeholders and wire lightbox/modal behavior
   (function(){
     const grid = document.getElementById('gallery-grid');
@@ -240,13 +217,13 @@ document.addEventListener('DOMContentLoaded', function(){
     
     if(isPhotographyPage){
       // Photography images: MTEN first, BSUBall second, WSOC last (all .webp)
-      altPrefix = 'Photography';
+      altPrefix = 'Sports photograph';
       for(let i = 1; i <= 18; i++) imageFiles.push(`images/photography/MTEN${i}.webp`);
       for(let i = 1; i <= 19; i++) imageFiles.push(`images/photography/BSUBall${i}.webp`);
       for(let i = 1; i <= 8; i++) imageFiles.push(`images/photography/WSOC${i}.webp`);
     } else {
       // Graphic Design images: SCAD, Boise, sbe, random (all .webp)
-      altPrefix = 'Graphic Design';
+      altPrefix = 'Sports graphic';
       imageFiles = [
         'images/Graphic Design Showcase/SCAD14.webp',
         'images/Graphic Design Showcase/SCAD15.webp',
@@ -287,9 +264,11 @@ document.addEventListener('DOMContentLoaded', function(){
     // Modal keeps the full-resolution originals; the grid uses 640px thumbs.
     // Thumbs render in a ~316px column, so the originals (up to 4640x5800)
     // were roughly 90x more pixels than the grid could ever show.
+    // TODO(Carson): real descriptions per image. Until then the alt text says
+    // what kind of image it is and where it sits in the set, not "Photography 12".
     const items = imageFiles.map((src, idx) => ({
       src,
-      alt: `${altPrefix} ${idx + 1}`
+      alt: `${altPrefix} ${idx + 1} of ${imageFiles.length}`
     }));
 
     const thumbFor = (src) => src.replace(/\/([^/]+)$/, '/thumbs/$1');
@@ -311,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function(){
         btn.style.backgroundImage = `url('${src}')`;
         btn.classList.add('loaded');
       };
-      img.onerror = () => { btn.classList.add('loaded'); };
+      img.onerror = () => { btn.classList.add('loaded', 'is-broken'); };
       img.src = src;
     }
     
@@ -327,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.className = 'gallery-thumb';
       btn.setAttribute('data-index', i);
       btn.setAttribute('data-src', thumbFor(src)); // grid uses the thumb; modal uses the original
-      btn.setAttribute('aria-label', `Open image ${i + 1}`);
+      btn.setAttribute('aria-label', `Open ${items[i].alt.toLowerCase()}`);
 
       // Load top 2 rows immediately, others will be lazy loaded
       if(i < topTwoRows){
@@ -369,11 +348,12 @@ document.addEventListener('DOMContentLoaded', function(){
       
       const appearOptions = {threshold: 0.12, rootMargin: '0px 0px -20px 0px'};
       const appearOnScroll = new IntersectionObserver(function(entries, observer){
+        // Reveal once. Removing .visible on exit made every image fade out
+        // again when scrolled away, and fast scrolling showed blank cells.
         entries.forEach(entry => {
           if(entry.isIntersecting){
             entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
+            observer.unobserve(entry.target);
           }
         });
       }, appearOptions);
@@ -394,20 +374,28 @@ document.addEventListener('DOMContentLoaded', function(){
     let current = 0;
     let lastActive = null;
 
+    function preload(i){ const im = new Image(); im.src = items[(i + items.length) % items.length].src; }
+
     function render(){
       // replace only the image inside mediaWrap to preserve controls
       const img = document.createElement('img');
       img.className = 'gallery-large';
-      img.src = items[current].src;
       img.alt = items[current].alt;
-      img.loading = 'lazy';
+      // The grid thumbnail is already cached: show it behind the full image
+      // so the frame is never an empty box while the original downloads.
+      img.style.backgroundImage = `url('${thumbFor(items[current].src)}')`;
+      img.addEventListener('load', () => { img.style.backgroundImage = ''; }, {once:true});
+      img.src = items[current].src;
       // remove existing image if present
       const existing = mediaWrap.querySelector('img.gallery-large');
       if(existing) existing.remove();
       // insert as first child so controls (absolutely positioned) sit on top
       mediaWrap.insertBefore(img, mediaWrap.firstChild);
       if(counter) counter.textContent = `${current+1} / ${items.length}`;
+      preload(current + 1); preload(current - 1);
     }
+
+    const go = (step) => { current = (current + step + items.length) % items.length; render(); };
 
     function openModal(index){
       current = index;
@@ -415,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function(){
       modal.setAttribute('aria-hidden','false');
       modal.classList.add('open');
       document.body.classList.add('modal-open');
+      if(window.setBackgroundInert) window.setBackgroundInert(modal, true);
       render();
       // focus close button for keyboard users
       closeBtn.focus();
@@ -424,28 +413,29 @@ document.addEventListener('DOMContentLoaded', function(){
       modal.setAttribute('aria-hidden','true');
       modal.classList.remove('open');
       document.body.classList.remove('modal-open');
+      if(window.setBackgroundInert) window.setBackgroundInert(modal, false);
       // Only remove the image, not the entire media-wrap container
       const existing = mediaWrap.querySelector('img.gallery-large');
       if(existing) existing.remove();
-      if(lastActive && typeof lastActive.focus === 'function') lastActive.focus();
+      // Return to the thumbnail of the image being viewed, not the one first opened
+      const thumb = grid.querySelector(`.gallery-thumb[data-index="${current}"]`) || lastActive;
+      if(thumb && typeof thumb.focus === 'function') thumb.focus();
     }
 
-    // add pressed visual feedback then perform actions
-    prevBtn.addEventListener('click', (e)=>{ 
-      prevBtn.classList.add('pressed');
-      // navigate immediately, but remove pressed + blur after short delay so the pressed look is brief
-      current = (current-1 + items.length) % items.length; render(); 
-      setTimeout(()=>{ prevBtn.classList.remove('pressed'); try{ prevBtn.blur(); }catch(_){} }, 160);
-    });
-    nextBtn.addEventListener('click', (e)=>{ 
-      nextBtn.classList.add('pressed');
-      current = (current+1) % items.length; render(); 
-      setTimeout(()=>{ nextBtn.classList.remove('pressed'); try{ nextBtn.blur(); }catch(_){} }, 160);
-    });
-    closeBtn.addEventListener('click', (e)=>{ 
-      closeBtn.classList.add('pressed');
-      setTimeout(()=>{ closeBtn.classList.remove('pressed'); try{ closeBtn.blur(); }catch(_){}; closeModal(); }, 160);
-    });
+    // Focus stays on the arrow that was pressed, so Enter can be pressed again
+    prevBtn.addEventListener('click', () => go(-1));
+    nextBtn.addEventListener('click', () => go(1));
+    closeBtn.addEventListener('click', closeModal);
+
+    // Swipe left/right on the image to move through the set
+    let touchX = null, touchY = null;
+    mediaWrap.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }, {passive:true});
+    mediaWrap.addEventListener('touchend', (e) => {
+      if(touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX, dy = e.changedTouches[0].clientY - touchY;
+      if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
+      touchX = touchY = null;
+    }, {passive:true});
     // Allow clicking the blurred background to close (but not the image or controls)
     modal.addEventListener('click', (e) => {
       // If click is inside the image frame or on controls, do nothing
@@ -457,11 +447,23 @@ document.addEventListener('DOMContentLoaded', function(){
     document.addEventListener('keydown', (e) => {
       if(!modal.classList.contains('open')) return;
       if(e.key === 'Escape') closeModal();
-      else if(e.key === 'ArrowLeft'){ current = (current-1 + items.length) % items.length; render(); }
-      else if(e.key === 'ArrowRight'){ current = (current+1) % items.length; render(); }
+      else if(e.key === 'ArrowLeft') go(-1);
+      else if(e.key === 'ArrowRight') go(1);
     });
 
   })();
+
+  // Swipe support for the case-study carousels
+  function addSwipe(el, onPrev, onNext){
+    let x = null, y = null;
+    el.addEventListener('touchstart', (e) => { x = e.touches[0].clientX; y = e.touches[0].clientY; }, {passive:true});
+    el.addEventListener('touchend', (e) => {
+      if(x === null) return;
+      const dx = e.changedTouches[0].clientX - x, dy = e.changedTouches[0].clientY - y;
+      if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? onNext : onPrev)();
+      x = y = null;
+    }, {passive:true});
+  }
 
   // Big Bus Design Gallery
   (function(){
@@ -504,8 +506,13 @@ document.addEventListener('DOMContentLoaded', function(){
       else if(e.key === 'ArrowRight'){ nextSlide(e); }
     });
 
-    // Make gallery focusable for keyboard navigation
+    // Make gallery focusable for keyboard navigation, and name it
     gallery.setAttribute('tabindex', '0');
+    gallery.setAttribute('role', 'region');
+    gallery.setAttribute('aria-roledescription', 'carousel');
+    if(!gallery.hasAttribute('aria-label')) gallery.setAttribute('aria-label', 'Big Bus app screens. Use the arrow keys to move between screens.');
+    if(counter) counter.setAttribute('aria-live', 'polite');
+    addSwipe(gallery, prevSlide, nextSlide);
     
     // Initialize
     updateGallery();
@@ -546,6 +553,13 @@ document.addEventListener('DOMContentLoaded', function(){
       else if(e.key === 'ArrowRight'){ e.preventDefault(); currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); }
     });
     carousel.setAttribute('tabindex', '0');
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-roledescription', 'carousel');
+    if(!carousel.hasAttribute('aria-label')) carousel.setAttribute('aria-label', 'Mose prototype screens. Use the arrow keys to move between screens.');
+    if(counter) counter.setAttribute('aria-live', 'polite');
+    addSwipe(carousel,
+      () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateCarousel(); },
+      () => { currentIndex = (currentIndex + 1) % slides.length; updateCarousel(); });
     updateCarousel();
   })();
 });

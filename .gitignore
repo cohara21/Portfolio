@@ -5,3 +5,23 @@
 .agents/
 .claude/
 skills-lock.json
+
+# Home page direction previews — local only
+home-design.html
+home-film.html
+home-letters.html
+home-command.html
+home-sketch.html
+home-design-plus.html
+home-resize.html
+images/index/spatial-env.webp
+home-lineup.html
+home-dash.html
+home-spatial.html
+home-broadcast.html
+home-telemetry.html
+home-drop.html
+home-premium.html
+home-gameday.html
+home-timeline.html
+home-accordion.html

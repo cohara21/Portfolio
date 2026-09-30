@@ -5,28 +5,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
   <title>About | Carson O'Hara</title>
-  <meta name="description" content="About Carson O'Hara, designer and builder. SCAD BFA in UX Design, currently designing at Contio." />
+  <meta name="description" content="About Carson O&#x27;Hara, product designer. SCAD BFA in UX Design, currently designing at Contio." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/about.html" />
   <meta property="og:title" content="About | Carson O&#x27;Hara" />
-  <meta property="og:description" content="About Carson O&#x27;Hara, designer and builder. SCAD BFA in UX Design, currently designing at Contio." />
+  <meta property="og:description" content="About Carson O&#x27;Hara, product designer. SCAD BFA in UX Design, currently designing at Contio." />
   <meta property="og:image" content="https://carsonohara.com/images/og/home.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Carson O&#x27;Hara, designer and builder" />
+  <meta property="og:image:alt" content="Carson O&#x27;Hara, product designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About | Carson O&#x27;Hara" />
-  <meta name="twitter:description" content="About Carson O&#x27;Hara, designer and builder. SCAD BFA in UX Design, currently designing at Contio." />
+  <meta name="twitter:description" content="About Carson O&#x27;Hara, product designer. SCAD BFA in UX Design, currently designing at Contio." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/home.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script defer src="js/stack.js?v=4"></script>
-  <script defer src="js/dot-grid-background.js"></script>
+  <link rel="canonical" href="https://carsonohara.com/about.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/stack.js?v=5"></script>
   <script defer src="js/main.js"></script>
 </head>
-<body class="about-page">
+<body class="about-page" id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -39,7 +44,7 @@
     <div class="container header-inner">
       <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="work.html" class="nav-link">Work</a></li>
@@ -50,7 +55,7 @@
       </div>
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -229,11 +234,11 @@
         <li>Football</li>
         <li class="about-interest-basketball" tabindex="0">
           Basketball (I love LeBron)
-          <span class="about-interest-basketball__pop" aria-hidden="true">
+          <span class="about-interest-basketball__pop">
             <span class="about-interest-basketball__pop-media">
-              <img src="images/about/Lebron.webp" alt="" loading="lazy" decoding="async" width="675" height="900">
+              <img src="images/about/Lebron.webp" alt="Carson wearing a Lakers number 23 LeBron James jersey" loading="lazy" decoding="async" width="675" height="900">
             </span>
-            <span class="about-interest-basketball__see">see!</span>
+            <span class="about-interest-basketball__see" aria-hidden="true">see!</span>
           </span>
         </li>
       </ul>
@@ -242,17 +247,17 @@
     <section class="about-stadium-section fade-in">
       <div class="about-stadium-copy">
         <h2>Sports are a big part of <br>how I see design.</h2>
-        <p>I have attended over 100 games across different leagues and sports. Hover the photos to see a few of the stadium that keep me inspired.</p>
+        <p>I have attended over 100 games across different leagues and sports. Tap or hover the photos to see a few of the stadiums that keep me inspired.</p>
       </div>
       <div class="about-stack-wrap">
-        <div id="about-stack" class="stack-container" aria-label="Stadium photos"></div>
+        <div id="about-stack" class="stack-container"><img src="images/about/stack-640/stadium1.webp" alt="Stadium photo" width="320" height="320" class="stack-fallback"></div>
       </div>
     </section>
 
     <section class="section contact-cta fade-in">
       <h2>Want to work together?</h2>
       <p class="muted">Get in touch and let's talk about your product challenges.</p>
-      <p><a class="btn primary" href="mailto:carsonohara78@gmail.com"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg> Get in Touch</a></p>
+      <p><a class="btn primary" href="mailto:carsonohara78@gmail.com">Get in Touch</a> <span class="muted contact-address">carsonohara78@gmail.com</span></p>
     </section>
   </main>
 
@@ -261,7 +266,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:carsonohara78@gmail.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

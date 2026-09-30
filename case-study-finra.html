@@ -4,29 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <title>FINRA x SCADpro | Case Study</title>
+  <title>FINRA x SCADpro case study | Carson O'Hara</title>
   <meta name="description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/case-study-finra.html" />
-  <meta property="og:title" content="FINRA x SCADpro | Case Study" />
+  <meta property="og:title" content="FINRA x SCADpro case study | Carson O&#x27;Hara" />
   <meta property="og:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <meta property="og:image" content="https://carsonohara.com/images/og/finra.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="FINRA x SCADpro" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FINRA x SCADpro | Case Study" />
+  <meta name="twitter:title" content="FINRA x SCADpro case study | Carson O&#x27;Hara" />
   <meta name="twitter:description" content="A 10-week SCADpro collaboration with FINRA redesigning their logged-in systems into a cohesive, role-based experience. Includes the working prototype." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/finra.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://carsonohara.com/case-study-finra.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
   <script defer src="js/main.js"></script>
   <script defer src="js/case-zoom.js"></script>
   <script defer src="js/case-toc.js"></script>
 </head>
-<body class="case-study case-study-finra">
+<body class="case-study case-study-finra" id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -43,7 +49,7 @@
         <a class="header-back" href="work.html" aria-label="Back to work"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></a>
       </div>
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="work.html" class="nav-link active">Work</a></li>
@@ -54,7 +60,7 @@
       </div>
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -73,7 +79,7 @@
 
     <div class="case-wrap container" id="case-content">
       <!-- Overview block -->
-      <div class="case-overview-convoy fade-in">
+      <div class="case-overview-convoy">
         <div class="case-title-row">
           <div class="case-title-block">
             <h1>FINRA x SCADpro</h1>
@@ -100,9 +106,9 @@
       </div>
 
       <!-- Optional top-of-page visuals -->
-      <div class="case-media fade-in" style="margin-top:32px">
-        <img class="case-image case-image--no-shadow" src="images/case-study-finra/Finrateamphoto.webp" alt="FINRA x SCADpro team photo" loading="lazy" decoding="async" width="1600" height="1200">
-      </div>
+      <figure class="case-media">
+        <img class="case-image case-image--framed" src="images/case-study-finra/Finrateamphoto.webp" alt="FINRA x SCADpro team photo" loading="lazy" decoding="async" width="1600" height="1200">
+      </figure>
 
       <article class="case-main">
 
@@ -121,10 +127,10 @@
           <p>The obvious way to build permissions is around who somebody is. Give a title, get a dashboard. It is how most enterprise software works and it is what we assumed we would be designing.</p>
           <p>Our research pointed somewhere else. People do not arrive at a system like this thinking about their title. They arrive with a thing they need to get done, and the same person can need very different things depending on which hat they are wearing that morning. Once we sorted by work rather than by role, the sprawl collapsed into four kinds of task: compliance maintenance, rule interpretation, investment guidance, and data access.</p>
           <p>That produced the idea we built everything else on, which we called the lobby. One entry point that reads your entitlements when you authenticate, then assembles the space around what you are allowed and expected to do. You should not have to know which of several systems happens to hold your answer.</p>
-          <div class="case-media">
-            <img class="case-image" src="images/case-study-finra/prototype-account-switcher.webp" alt="The account switcher: one person listed across several firms and a separate individual registration, with urgent tasks flagged per account" loading="lazy" decoding="async" width="1456" height="814">
-          </div>
-          <p class="muted" style="margin-top:12px">The account switcher. One person, several firms, one individual registration, and a flag on whichever ones need attention. Everything runs on invented data.</p>
+          <figure class="case-media">
+            <img class="case-image case-image--framed" src="images/case-study-finra/prototype-account-switcher.webp" alt="The account switcher: one person listed across several firms and a separate individual registration, with urgent tasks flagged per account" loading="lazy" decoding="async" width="1456" height="814">
+            <figcaption>The account switcher. One person, several firms, one individual registration, and a flag on whichever ones need attention. Everything runs on invented data.</figcaption>
+          </figure>
 
         </section>
 
@@ -133,11 +139,18 @@
           <h2>Everyone finished every task, which was not a good result.</h2>
           <p>We tested a mid fidelity prototype with 18 participants aged 18 to 40 across five tasks: log in with a firm account, use the assistant to learn how to complete Form U4, find where to submit it, read notifications, and switch between accounts. A second version with different visual treatment ran alongside it so we could compare. I helped write the tasks and sat in on most of the sessions.</p>
           <p>Completion was 100% on every task. Almost nothing else was.</p>
-          <p><strong>Logging in.</strong> No errors at all, and 30% still reported low trust while doing it. The confusion that did show up clustered on one thing: account status and account selection were not obvious.</p>
-          <p><strong>The assistant.</strong> The most friction of any task. 44% hit medium or high confusion, and the cause was discoverability rather than the answers. People could not tell where the assistant began.</p>
-          <p><strong>Finding the submission portal.</strong> Clean on paper, 0% errors. But several people did not recognize text as clickable, so they found it slowly and by accident.</p>
-          <p><strong>Notifications.</strong> The gap between the numbers and reality was widest here. 100% completion, 30% logged errors, and 22% high confusion among people who had just succeeded. They could not tell which account a notification had come from.</p>
-          <p><strong>Switching accounts.</strong> Multiple people said it felt sudden, or disconnected from the rest of the experience. The most common failure across the whole study was feedback: the system doing something without saying so.</p>
+          <div class="case-table-wrap">
+            <table class="case-table case-table--stack">
+              <thead><tr><th>Task</th><th>Errors</th><th>Confusion</th><th>What we saw</th></tr></thead>
+              <tbody>
+                <tr><td>Logging in</td><td class="num" data-label="Errors">0%</td><td class="num" data-label="Confusion">30% low trust</td><td>No errors at all, and 30% still reported low trust while doing it. The confusion that did show up clustered on one thing: account status and account selection were not obvious.</td></tr>
+                <tr><td>The assistant</td><td class="num" data-label="Errors">&ndash;</td><td class="num" data-label="Confusion">44% medium or high</td><td>The most friction of any task. 44% hit medium or high confusion, and the cause was discoverability rather than the answers. People could not tell where the assistant began.</td></tr>
+                <tr><td>Finding the submission portal</td><td class="num" data-label="Errors">0%</td><td class="num" data-label="Confusion">&ndash;</td><td>Clean on paper, 0% errors. But several people did not recognize text as clickable, so they found it slowly and by accident.</td></tr>
+                <tr><td>Notifications</td><td class="num" data-label="Errors">30%</td><td class="num" data-label="Confusion">22% high</td><td>The gap between the numbers and reality was widest here. 100% completion, 30% logged errors, and 22% high confusion among people who had just succeeded. They could not tell which account a notification had come from.</td></tr>
+                <tr><td>Switching accounts</td><td class="num" data-label="Errors">&ndash;</td><td class="num" data-label="Confusion">&ndash;</td><td>Multiple people said it felt sudden, or disconnected from the rest of the experience. The most common failure across the whole study was feedback: the system doing something without saying so.</td></tr>
+              </tbody>
+            </table>
+          </div>
           <p>A completion rate is the easiest number to report and it would have told us the design was finished. The way our team put it afterwards was that trust drops before usability does, and that account switching failed at feedback rather than at function. Nothing was broken. People just could not tell what had happened. That gap became the thing we designed against for the rest of the project.</p>
           </section>
 
@@ -163,16 +176,16 @@
           <p class="case-phase-label">Building It</p>
           <h2>A flow can read perfectly on an artboard and still fall apart.</h2>
           <p>Most of what our team designed only became real once someone built it. That was mostly me, working with two others, turning the Figma screens into something you could actually sign into and move through.</p>
-          <div class="case-media">
-            <img class="case-image" src="images/case-study-finra/prototype-dashboard.webp" alt="The dashboard, showing work grouped by state: due soon, in progress and updates, with filings tracked by completion" loading="lazy" decoding="async" width="1456" height="814">
-          </div>
-          <p class="muted" style="margin-top:12px">The dashboard groups work by state rather than by which system it came from.</p>
+          <figure class="case-media">
+            <img class="case-image case-image--framed" src="images/case-study-finra/prototype-dashboard.webp" alt="The dashboard, showing work grouped by state: due soon, in progress and updates, with filings tracked by completion" loading="lazy" decoding="async" width="1456" height="814">
+            <figcaption>The dashboard groups work by state rather than by which system it came from.</figcaption>
+          </figure>
 
           <p>That included the account switcher, which other people on the team designed and I implemented. It is the piece I would point at first, because it answers the research directly. One person, several firms, one individual registration, and a system that tells you which of those you are currently acting inside. The assistant went in the same way, scoped to filings, compliance and reports rather than being a general chatbot.</p>
-          <div class="case-media">
-            <img class="case-image" src="images/case-study-finra/prototype-assistant.webp" alt="The assistant panel, opening with prompts about filing a Form U4 and checking filing status" loading="lazy" decoding="async" width="1456" height="814">
-          </div>
-          <p class="muted" style="margin-top:12px">The assistant opens on the things people actually come here to do, rather than an empty box.</p>
+          <figure class="case-media">
+            <img class="case-image case-image--framed" src="images/case-study-finra/prototype-assistant.webp" alt="The assistant panel, opening with prompts about filing a Form U4 and checking filing status" loading="lazy" decoding="async" width="1456" height="814">
+            <figcaption>The assistant opens on the things people actually come here to do, rather than an empty box.</figcaption>
+          </figure>
 
           <p>The login flow is where the gap showed up. It made sense on the artboards. Coded, clickable, and carrying real state between steps, it did not hold, and the client did not like our first couple of iterations either. We rebuilt it more than once.</p>
           <p>That is most of what I took from this project. A flow can read perfectly as a sequence of screens and still fall apart the moment someone can move through it at their own pace, in the wrong order, with a decision already made two steps back. I would rather find that out in a prototype than in a handoff.</p>
@@ -200,15 +213,16 @@
           <p>It runs on invented data. The firms, filings and people in it are made up.</p>
           <p>
             <a class="btn primary" href="https://finra-dashboard-final.replit.app/" target="_blank" rel="noopener">Open the prototype <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-            <a class="btn" href="mailto:contact@carsonohara.com" style="margin-left:8px">Ask me about it</a>
+            <a class="btn outline" href="mailto:carsonohara78@gmail.com">Ask me about it</a>
           </p>
         </section>
 
         </article>
 
-      <nav class="case-study-nav fade-in" aria-label="Case study projects">
-        <a class="case-nav-link case-nav-link--back" href="case-study-bigbus.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Previous Project</a>
-        <a class="case-nav-link case-nav-link--next" href="case-study-mose.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      <nav class="case-study-nav" aria-label="More case studies">
+        <a class="case-nav-link case-nav-link--back" href="case-study-coral-keepers.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> <span><span class="case-nav-kicker">Previous:</span> Coral Keepers</span></a>
+        <a class="case-nav-link case-nav-link--all" href="work.html">All work</a>
+        <a class="case-nav-link case-nav-link--next" href="case-study-bigbus.html"><span><span class="case-nav-kicker">Next:</span> Big Bus Savannah</span> <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
       </nav>
 
       <!--
@@ -224,7 +238,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

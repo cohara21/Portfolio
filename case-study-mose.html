@@ -4,28 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Mose | Case Study</title>
-  <meta name="description" content="Case study for Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
+  <title>Mose case study | Carson O'Hara</title>
+  <meta name="description" content="Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/case-study-mose.html" />
-  <meta property="og:title" content="Mose | Case Study" />
-  <meta property="og:description" content="Case study for Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
+  <meta property="og:title" content="Mose case study | Carson O&#x27;Hara" />
+  <meta property="og:description" content="Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
   <meta property="og:image" content="https://carsonohara.com/images/og/mose.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Mose, a connected care system for dementia caregivers" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mose | Case Study" />
-  <meta name="twitter:description" content="Case study for Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
+  <meta name="twitter:title" content="Mose case study | Carson O&#x27;Hara" />
+  <meta name="twitter:description" content="Mose, a connected care system pairing a caregiver app with a home device to support dementia patients and their families." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/mose.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://carsonohara.com/case-study-mose.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
   <script defer src="js/main.js"></script>
   <script defer src="js/case-zoom.js"></script>
+  <script defer src="js/case-toc.js"></script>
 </head>
-<body class="case-study">
+<body class="case-study case-study-mose" id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -41,7 +48,7 @@
         <a class="header-back" href="work.html" aria-label="Back to work"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></a>
       </div>
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="work.html" class="nav-link active">Work</a></li>
@@ -52,7 +59,7 @@
       </div>
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -66,8 +73,10 @@
       </div>
     </section>
 
+    <nav class="case-toc" aria-label="Sections in this case study"></nav>
+
     <div class="case-wrap container" id="case-content">
-      <div class="case-overview-convoy fade-in">
+      <div class="case-overview-convoy">
         <div class="case-title-row">
           <div class="case-title-block">
             <h1>Mose</h1>
@@ -91,33 +100,35 @@
         </div>
       </div>
 
-      <div class="case-media fade-in" style="margin-top:32px">
-        <img class="case-image case-image--no-shadow" src="images/case-study-mose/posterhorizontal.webp" alt="Mose project poster showing the human impact of dementia care" loading="lazy" decoding="async" width="1024" height="552">
-        <img class="case-image case-image--no-shadow" src="images/case-study-mose/BRANDING.webp" alt="Mose branding" loading="lazy" decoding="async" style="margin-top:24px" width="2052" height="580">
-      </div>
+      <figure class="case-media case-stack">
+        <img class="case-image" src="images/case-study-mose/posterhorizontal.webp" alt="Mose project poster showing the human impact of dementia care" loading="lazy" decoding="async" width="1024" height="552">
+        <img class="case-image" src="images/case-study-mose/BRANDING.webp" alt="Mose branding" loading="lazy" decoding="async" width="2052" height="580">
+      </figure>
 
       <article class="case-main">
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="problem" class="case-phase case-section-spaced">
           <p class="case-phase-label">Problem</p>
           <h2>Dementia creates a growing gap between independence and safety.</h2>
           <p>Dementia doesn't just affect memory, it erodes the autonomy of the individual and places an immense emotional burden on their family. For many patients, the fear of forgetting simple daily tasks leads to social withdrawal. Meanwhile, caregivers face constant anxiety and caregiver burnout as they struggle to monitor loved ones remotely.</p>
         </section>
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="research" class="case-phase case-section-spaced">
           <p class="case-phase-label">Research</p>
           <h2>Understanding both sides of the story.</h2>
-          <p>Our research focused on a dual-stakeholder approach, combining a survey of caregivers with follow-up interviews with caregivers and health professionals. The survey gave us the scale of the load first: respondents reported providing an average of <strong>87 hours of care a week</strong>. Set against the wider picture (roughly 6.7 million people living with dementia, 59% of caregivers reporting high to very high emotional stress and around 40% experiencing depression), the problem read less like a memory problem and more like an endurance problem.</p>
+          <p>Our research focused on a dual-stakeholder approach, combining a survey of caregivers with follow-up interviews with caregivers and health professionals. The survey gave us the scale of the load first: respondents reported providing an average of <strong>87 hours of care a week</strong>. Set against the wider picture (about 6.9 million Americans over 65 living with Alzheimer’s, 59% of dementia caregivers reporting high to very high emotional stress, and as many as 40% experiencing depression), the problem read less like a memory problem and more like an endurance problem.</p>
           <p>That reframing surfaced the friction point the product had to solve: caregivers needed visibility without feeling like they were policing their loved ones, while patients needed guidance that felt like a supportive companion rather than a clinical monitor. Our insights grouped into four areas (well-being, daily care, communication, and safety risks), with wandering and attempts to leave the house standing out as the most urgent safety concern.</p>
-          <div class="case-media">
-            <div class="fade-in"><img class="case-image case-image--no-shadow" src="images/case-study-mose/Research1.webp" alt="Mose research" loading="lazy" decoding="async" width="3840" height="2160"></div>
-            <div class="fade-in" style="margin-top:24px"><img class="case-image case-image--no-shadow" src="images/case-study-mose/Research2.webp" alt="Mose research" loading="lazy" decoding="async" width="3840" height="2160"></div>
-            <div class="fade-in" style="margin-top:24px"><img class="case-image case-image--no-shadow" src="images/case-study-mose/Research3.webp" alt="Mose research" loading="lazy" decoding="async" width="3840" height="2160"></div>
-          </div>
-          <p class="muted" style="margin-top:12px">Population and caregiver-health figures above are drawn from the Alzheimer's Association's <em>Alzheimer's Disease Facts and Figures</em> report. The 87-hour weekly care figure is our own, from the caregiver survey we ran for this project.</p>
+          <figure class="case-media">
+            <dl class="stat-row">
+              <div class="stat"><dt class="stat-value">6.9 million</dt><dd class="stat-label">Americans over 65 living with Alzheimer’s</dd></div>
+              <div class="stat"><dt class="stat-value">59%</dt><dd class="stat-label">of dementia caregivers report high or very high emotional stress</dd></div>
+              <div class="stat"><dt class="stat-value">Up to 40%</dt><dd class="stat-label">of family caregivers experience depression</dd></div>
+            </dl>
+            <figcaption>Figures current when we did this project, from the Alzheimer’s Association: <a href="https://www.alz.org/news/2024/new-alzheimers-association-report-reveals-top-stressors-caregivers" target="_blank" rel="noopener">2024 <em>Facts and Figures</em></a> (prevalence), <a href="https://www.alz.org/news/2023/alzheimers-association-highlights-unique-challenges-that-dementia-caregivers-face-and-tips-for-supp" target="_blank" rel="noopener">2023 report</a> (stress) and <a href="https://act.alz.org/site/DocServer/caregivers_fact_sheet.pdf?docID=3022" target="_blank" rel="noopener">2020 caregiver fact sheet</a> (depression). The 87-hour weekly care figure is our own, from the caregiver survey we ran for this project.</figcaption>
+          </figure>
         </section>
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="the-ai-decision" class="case-phase case-section-spaced">
           <p class="case-phase-label">The AI Decision</p>
           <h2>Assistive, not intrusive.</h2>
           <p>The endurance problem pointed at a specific kind of help. A person with dementia asks the same question many times an hour, and the fifth answer is where a tired caregiver's patience shows. That's the dignity problem: not the forgetting itself, but what repetition costs the relationship. So we scoped the assistant around calm, consistent repetition: familiar cues like labeled photos, recognizable voices, and name-based reminders, delivered the same way every time.</p>
@@ -125,13 +136,13 @@
           <p><strong>This was a concept, not a working system.</strong> Over ten weeks we designed the interaction model and the behaviour we wanted; we did not build a model behind it. The screens below show how it was meant to respond, not something you could talk to.</p>
         </section>
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="solution" class="case-phase case-section-spaced">
           <p class="case-phase-label">Solution</p>
           <h2>An ecosystem built for <br> support and connection. </br></h2>
 
           <h3>The Mose App</h3>
           <p>Designed for the caregiver, the app provides real-time health insights and activity monitoring. It allows for the remote scheduling of reminders, giving family members peace of mind.</p>
-          <div class="case-media mose-prototype-carousel fade-in">
+          <div class="case-media mose-prototype-carousel">
             <div class="design-gallery design-gallery--header-style mose-carousel-wrap">
               <div class="gallery-viewport">
                 <div class="gallery-slides">
@@ -169,15 +180,15 @@
 
           <h3>The Mose Smart Device</h3>
           <p>The physical hardware is a gentle home companion for the patient. It delivers scheduled voice prompts and memory cues through simple spoken interaction, so support arrives without the patient needing to operate anything.</p>
-          <div class="case-media fade-in">
-            <img class="case-image case-image--no-shadow" src="images/case-study-mose/devicepromo.webp" alt="Mose smart device for patients" loading="lazy" decoding="async" width="3840" height="2160">
+          <div class="case-media">
+            <img class="case-image" src="images/case-study-mose/devicepromo.webp" alt="Mose smart device for patients" loading="lazy" decoding="async" width="3840" height="2160">
             <div class="gallery-indicator case-caption">
               <span class="gallery-counter">The Mose Smart Device</span>
             </div>
           </div>
         </section>
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="testing" class="case-phase case-section-spaced">
           <p class="case-phase-label">Testing</p>
           <h2>How testing changed the design.</h2>
           <p>We moved from a journey map and a feature set into a wireflow, then refined it through iterative cognitive walkthroughs, user testing sessions, and class critiques until it became a fully branded mid-fidelity flow.</p>
@@ -185,7 +196,7 @@
           <p>Type and contrast decisions came out of the same process. We knew many of our caregivers would be older and that fine script would be a barrier, so we moved to larger sizes and near-block letterforms.</p>
         </section>
 
-        <section class="case-phase case-section-spaced fade-in">
+        <section id="impact" class="case-phase case-section-spaced">
           <p class="case-phase-label">Impact</p>
           <h2>What we validated, and what we didn't.</h2>
           <p>Testing told us the interaction model held up, and it drove the most important change we made. It did not tell us whether Mose works.</p>
@@ -193,9 +204,12 @@
           <p>That's where I'd start if I picked it up again: does a proactive assistant actually reduce the coordination load, or does it become one more thing to manage?</p>
         </section>
 
-        <nav class="case-study-nav fade-in">
-          <a class="case-nav-link case-nav-link--back" href="case-study-finra.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Previous Project</a>
-          <a class="case-nav-link case-nav-link--next" href="case-study-bigbus.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        <p class="case-contact">Want to talk about this project? <a href="mailto:carsonohara78@gmail.com">Email me</a> or <a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">see my resume</a>.</p>
+
+        <nav class="case-study-nav" aria-label="More case studies">
+          <a class="case-nav-link case-nav-link--back" href="case-study-bigbus.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> <span><span class="case-nav-kicker">Previous:</span> Big Bus Savannah</span></a>
+          <a class="case-nav-link case-nav-link--all" href="work.html">All work</a>
+          <a class="case-nav-link case-nav-link--next" href="case-study-contio.html"><span><span class="case-nav-kicker">Next:</span> Contio</span> <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
         </nav>
       </article>
     </div>
@@ -206,7 +220,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

@@ -4,33 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Carson O'Hara | UX Designer</title>
-  <meta name="description" content="Portfolio of a UX Designer & Researcher. Selected projects, case studies, and contact." />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/" />
-  <meta property="og:title" content="Carson O&#x27;Hara | UX Designer" />
-  <meta property="og:description" content="Portfolio of a UX Designer &amp; Researcher. Selected projects, case studies, and contact." />
+  <meta property="og:title" content="Carson O&#x27;Hara | Product Designer" />
+  <meta property="og:description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
   <meta property="og:image" content="https://carsonohara.com/images/og/home.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Carson O&#x27;Hara, designer and builder" />
+  <meta property="og:image:alt" content="Carson O&#x27;Hara, product designer" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Carson O&#x27;Hara | UX Designer" />
-  <meta name="twitter:description" content="Portfolio of a UX Designer &amp; Researcher. Selected projects, case studies, and contact." />
+  <meta name="twitter:title" content="Carson O&#x27;Hara | Product Designer" />
+  <meta name="twitter:description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/home.jpg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://carsonohara.com/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
   <script defer src="js/text-type.js"></script>
   <script defer src="js/main.js"></script>
 </head>
-<body>
+<body id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -45,7 +51,7 @@
       <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
 
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link active">Home</a></li>
             <li><a href="work.html" class="nav-link">Work</a></li>
@@ -57,7 +63,7 @@
 
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -72,119 +78,59 @@
           <div class="hero-photo hero-photo--fade">
             <img src="images/index/headshotanimation.webp" alt="Carson O'Hara" width="560" height="560">
           </div>
-          <h1 class="hero-typed text-type-wrap"><span class="text-type-target">Hi, I'm Carson 🎾'Hara 👋</span></h1>
+          <h1 class="hero-typed text-type-wrap"><span class="visually-hidden">Hi, I'm Carson O'Hara</span><span class="text-type-target" aria-hidden="true">Hi, I'm Carson 🎾'Hara 👋</span></h1>
           <div class="hero-subtitle">I design and build products.
 Currently designing at Contio.</div>
+          <p class="hero-cta"><a class="btn primary" href="work.html">See my work</a></p>
         </div>
       </div>
     </section>
 
     <!-- Selected Projects -->
     <section class="section container" id="projects">
-      <h2 class="section-title">My Favorite Projects <a href="work.html" class="see-all-link">See All <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a></h2>
+      <div class="section-head">
+        <h2 class="section-title">My Favorite Projects</h2>
+        <a href="work.html" class="see-all-link">See all <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
 
-      <!-- Mobile only: top two projects (hidden on desktop, where the carousel shows all four) -->
-      <div class="projects-mobile-only project-grid">
-        <article class="project-card-large fade-in" data-link="case-study-coral-keepers.html">
-          <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
+      <!-- All four projects at once: reviewers scan, and a moving strip never shows the whole set -->
+      <div class="project-grid">
+        <article class="project-card-large fade-in" data-link="case-study-contio.html">
+          <div class="project-thumb-large thumb-contio" aria-hidden="true"></div>
           <div>
+            <p class="card-meta">Current role · Brand + marketing design · Live</p>
+            <h3>Contio</h3>
+            <p class="muted">Brand, website and launch films for an AI meeting platform</p>
+          </div>
+          <a class="card-link" href="case-study-contio.html"><span class="visually-hidden">Contio</span></a>
+        </article>
+        <article class="project-card-large fade-in" data-link="case-study-coral-keepers.html">
+          <div class="project-thumb-large thumb-coral-keepers" aria-hidden="true"></div>
+          <div>
+            <p class="card-meta">Senior capstone · Design + front-end · Live</p>
             <h3>Coral Keepers</h3>
+            <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
           </div>
           <a class="card-link" href="case-study-coral-keepers.html"><span class="visually-hidden">Coral Keepers</span></a>
         </article>
         <article class="project-card-large fade-in" data-link="case-study-finra.html">
-          <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
+          <div class="project-thumb-large thumb-finra" aria-hidden="true"></div>
           <div>
+            <p class="card-meta">Industry client · Research + prototype · Handed off</p>
             <h3>FINRA x SCADpro</h3>
+            <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
           </div>
           <a class="card-link" href="case-study-finra.html"><span class="visually-hidden">FINRA x SCADpro</span></a>
         </article>
-      </div>
-
-      <!-- Projects carousel: auto-pans horizontally. Duplicated items for seamless looping (hidden on mobile) -->
-      <div class="projects-carousel" aria-label="Selected projects carousel">
-        <div class="carousel-track" aria-hidden="false">
-          <article class="project-card-large" data-link="case-study-coral-keepers.html">
-            <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
-            <div>
-              <h3>Coral Keepers</h3>
-              <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-coral-keepers.html"><span class="visually-hidden">Coral Keepers</span></a>
-        </article>
-
-          <article class="project-card-large" data-link="case-study-finra.html">
-            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
-            <div>
-              <h3>FINRA x SCADpro</h3>
-              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-finra.html"><span class="visually-hidden">FINRA x SCADpro</span></a>
-        </article>
-
-          <article class="project-card-large" data-link="case-study-bigbus.html">
-            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah thumbnail]"></div>
-            <div>
-              <h3>Big Bus Savannah</h3>
-              <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-bigbus.html"><span class="visually-hidden">Big Bus Savannah</span></a>
-        </article>
-
-          <article class="project-card-large" data-link="case-study-mose.html">
-            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose thumbnail]"></div>
-            <div>
-              <h3>Mose</h3>
-              <p class="muted">Balancing independence and oversight in dementia care</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
+        <article class="project-card-large fade-in" data-link="case-study-mose.html">
+          <div class="project-thumb-large thumb-mose" aria-hidden="true"></div>
+          <div>
+            <p class="card-meta">Class project · UX research + design · Concept</p>
+            <h3>Mose</h3>
+            <p class="muted">Balancing independence and oversight in dementia care</p>
+          </div>
           <a class="card-link" href="case-study-mose.html"><span class="visually-hidden">Mose</span></a>
         </article>
-
-          <!-- duplicated for seamless loop -->
-          <article class="project-card-large is-duplicate" data-link="case-study-coral-keepers.html" aria-hidden="true">
-            <div class="project-thumb-large thumb-coral-keepers" role="img" aria-label="[Coral Keepers thumbnail]"></div>
-            <div>
-              <h3>Coral Keepers</h3>
-              <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-coral-keepers.html" tabindex="-1" aria-hidden="true"><span class="visually-hidden">Coral Keepers</span></a>
-        </article>
-
-          <article class="project-card-large is-duplicate" data-link="case-study-finra.html" aria-hidden="true">
-            <div class="project-thumb-large thumb-finra" role="img" aria-label="[FINRA x SCADpro thumbnail]"></div>
-            <div>
-              <h3>FINRA x SCADpro</h3>
-              <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-finra.html" tabindex="-1" aria-hidden="true"><span class="visually-hidden">FINRA x SCADpro</span></a>
-        </article>
-
-          <article class="project-card-large is-duplicate" data-link="case-study-bigbus.html" aria-hidden="true">
-            <div class="project-thumb-large thumb-bigbus" role="img" aria-label="[Big Bus Savannah thumbnail]"></div>
-            <div>
-              <h3>Big Bus Savannah</h3>
-              <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-bigbus.html" tabindex="-1" aria-hidden="true"><span class="visually-hidden">Big Bus Savannah</span></a>
-        </article>
-
-          <article class="project-card-large is-duplicate" data-link="case-study-mose.html" aria-hidden="true">
-            <div class="project-thumb-large thumb-mose" role="img" aria-label="[Mose thumbnail]"></div>
-            <div>
-              <h3>Mose</h3>
-              <p class="muted">Balancing independence and oversight in dementia care</p>
-              <span class="project-card-arrow" aria-hidden="true"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><use href="#icon-external"></use></svg></span>
-            </div>
-          <a class="card-link" href="case-study-mose.html" tabindex="-1" aria-hidden="true"><span class="visually-hidden">Mose</span></a>
-        </article>
-        </div>
       </div>
     </section>
 
@@ -201,7 +147,7 @@ Currently designing at Contio.</div>
                 <p class="about-profile-username">@carson-ohara</p>
                 <a class="about-profile-link" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
               </div>
-              <a class="about-profile-connect" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">+ Connect</a>
+              <a class="btn primary" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">+ Connect</a>
             </div>
           </article>
         </div>
@@ -220,7 +166,7 @@ Currently designing at Contio.</div>
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

@@ -18,6 +18,24 @@
     var caption = null;
     var lastFocused = null;
 
+    // Everything behind the open viewer goes inert so Tab stays on Close
+    function setInert(on) {
+      [].slice.call(document.body.children).forEach(function (el) {
+        if (el === overlay || el.tagName === 'SCRIPT') return;
+        if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+      });
+    }
+
+    // On a phone, "zoom" into the column-width image barely enlarged it. For
+    // images much wider than the screen, open them wide and let the reader pan.
+    function fitMode(img) {
+      var natural = img.naturalWidth || 0;
+      var pannable = window.innerWidth <= 768 && natural > window.innerWidth * 1.5;
+      overlay.classList.toggle('is-pannable', pannable);
+      overlay.style.setProperty('--zoom-w', pannable ? natural + 'px' : '');
+      if (pannable) overlay.scrollTo(0, 0);
+    }
+
     function build() {
       overlay = document.createElement('div');
       overlay.className = 'case-zoom';
@@ -57,24 +75,31 @@
     }
 
     function show(img) {
-      if (!overlay) build();
+      if (!overlay) {
+        build();
+        // Commit the hidden state first, or the first open has nothing to fade from
+        void overlay.offsetWidth;
+      }
       lastFocused = document.activeElement;
       overlayImg.src = img.currentSrc || img.src;
       overlayImg.alt = img.alt || '';
 
-      // Reuse the caption already sitting under the image, when there is one.
-      // Captions are the `p.muted` directly after a `.case-media` block; a plain
-      // `<p>` there is body copy, not a caption, so it must not be picked up.
+      // Reuse the image's own caption when it has one: the <figcaption> of its
+      // <figure> (DESIGN.md), or the older caption paragraph after the block.
+      var figure = img.closest('figure');
+      var figcap = figure && figure.querySelector('figcaption');
       var sibling = img.parentElement && img.parentElement.nextElementSibling;
       var isCaption = sibling && sibling.tagName === 'P' &&
         (sibling.classList.contains('muted') || sibling.classList.contains('case-caption'));
-      var text = isCaption ? sibling.textContent : img.alt;
+      var text = figcap ? figcap.textContent : (isCaption ? sibling.textContent : img.alt);
       caption.textContent = text || '';
       caption.hidden = !text;
 
+      fitMode(img);
       overlay.classList.add('is-open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      setInert(true);
       overlay.querySelector('.case-zoom-close').focus();
     }
 
@@ -83,6 +108,7 @@
       overlay.classList.remove('is-open');
       overlay.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      setInert(false);
       if (lastFocused && lastFocused.focus) lastFocused.focus();
     }
 
@@ -95,7 +121,7 @@
       img.classList.add('is-zoomable');
       img.setAttribute('role', 'button');
       img.setAttribute('tabindex', '0');
-      img.title = 'Click to view full size';
+      img.title = 'View full size';
       img.addEventListener('click', function () { show(img); });
       img.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(img); }

@@ -10,7 +10,7 @@
     var tennisBall = '\uD83C\uDFBE';
     var hand = '\uD83D\uDC4B';
     if (decorated.indexOf(tennisBall) !== -1) {
-      decorated = decorated.replace(new RegExp(tennisBall, 'g'), '<span class="tennis-ball-emoji" tabindex="0">' + tennisBall + '</span>');
+      decorated = decorated.replace(new RegExp(tennisBall, 'g'), '<span class="tennis-ball-emoji">' + tennisBall + '</span>');
     }
     if (decorated.indexOf(hand) !== -1) {
       decorated = decorated.replace(new RegExp(hand, 'g'), '<span class="wave-emoji">' + hand + '</span>');
@@ -43,8 +43,7 @@
 
     var contentSpan = document.createElement('span');
     contentSpan.className = 'text-type__content';
-    contentSpan.setAttribute('aria-live', 'polite');
-
+    
     var cursorSpan = document.createElement('span');
     cursorSpan.className = 'text-type__cursor';
     cursorSpan.textContent = cursorCharacter;
@@ -119,13 +118,16 @@
 
     var subtitle = document.querySelector('.hero .hero-subtitle');
 
-    if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+    // Phones, and anyone who has asked for less motion, get the heading at once
+    var instant = window.matchMedia && (
+      window.matchMedia('(max-width: 768px)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (instant) {
       target.classList.add('text-type');
       target.textContent = '';
       var contentSpan = document.createElement('span');
       contentSpan.className = 'text-type__content';
-      contentSpan.setAttribute('aria-live', 'polite');
-      contentSpan.innerHTML = '<span class="hero-typed__first-line">' + decorateHeroIntro("Hi, I'm Carson \uD83C\uDFBE'Hara \uD83D\uDC4B") + '</span>';
+            contentSpan.innerHTML = '<span class="hero-typed__first-line">' + decorateHeroIntro("Hi, I'm Carson \uD83C\uDFBE'Hara \uD83D\uDC4B") + '</span>';
       target.appendChild(contentSpan);
       if (subtitle) subtitle.classList.add('is-visible');
       return;

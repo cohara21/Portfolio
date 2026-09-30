@@ -181,8 +181,13 @@
       if (autoTimer !== null) { clearTimeout(autoTimer); autoTimer = null; }
     }
 
+    // No autoplay for readers who asked for less motion, and none while the
+    // stack has keyboard focus (WCAG 2.2.2: moving content must be pausable).
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function startAutoplay() {
       stopAutoplay();
+      if (reduceMotion || document.activeElement === container) return;
       autoTimer = setTimeout(function tick() {
         autoTimer = null;                            // consumed
         advanceWithFade(function () {
@@ -249,6 +254,19 @@
         stopAutoplay();
         advanceWithFade(function () { if (length > 1) startAutoplay(); });
       }
+    });
+
+    /* ---- keyboard: the stack is one control; Enter or Space shows the next photo ---- */
+    container.setAttribute('role', 'button');
+    container.setAttribute('tabindex', '0');
+    container.setAttribute('aria-label', 'Stadium photos. Press Enter for the next photo.');
+    container.addEventListener('focus', stopAutoplay);
+    container.addEventListener('blur', function () { if (!fanActive && length > 1) startAutoplay(); });
+    container.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault();
+      if (animating) return;
+      advanceWithFade();
     });
 
     /* ---- pause autoplay when section scrolls out of view ---- */

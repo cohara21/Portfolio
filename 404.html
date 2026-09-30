@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Page not found | Carson O'Hara</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="/js/main.js"></script>
+</head>
+<body id="top">
+  <!-- SVG icon symbols (used throughout the site) -->
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="/index.html" aria-label="Carson O'Hara home"><img src="/images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="/index.html" class="nav-link">Home</a></li>
+            <li><a href="/work.html" class="nav-link">Work</a></li>
+            <li><a href="/about.html" class="nav-link">About</a></li>
+            <li><a href="/images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="/images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container not-found">
+    <section class="page-header">
+      <h1>This page doesn't exist.</h1>
+      <p class="muted">The link may be old, or the address may have a typo.</p>
+      <p><a class="btn primary" href="/work.html">See my work</a> <a class="btn outline" href="/">Go home</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

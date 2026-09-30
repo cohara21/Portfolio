@@ -4,28 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Big Bus Savannah | Case Study</title>
-  <meta name="description" content="Case study for Big Bus Savannah" />
+  <title>Big Bus Savannah case study | Carson O'Hara</title>
+  <meta name="description" content="Big Bus Savannah, a gamified tour experience that uses AR storytelling and rewards to turn passive narration into something interactive." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/case-study-bigbus.html" />
-  <meta property="og:title" content="Big Bus Savannah | Case Study" />
-  <meta property="og:description" content="Case study for Big Bus Savannah" />
+  <meta property="og:title" content="Big Bus Savannah case study | Carson O&#x27;Hara" />
+  <meta property="og:description" content="Big Bus Savannah, a gamified tour experience that uses AR storytelling and rewards to turn passive narration into something interactive." />
   <meta property="og:image" content="https://carsonohara.com/images/og/bigbus.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Big Bus Savannah, an AR tour experience" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Big Bus Savannah | Case Study" />
-  <meta name="twitter:description" content="Case study for Big Bus Savannah" />
+  <meta name="twitter:title" content="Big Bus Savannah case study | Carson O&#x27;Hara" />
+  <meta name="twitter:description" content="Big Bus Savannah, a gamified tour experience that uses AR storytelling and rewards to turn passive narration into something interactive." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/bigbus.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://carsonohara.com/case-study-bigbus.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
   <script defer src="js/main.js"></script>
   <script defer src="js/case-zoom.js"></script>
+  <script defer src="js/case-toc.js"></script>
 </head>
-<body class="case-study">
+<body class="case-study case-study-bigbus" id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -41,7 +48,7 @@
         <a class="header-back" href="work.html" aria-label="Back to work"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></a>
       </div>
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="work.html" class="nav-link active">Work</a></li>
@@ -52,7 +59,7 @@
       </div>
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
@@ -65,6 +72,8 @@
         <img class="hero-image" src="images/case-study-bigbus/bigbusheroimage.webp" alt="Big Bus Savannah hero" loading="eager" decoding="async" width="1600" height="1113">
       </div>
     </section>
+
+    <nav class="case-toc" aria-label="Sections in this case study"></nav>
 
     <div class="case-wrap container" id="case-content">
       <div class="case-overview-convoy">
@@ -82,7 +91,7 @@
         <div class="case-overview-grid">
           <div class="case-overview-col">
             <h3>Overview</h3>
-            <p>Big Bus Savannah is a gamified tour experience reimagining urban tourism through AR storytelling and gamification. By shifting from passive narration to an interactive, reward-based ecosystem, we established a distinctive presence in a saturated market and solved key accessibility challenges.</p>
+            <p>A concept for Big Bus Savannah: narration and captions delivered to each guest’s own phone, so the story gets through street noise and reaches guests with hearing impairments, plus AR and collectible artifacts to make it stick.</p>
           </div>
           <div class="case-overview-col">
             <h3>My Roles</h3>
@@ -91,22 +100,22 @@
         </div>
       </div>
 
-      <div class="case-media" style="margin-top:32px">
-        <img class="case-image case-image--no-shadow" src="images/case-study-bigbus/bigbusoverview.webp" alt="Big Bus Savannah" loading="lazy" decoding="async" width="1600" height="1067">
-      </div>
+      <figure class="case-media">
+        <img class="case-image" src="images/case-study-bigbus/bigbusoverview.webp" alt="Big Bus Savannah" loading="lazy" decoding="async" width="1600" height="1067">
+      </figure>
 
       <article class="case-main">
 
-        <section class="case-phase case-section-spaced">
+        <section id="problem" class="case-phase case-section-spaced">
           <p class="case-phase-label">Problem</p>
           <h2>In a city of stories, history is getting lost in the noise.</h2>
           <p>A guided tour is an audio product delivered in one of the worst possible environments for audio. Savannah's trolley and walking tours run through live streets (traffic, crowds, construction), and the guide is competing with all of it. The content fails intermittently for everyone, and completely for anyone with a hearing impairment. Operators lose the story they're selling; guests lose the reason they paid.</p>
-          <div class="case-media problem-statement-image-wrap">
-            <img class="case-image case-image--no-shadow" src="images/case-study-bigbus/problemstatementpicture.webp" alt="Big Bus Savannah problem statement" loading="lazy" decoding="async" width="1600" height="1200">
-          </div>
+          <figure class="case-media problem-statement-image-wrap">
+            <img class="case-image" src="images/case-study-bigbus/problemstatementpicture.webp" alt="Big Bus Savannah problem statement" loading="lazy" decoding="async" width="1600" height="1200">
+          </figure>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="research" class="case-phase case-section-spaced">
           <p class="case-phase-label">Research</p>
           <h2>Understanding the gap between the guide and the guest.</h2>
           <p>We took to the streets, riding walking and trolley tours ourselves and interviewing both guides and guests. Guides told us they needed to reach younger demographics. Tourists told us something more concrete, and they told us repeatedly:</p>
@@ -116,20 +125,20 @@
           <blockquote class="case-quote"><p>“Hearing challenges would be benefited from AR/VR. The guide could directly talk to a hearing-disabled person.”</p></blockquote>
           <blockquote class="case-quote"><p>“It would be cool to see what the guides are talking about, actually go back into history and see it for yourself.”</p></blockquote>
           <p>Those two together set the brief. The experience had to be <strong>inclusive</strong>, so everyone receives the story regardless of street noise or hearing ability, and <strong>immersive</strong> enough that people remember it for years. Not a lack of history. A delivery problem, and an engagement opportunity sitting right next to it.</p>
-          <div class="case-media">
-            <img class="case-image case-image--no-shadow" src="images/case-study-bigbus/researchphotopng.webp" alt="Big Bus Savannah research" loading="lazy" decoding="async" width="1600" height="691">
-          </div>
+          <figure class="case-media">
+            <img class="case-image" src="images/case-study-bigbus/researchphotopng.webp" alt="Big Bus Savannah research" loading="lazy" decoding="async" width="1600" height="691">
+          </figure>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="solution" class="case-phase case-section-spaced">
           <p class="case-phase-label">Solution</p>
           <h2>A hybrid guided experience.</h2>
           <p>We kept the human guide and moved the delivery onto the guest's own phone, combining digital narration, captioning, AR and gamification. The first two solve the problem; the second two are why anyone would want to use it.</p>
 
-          <div class="case-media">
-            <img class="case-image case-image--no-shadow" src="images/case-study-bigbus/sketchesbrainstorming.webp" alt="Big Bus process: hand-drawn concept sketches, an affinity map grouping research notes into themes like Communication Accessibility and AR and Caption Integration, and the resulting app screens" loading="lazy" decoding="async" width="2000" height="1080">
-          </div>
-          <p class="muted" style="margin-top:12px">Sketches to affinity map to screens. The themes on the wall (communication accessibility, AR and caption integration, landmark cues) are what the four solution components came from.</p>
+          <figure class="case-media">
+            <img class="case-image" src="images/case-study-bigbus/sketchesbrainstorming.webp" alt="Big Bus process: hand-drawn concept sketches, an affinity map grouping research notes into themes like Communication Accessibility and AR and Caption Integration, and the resulting app screens" loading="lazy" decoding="async" width="2000" height="1080">
+            <figcaption>Sketches to affinity map to screens. The themes on the wall (communication accessibility, AR and caption integration, landmark cues) are what the four solution components came from.</figcaption>
+          </figure>
 
           <h3>Digital narration</h3>
           <p>The guide's story is delivered through the guest's own device rather than shouted over traffic. Street noise stops being a variable, and the guest controls their own volume.</p>
@@ -169,7 +178,7 @@
           </div>
         </section>
 
-        <section class="case-phase case-section-spaced">
+        <section id="impact" class="case-phase case-section-spaced">
           <p class="case-phase-label">Impact</p>
           <h2>What the concept answers, and what it doesn't.</h2>
           <p>The strongest thing about this project is that the solution came out of the research rather than around it. A participant proposed AR as an answer to hearing challenges before we did, and the delivery model follows directly from what people told us was broken. Captioning and narration through the guest's own device address the failure we actually observed instead of the one we assumed.</p>
@@ -177,9 +186,12 @@
           <p>What I'd want to know first: does moving narration onto a phone pull people out of the street they came to look at? Immersion and heads-down screen time are in tension, and a live tour is the setting where that tension is most likely to bite.</p>
         </section>
 
-        <nav class="case-study-nav">
-          <a class="case-nav-link case-nav-link--back" href="case-study-mose.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Previous Project</a>
-          <a class="case-nav-link case-nav-link--next" href="case-study-finra.html">Next Project <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        <p class="case-contact">Want to talk about this project? <a href="mailto:carsonohara78@gmail.com">Email me</a> or <a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">see my resume</a>.</p>
+
+        <nav class="case-study-nav" aria-label="More case studies">
+          <a class="case-nav-link case-nav-link--back" href="case-study-finra.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> <span><span class="case-nav-kicker">Previous:</span> FINRA x SCADpro</span></a>
+          <a class="case-nav-link case-nav-link--all" href="work.html">All work</a>
+          <a class="case-nav-link case-nav-link--next" href="case-study-mose.html"><span><span class="case-nav-kicker">Next:</span> Mose</span> <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
         </nav>
       </article>
     </div>
@@ -190,7 +202,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

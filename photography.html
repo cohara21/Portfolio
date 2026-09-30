@@ -5,26 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
   <title>Photography | Carson O'Hara</title>
-  <meta name="description" content="Photography showcase" />
+  <meta name="description" content="A gallery of Carson O&#x27;Hara&#x27;s sports photography." />
   <!-- Link previews (Slack, LinkedIn, iMessage, X) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carson O'Hara" />
   <meta property="og:url" content="https://carsonohara.com/photography.html" />
   <meta property="og:title" content="Photography | Carson O&#x27;Hara" />
-  <meta property="og:description" content="Photography showcase" />
+  <meta property="og:description" content="A gallery of Carson O&#x27;Hara&#x27;s sports photography." />
   <meta property="og:image" content="https://carsonohara.com/images/og/home.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Carson O&#x27;Hara, designer and builder" />
+  <meta property="og:image:alt" content="Carson O&#x27;Hara, product designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Photography | Carson O&#x27;Hara" />
-  <meta name="twitter:description" content="Photography showcase" />
+  <meta name="twitter:description" content="A gallery of Carson O&#x27;Hara&#x27;s sports photography." />
   <meta name="twitter:image" content="https://carsonohara.com/images/og/home.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="canonical" href="https://carsonohara.com/photography.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Content that fades in is only hidden once we know JS will reveal it -->
+  <script>document.documentElement.classList.add('js')</script>
   <script defer src="js/main.js"></script>
 </head>
-<body class="photography-page">
+<body class="photography-page" id="top">
   <!-- SVG icon symbols (used throughout the site) -->
   <svg aria-hidden="true" style="display:none">
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
@@ -40,7 +46,7 @@
         <a class="header-back" href="work.html" aria-label="Back to work"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></a>
       </div>
       <div class="nav-shell">
-        <nav id="primary-nav" class="primary-nav" data-visible="false">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="work.html" class="nav-link active">Work</a></li>
@@ -51,30 +57,34 @@
       </div>
       <div class="header-actions">
         <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
-        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
           <span class="hamburger"></span>
         </button>
       </div>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <!-- main kept for accessibility landmarks; primary content (gallery) sits outside to span wider -->
-  </main>
-
-  <!-- Gallery and aligned hero (both use gallery-container so left edges match) -->
-  <section class="section">
+  <!-- The gallery is the page's main content, so it sits inside <main> for the
+       skip link and landmarks. gallery-container sets its own width. -->
+  <main id="main">
+  <section class="section gallery-section">
     <div class="gallery-container">
-  <div class="hero fade-in" style="padding-top:56px;">
+      <header class="page-header">
         <h1>Photography Showcase</h1>
-        <p class="muted">Browse the visual gallery. Click any image to enlarge and navigate through the set.</p>
-      </div>
+        <p class="muted">Browse the visual gallery. Tap or click any image to enlarge it and move through the set.</p>
+      </header>
 
       <div class="gallery-grid" id="gallery-grid">
         <!-- gallery items generated via JS -->
       </div>
+      <noscript><p class="muted">This gallery needs JavaScript to load its images.</p></noscript>
+      <nav class="case-study-nav gallery-end-nav" aria-label="More work">
+        <a class="case-nav-link case-nav-link--back" href="work.html"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> All work</a>
+        <a class="case-nav-link case-nav-link--next" href="graphic-design-showcase.html">Graphic design <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </nav>
     </div>
   </section>
+  </main>
 
   <!-- Lightbox modal -->
   <div id="gallery-modal" class="gallery-modal" aria-hidden="true">
@@ -85,6 +95,7 @@
           <button class="gallery-close" aria-label="Close"><svg class="icon icon-close" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg><span class="visually-hidden">Close</span></button>
           <div class="gallery-controls">
             <button class="gallery-nav-arrow gallery-prev" aria-label="Previous image"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-left"></use></svg></button>
+            <p id="gallery-counter" class="gallery-counter-large" aria-live="polite"></p>
             <button class="gallery-nav-arrow gallery-next" aria-label="Next image"><svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button>
           </div>
         </div>
@@ -97,7 +108,7 @@
       <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
       <div class="footer-right">
         <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social" href="mailto:contact@carsonohara.com">Email</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
         <a class="back-to-top" href="#top">Back to Top</a>
       </div>
     </div>

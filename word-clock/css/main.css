@@ -207,3 +207,6 @@ time {
 }
 
 
+
+.back-to-portfolio{ display: inline-flex; min-height: 44px; box-sizing: border-box; align-items: center; }
+.back-to-portfolio:active{ transform: scale(0.96); }

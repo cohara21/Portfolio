@@ -87,7 +87,6 @@ function updateWatch(date = null) {
         switchLettersOnFor("wordAt");
     }
 
-    console.log("Time:", hours, minutes);
 }
 
 function addOneToHours(hours) {

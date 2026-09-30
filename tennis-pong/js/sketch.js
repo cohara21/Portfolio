@@ -115,7 +115,6 @@ function preload() {
 
     // ball sound fx
     ballSoundFX = loadSound('assets/ballsoundfx.mp3', () => {
-        console.log('Sound loaded successfully');
     });
 
     // load videos
@@ -176,6 +175,15 @@ function windowResized() {
 }
 
 function keyPressed() {
+    // Escape leaves a game in progress. The Back to Portfolio link is hidden
+    // during play (it would sit over the left racket), so this is the way out.
+    if (keyCode === ESCAPE && (currentState === STATE_PLAYING || currentState === STATE_SCORE)) {
+        clearTimeout(scoreTimeout);
+        score.left = 0;
+        score.right = 0;
+        changeState(STATE_DIFFICULTY_SELECT);
+        return;
+    }
     switch (currentState) {
         case STATE_WELCOME:
             if (keyCode == SPACE) {
@@ -227,11 +235,6 @@ function setPositionsAndDimensionsForPlaying() {
     rightRacket.height = racketHeight * 0.01 * windowHeight;
     rightRacket.x = windowWidth - rightRacket.width;
     rightRacket.y = windowHeight / 2 - rightRacket.height / 2;
-
-    console.log("resetPositionsAndDimensionsForPlaying", {
-        ballX: ball.x,
-        ballY: ball.y,
-    });
 }
 
 function drawForWelcome() {
@@ -253,6 +256,15 @@ function drawForWelcome() {
 
     textSize(vmin(4));
     text("Control the Racket with the UP and DOWN Arrows", windowWidth / 2, windowHeight * 2 / 4); 
+
+    // The game is keyboard-only; say so on phones and tablets instead of
+    // leaving a touch visitor at a screen that ignores them.
+    if (window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+        textSize(vmin(4));
+        fill(223, 255, 79);
+        text("Tennis Pong needs a keyboard. Try it on a computer!", windowWidth / 2, windowHeight * 5 / 6);
+        fill(255);
+    }
 
     
 
@@ -281,6 +293,9 @@ function drawForDifficultySelect() {
     text("Press 2 for Medium", centerX, baseY + lineSpacing * 2);
     text("Press 3 for Hard", centerX, baseY + lineSpacing * 3);
     text("Press 4 for Impossible", centerX, baseY + lineSpacing * 4);
+
+    textSize(vmin(3));
+    text("Press Esc during a game to quit", centerX, baseY + lineSpacing * 6);
 }
 
 function drawForPlaying() {
@@ -464,7 +479,7 @@ function drawForWinner() {
     }
 
     // Display winner or loser message
-    let winnerString = score.right >= scoreLimit ? "Congrats! You win!" : "You suck! Try again";3 
+    let winnerString = score.right >= scoreLimit ? "Congrats! You win!" : "You lose! Try again";
     text(winnerString, windowWidth / 2, windowHeight / 3);
 
     let date = new Date();

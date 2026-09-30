@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong</title>
+    <title>Tennis Pong | Carson O'Hara</title>
+    <meta name="description" content="Tennis Pong: classic Pong with a tennis twist, built with p5.js by Carson O'Hara. Play against the computer on four difficulty levels.">
+    <link rel="canonical" href="https://carsonohara.com/tennis-pong/">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tennis Pong | Carson O&#x27;Hara">
+    <meta property="og:description" content="Classic Pong with a tennis twist, built with p5.js.">
+    <meta property="og:url" content="https://carsonohara.com/tennis-pong/">
+    <meta property="og:image" content="https://carsonohara.com/images/og/home.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/p5/p5.min.js"></script>
     <script src="./js/p5/addons/p5.sound.min.js"></script>
@@ -11,6 +21,8 @@
 </head>
 <body>
     <a id="back-to-portfolio" class="back-to-portfolio" href="../work.html">Back to Portfolio</a>
+    <!-- p5 shows this element while preload() fetches the images -->
+    <div id="p5_loading" class="pong-loading" role="status">Loading Tennis Pong…</div>
     <!-- <div id="backgrounds" style="display: none;"> 
         <img src="./assets/background1.png" id="bg1">
         <img src="./assets/background2.png" id="bg2">
