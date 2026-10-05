@@ -93,18 +93,18 @@ function preload() {
     ];
 
     homeImages = [
-        loadImage('assets/homescreen1.png'),
-        loadImage('assets/homescreen2.png'),
-        loadImage('assets/homescreen3.png'),
-        loadImage('assets/homescreen4.png'),
-        loadImage('assets/homescreen5.png'),
-        loadImage('assets/homescreen6.png'),
-        loadImage('assets/homescreen7.png'),
-        loadImage('assets/homescreen8.png'),
-        loadImage('assets/homescreen9.png'),
-        loadImage('assets/homescreen10.png'),
-        loadImage('assets/homescreen11.png'),
-        loadImage('assets/homescreen12.png')
+        loadImage('assets/homescreen1.webp'),
+        loadImage('assets/homescreen2.webp'),
+        loadImage('assets/homescreen3.webp'),
+        loadImage('assets/homescreen4.webp'),
+        loadImage('assets/homescreen5.webp'),
+        loadImage('assets/homescreen6.webp'),
+        loadImage('assets/homescreen7.webp'),
+        loadImage('assets/homescreen8.webp'),
+        loadImage('assets/homescreen9.webp'),
+        loadImage('assets/homescreen10.webp'),
+        loadImage('assets/homescreen11.webp'),
+        loadImage('assets/homescreen12.webp')
     ];
 
     // Racquet pictures
