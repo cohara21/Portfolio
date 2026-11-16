@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#070b16" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* Shared: the dark glass world */
+    :root{--ease:cubic-bezier(.16,1,.3,1);--night:#070b16;--on-dark:#fff;--on-dark-muted:rgba(255,255,255,.68);--on-dark-line:rgba(255,255,255,.12)}
+    html,body{background:var(--night);color:var(--on-dark)}
+    ::selection{background:var(--accent);color:#fff}
+    .glass{position:relative;border-radius:var(--r-24);
+      background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      -webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.04), 0 30px 80px rgba(0,0,0,.35)}
+    /* Light that follows the cursor across glass */
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(420px circle at var(--gx, -999px) var(--gy, -999px), rgba(255,255,255,.12), transparent 60%)}
+    .gbtn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);min-height:var(--tap, 44px);padding:0 var(--space-16);
+      border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+      -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--on-dark);font:600 var(--fs-14)/1 var(--ff-sans);text-decoration:none;cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease)}
+    .gbtn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+    .gbtn:active{transform:scale(.96)}
+    .gbtn.solid{background:var(--on-dark);color:var(--ink);border-color:transparent}
+    .gbtn.solid:hover{background:#e8edf7}
+    .gbtn svg{width:16px;height:16px;flex:none}
+    main a:focus-visible,main button:focus-visible,.gbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .label{margin:0;font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted)}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    .site-footer{background:transparent;color:var(--on-dark-muted);border-top:1px solid var(--on-dark-line)}
+    .site-footer a{color:var(--on-dark)}
+    @media (prefers-reduced-motion: reduce){ .dot{animation:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:#fff;color:var(--ink);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+
+    /* ── Glass dashboard (preview): one control surface, like a car's screen ── */
+    .ds-sky{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--night)}
+    .ds-sky i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+    .ds-sky i:nth-child(1){width:52vw;height:52vw;left:-10vw;top:-12vw;background:#1E4FFF;animation:drift1 26s ease-in-out infinite alternate}
+    .ds-sky i:nth-child(2){width:44vw;height:44vw;right:-8vw;top:10vh;background:rgb(var(--glow, 94,72,214));transition:background-color 1.2s var(--ease);animation:drift2 32s ease-in-out infinite alternate}
+    .ds-sky i:nth-child(3){width:40vw;height:40vw;left:30vw;bottom:-22vw;background:#0ea5e9;opacity:.35;animation:drift3 28s ease-in-out infinite alternate}
+    @keyframes drift1{to{transform:translate(12vw, 10vh) scale(1.1)}}
+    @keyframes drift2{to{transform:translate(-14vw, 16vh) scale(.9)}}
+    @keyframes drift3{to{transform:translate(-10vw, -12vh) scale(1.15)}}
+    .ds-sky::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%, transparent 40%, rgba(7,11,22,.7))}
+
+    .ds.container{width:min(1440px, calc(100vw - 48px));max-width:none}
+    .ds{display:grid;gap:var(--space-16);padding:calc(var(--space-96) - var(--space-8)) 0 var(--space-24);
+      grid-template-columns:clamp(260px, 22vw, 320px) minmax(0, 1fr) clamp(260px, 22vw, 320px);grid-template-rows:1fr auto;
+      height:100vh;height:100svh;min-height:640px}
+    .ds-id{grid-column:1;grid-row:1;padding:var(--space-24);display:flex;flex-direction:column;min-height:0}
+    .ds-id img{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.08)}
+    .ds-id h1{margin:var(--space-16) 0 0;font-size:var(--fs-32);font-weight:700;line-height:var(--lh-display);letter-spacing:-0.03em}
+    .ds-id .one{margin:var(--space-8) 0 var(--space-16);font-size:var(--fs-16);line-height:var(--lh-ui);color:var(--on-dark-muted)}
+    .ds-chip{display:inline-flex;align-items:center;gap:var(--space-8);align-self:flex-start;padding:6px 12px;border-radius:var(--r-pill);background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.28);font-size:var(--fs-14);font-weight:500}
+    .ds-spec{margin:auto 0 0;padding:var(--space-16) 0 0;border-top:1px solid var(--on-dark-line);display:grid;grid-template-columns:auto 1fr;gap:var(--space-8) var(--space-16);font-size:var(--fs-14)}
+    .ds-spec dt{color:var(--on-dark-muted)}
+    .ds-spec dd{margin:0;text-align:right}
+    .ds-contact{grid-column:1;grid-row:2;padding:var(--space-8);display:flex;gap:var(--space-8)}
+    .ds-contact .gbtn{flex:1;padding:0 var(--space-8)}
+
+    .ds-view{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;overflow:hidden;min-height:0}
+    .ds-vhead{display:flex;align-items:center;justify-content:space-between;gap:var(--space-16);padding:var(--space-16) var(--space-24);border-bottom:1px solid var(--on-dark-line)}
+    .ds-vhead .label{display:flex;align-items:center;gap:var(--space-8)}
+    .ds-screen{position:relative;flex:1;min-height:0;margin:var(--space-16);border-radius:var(--r-12);overflow:hidden;background:rgba(0,0,0,.25)}
+    .ds-shot{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .6s var(--ease),transform .9s var(--ease)}
+    .ds-shot.is-on{opacity:1;transform:none}
+    .ds-shot img,.ds-shot video{width:100%;height:100%;display:block;object-fit:contain;padding:var(--space-24)}
+    .ds-shot.cover img,.ds-shot.cover video{object-fit:cover;padding:0}
+    .ds-vfoot{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-24);padding:0 var(--space-24) var(--space-24)}
+    .ds-vfoot h2{margin:0;font-size:clamp(2rem, 1.2rem + 2vw, 3rem);font-weight:700;line-height:1;letter-spacing:-0.035em}
+    .ds-vfoot p{margin:var(--space-8) 0 0;color:var(--on-dark-muted);font-size:var(--fs-16)}
+    .ds-vfoot > div > *{transition:opacity .3s var(--ease)}
+    .ds-vfoot.is-out > div > *{opacity:0}
+
+    .ds-tiles{grid-column:3;grid-row:1 / span 2;display:flex;flex-direction:column;gap:var(--space-8);margin:0;padding:0;list-style:none;min-height:0}
+    .ds-tiles li{flex:1;min-height:0;display:flex}
+    .ds-tile{flex:1;display:grid;grid-template-columns:84px 1fr;align-items:center;gap:var(--space-16);padding:var(--space-8) var(--space-16) var(--space-8) var(--space-8);
+      color:inherit;text-decoration:none;border-radius:var(--r-24);transition:transform var(--motion-slow) var(--ease),background var(--motion-slow) var(--ease),border-color var(--motion-slow) var(--ease)}
+    .ds-tile .th{height:100%;max-height:84px;aspect-ratio:1;border-radius:var(--r-12);background:rgba(255,255,255,.08) center / cover no-repeat}
+    .ds-tile b{display:block;font-size:var(--fs-16);font-weight:600;line-height:1.3}
+    .ds-tile span.st{display:inline-flex;align-items:center;gap:6px;margin-top:var(--space-4);font-size:var(--fs-12);color:var(--on-dark-muted)}
+    .ds-tile span.st i{width:6px;height:6px;border-radius:50%;background:currentColor}
+    .ds-tile span.st.live i{background:#4ade80}
+    .ds-tile[aria-current="true"]{background:linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.08));border-color:rgba(255,255,255,.34);transform:translateX(-6px)}
+
+    /* Laptops with short screens: tighten */
+    @media (max-height:760px) and (min-width:1100px){ .ds-spec{display:none} }
+    /* Tablets and phones: stack, tiles become cards, the viewport shows the featured project */
+    @media (max-width:1099px){
+      .ds.container{width:auto}
+      .ds{grid-template-columns:1fr;grid-template-rows:none;height:auto;min-height:0;padding-top:calc(var(--space-96) + var(--space-8))}
+      .ds-id,.ds-contact,.ds-view,.ds-tiles{grid-column:1;grid-row:auto}
+      .ds-view{min-height:0}
+      .ds-screen{aspect-ratio:16 / 10;flex:none}
+      .ds-vfoot{flex-direction:column;align-items:flex-start}
+      .ds-tiles li{flex:none}
+      .ds-tile{grid-template-columns:72px 1fr}
+      .ds-tile .th{height:72px}
+      .ds-tile[aria-current="true"]{transform:none}
+      .ds-spec{margin-top:var(--space-16)}
+    }
+    @media (prefers-reduced-motion: reduce){ .ds-sky i{animation:none} .ds-shot{transition:opacity .2s linear;transform:none} }
+
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header on-dark" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ds-sky" aria-hidden="true"><i></i><i></i><i></i></div>
+  <main id="main" class="container ds">
+    <section class="ds-id glass" aria-label="About Carson">
+      <img src="images/index/headshotanimation.webp" alt="" width="56" height="56">
+      <h1>Carson O'Hara</h1>
+      <p class="one">I design and build products.</p>
+      <span class="ds-chip"><span class="dot" aria-hidden="true"></span>Currently designing at Contio</span>
+      <dl class="ds-spec">
+        <dt>Role</dt><dd>Designer, Contio</dd>
+        <dt>Before</dt><dd>UX Designer, FINRA x SCADpro</dd>
+        <dt>Studied</dt><dd>BFA UX Design, SCAD</dd>
+        <dt>Played</dt><dd>Men's Tennis, SCAD</dd>
+      </dl>
+    </section>
+    <nav class="ds-contact glass" aria-label="Contact">
+      <a class="gbtn" href="mailto:carsonohara78@gmail.com"><svg aria-hidden="true"><use href="#i-mail"></use></svg>Email</a>
+      <a class="gbtn" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-doc"></use></svg>Resume</a>
+      <a class="gbtn" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-link"></use></svg>LinkedIn</a>
+    </nav>
+    <section class="ds-view glass" aria-label="Selected project">
+      <div class="ds-vhead"><p class="label"><span class="dot" aria-hidden="true"></span><span class="ds-meta"></span></p></div>
+      <div class="ds-screen" aria-hidden="true">
+          <div class="ds-shot cover is-on" data-i="0"><video muted playsinline loop preload="metadata" poster="images/case-study-contio/benny-film-poster.webp"><source src="images/case-study-contio/benny-film.mp4" type="video/mp4"></video></div>
+          <div class="ds-shot" data-i="1"><img src="images/case-study-coral-keepers/hero-banner.webp" alt="" width="1600" height="1306" loading="eager"></div>
+          <div class="ds-shot cover" data-i="2"><img src="images/case-study-finra/prototype-dashboard.webp" alt="" width="1456" height="814" loading="lazy"></div>
+          <div class="ds-shot" data-i="3"><img src="images/case-study-bigbus/bigbusheroimage.webp" alt="" width="1600" height="1113" loading="lazy"></div>
+          <div class="ds-shot" data-i="4"><img src="images/case-study-mose/header.webp" alt="" width="1600" height="1164" loading="lazy"></div>
+      </div>
+      <div class="ds-vfoot" aria-live="polite">
+        <div><h2 class="ds-title"></h2><p class="ds-desc"></p></div>
+        <a class="gbtn solid ds-go" href="#">Open case study <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+    </section>
+    <ul class="ds-tiles" aria-label="Projects">
+        <li><a class="ds-tile glass" href="case-study-contio.html" data-i="0" aria-current="true">
+          <span class="th" style="background-image:url('images/case-study-contio/card.webp')" aria-hidden="true"></span>
+          <span><b>Contio</b><span class="st live"><i aria-hidden="true"></i>Live</span></span></a></li>
+        <li><a class="ds-tile glass" href="case-study-coral-keepers.html" data-i="1" aria-current="false">
+          <span class="th" style="background-image:url('images/work/CoralKeepersHeader.webp')" aria-hidden="true"></span>
+          <span><b>Coral Keepers</b><span class="st live"><i aria-hidden="true"></i>Live</span></span></a></li>
+        <li><a class="ds-tile glass" href="case-study-finra.html" data-i="2" aria-current="false">
+          <span class="th" style="background-image:url('images/case-study-finra/finra header.webp')" aria-hidden="true"></span>
+          <span><b>FINRA x SCADpro</b><span class="st"><i aria-hidden="true"></i>Handed off</span></span></a></li>
+        <li><a class="ds-tile glass" href="case-study-bigbus.html" data-i="3" aria-current="false">
+          <span class="th" style="background-image:url('images/work/bigbusheader.webp')" aria-hidden="true"></span>
+          <span><b>Big Bus Savannah</b><span class="st"><i aria-hidden="true"></i>Concept</span></span></a></li>
+        <li><a class="ds-tile glass" href="case-study-mose.html" data-i="4" aria-current="false">
+          <span class="th" style="background-image:url('images/work/moseheader.webp')" aria-hidden="true"></span>
+          <span><b>Mose</b><span class="st"><i aria-hidden="true"></i>Concept</span></span></a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Glass 2 · Dashboard</div>
+  <script>
+  // Glass highlight follows the cursor (shared)
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    addEventListener('pointermove', e => {
+      document.querySelectorAll('.glass').forEach(g => {
+        const b = g.getBoundingClientRect();
+        g.style.setProperty('--gx', (e.clientX - b.left) + 'px');
+        g.style.setProperty('--gy', (e.clientY - b.top) + 'px');
+      });
+    }, {passive:true});
+  })();
+
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const P = [{"title": "Contio", "meta": "Current role \u00b7 Brand + marketing design \u00b7 Live", "desc": "Brand, website and launch films for an AI meeting platform", "href": "case-study-contio.html", "glow": "94,72,214"}, {"title": "Coral Keepers", "meta": "Senior capstone \u00b7 Design + front-end \u00b7 Live", "desc": "Classroom coral restoration, with an AI that knows the tank", "href": "case-study-coral-keepers.html", "glow": "20,184,166"}, {"title": "FINRA x SCADpro", "meta": "Industry client \u00b7 Research + prototype \u00b7 Handed off", "desc": "Redesigning FINRA\u2019s ecosystem for role-based experiences", "href": "case-study-finra.html", "glow": "30,79,255"}, {"title": "Big Bus Savannah", "meta": "Class project \u00b7 UX design + research \u00b7 Concept", "desc": "Reimagining Savannah tours with interactive AR storytelling", "href": "case-study-bigbus.html", "glow": "217,119,6"}, {"title": "Mose", "meta": "Class project \u00b7 UX research + design \u00b7 Concept", "desc": "Balancing independence and oversight in dementia care", "href": "case-study-mose.html", "glow": "124,131,255"}];
+    const tiles = [...document.querySelectorAll('.ds-tile')];
+    const shots = [...document.querySelectorAll('.ds-shot')];
+    const foot = document.querySelector('.ds-vfoot');
+    let cur = -1, t;
+    function pick(i){
+      if(i === cur) return; cur = i;
+      tiles.forEach((el, k) => el.setAttribute('aria-current', String(k === i)));
+      shots.forEach((el, k) => {
+        el.classList.toggle('is-on', k === i);
+        const v = el.querySelector('video'); if(v){ k === i && !reduce ? v.play().catch(() => {}) : v.pause(); }
+      });
+      document.documentElement.style.setProperty('--glow', P[i].glow);
+      document.querySelector('.ds-meta').textContent = P[i].meta;
+      foot.classList.add('is-out'); clearTimeout(t);
+      t = setTimeout(() => {
+        foot.querySelector('.ds-title').textContent = P[i].title;
+        foot.querySelector('.ds-desc').textContent = P[i].desc;
+        const go = foot.querySelector('.ds-go'); go.href = P[i].href; go.setAttribute('aria-label', 'Open the ' + P[i].title + ' case study');
+        foot.classList.remove('is-out');
+      }, reduce ? 0 : 150);
+    }
+    // Hover or focus a tile to preview it; clicking opens the case study
+    tiles.forEach((el, i) => { el.addEventListener('mouseenter', () => pick(i)); el.addEventListener('focus', () => pick(i)); });
+    pick(0);
+  })();
+
+  </script>
+</body>
+</html>

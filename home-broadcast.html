@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#070b16" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* Shared: the dark glass world */
+    :root{--ease:cubic-bezier(.16,1,.3,1);--night:#070b16;--on-dark:#fff;--on-dark-muted:rgba(255,255,255,.68);--on-dark-line:rgba(255,255,255,.12)}
+    html,body{background:var(--night);color:var(--on-dark)}
+    ::selection{background:var(--accent);color:#fff}
+    .glass{position:relative;border-radius:var(--r-24);
+      background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      -webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.04), 0 30px 80px rgba(0,0,0,.35)}
+    /* Light that follows the cursor across glass */
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(420px circle at var(--gx, -999px) var(--gy, -999px), rgba(255,255,255,.12), transparent 60%)}
+    .gbtn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);min-height:var(--tap, 44px);padding:0 var(--space-16);
+      border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+      -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--on-dark);font:600 var(--fs-14)/1 var(--ff-sans);text-decoration:none;cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease)}
+    .gbtn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+    .gbtn:active{transform:scale(.96)}
+    .gbtn.solid{background:var(--on-dark);color:var(--ink);border-color:transparent}
+    .gbtn.solid:hover{background:#e8edf7}
+    .gbtn svg{width:16px;height:16px;flex:none}
+    main a:focus-visible,main button:focus-visible,.gbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .label{margin:0;font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted)}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    .site-footer{background:transparent;color:var(--on-dark-muted);border-top:1px solid var(--on-dark-line)}
+    .site-footer a{color:var(--on-dark)}
+    @media (prefers-reduced-motion: reduce){ .dot{animation:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:#fff;color:var(--ink);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+
+    /* ── Player intro (preview): the home page opens like a broadcast graphics package ── */
+    :root{--cond:'Barlow Condensed', 'Inter', sans-serif;--hot:#1E4FFF;--hot2:#7c5cff}
+    .bc-sky{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#05070f}
+    .bc-sky i{position:absolute;inset:-30%;background:conic-gradient(from 200deg at 60% 40%, #1E4FFF, #7c5cff, #06b6d4, #1E4FFF);filter:blur(120px);opacity:.28;animation:bcspin 40s linear infinite}
+    @keyframes bcspin{to{transform:rotate(360deg)}}
+    .bc-sky::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 4px)}
+
+    /* The wipe: two diagonal bars sweep across on load */
+    .bc-wipe{position:fixed;inset:0;z-index:90;pointer-events:none;overflow:hidden;display:none}
+    .is-playing .bc-wipe{display:block}
+    .bc-wipe i{position:absolute;top:-20%;bottom:-20%;width:70vw;left:calc(-70vw - 60vh);transform:skewX(-18deg)}
+    .bc-wipe i:nth-child(1){background:var(--hot)}
+    .bc-wipe i:nth-child(2){background:#fff}
+    .is-playing .bc-wipe i:nth-child(1){animation:wipe 1s cubic-bezier(.7,0,.2,1) forwards}
+    .is-playing .bc-wipe i:nth-child(2){animation:wipe 1s cubic-bezier(.7,0,.2,1) .08s forwards}
+    @keyframes wipe{to{left:calc(100vw + 60vh)}}
+
+    .bc{padding:calc(var(--space-96) + var(--space-16)) 0 var(--space-64)}
+    /* Lower third */
+    .bc-l3{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:var(--space-32);margin-bottom:var(--space-48)}
+    .bc-name{position:relative;display:inline-block}
+    .bc-name h1{margin:0;padding:.08em .35em .02em .2em;font-family:var(--cond);font-weight:800;font-style:italic;text-transform:uppercase;
+      font-size:clamp(2.75rem, 1.2rem + 7vw, 8rem);line-height:.9;letter-spacing:-.01em;background:#fff;color:#05070f;
+      clip-path:polygon(0 0, 100% 0, calc(100% - .35em) 100%, 0 100%)}
+    .bc-tag{display:inline-flex;align-items:center;gap:var(--space-8);margin-top:-2px;padding:.35em 1.4em .35em .6em;background:var(--hot);color:#fff;
+      font-family:var(--cond);font-weight:700;font-size:clamp(1.1rem, .8rem + 1vw, 1.6rem);letter-spacing:.06em;text-transform:uppercase;
+      clip-path:polygon(0 0, 100% 0, calc(100% - .8em) 100%, 0 100%)}
+    .bc-one{margin:var(--space-16) 0 0;font-size:var(--fs-20);color:var(--on-dark-muted)}
+    /* Stat card */
+    .bc-stats{justify-self:end;display:grid;grid-template-columns:repeat(4, auto);gap:0;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
+      -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);clip-path:polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px)}
+    .bc-stat{padding:var(--space-16) var(--space-24);border-left:1px solid rgba(255,255,255,.1)}
+    .bc-stat:first-child{border-left:0}
+    .bc-stat b{display:block;font-family:var(--cond);font-weight:800;font-size:2.5rem;line-height:1;font-variant-numeric:tabular-nums}
+    .bc-stat span{display:block;margin-top:var(--space-4);font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted);white-space:nowrap}
+
+    /* Player cards */
+    .bc-grid{display:grid;grid-template-columns:repeat(6, 1fr);gap:var(--space-16)}
+    .bc-card{position:relative;grid-column:span 2;display:flex;flex-direction:column;min-height:420px;color:inherit;text-decoration:none;overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);
+      clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);transition:transform .5s var(--ease),border-color .3s var(--ease)}
+    .bc-card:nth-child(1){grid-column:span 4;min-height:460px}
+    .bc-card:nth-child(2){grid-column:span 2;min-height:460px}
+    .bc-card:nth-child(n+3){grid-column:span 2}
+    .bc-bug{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--space-8);padding:10px 14px;background:rgba(5,7,15,.7);border-bottom:1px solid rgba(255,255,255,.1);
+      font-family:var(--cond);font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase}
+    .bc-bug .st{display:inline-flex;align-items:center;gap:8px;padding:2px 10px;background:#fff;color:#05070f}
+    .bc-bug .st.live{background:#4ade80}
+    .bc-bug .yr{color:var(--on-dark-muted);font-variant-numeric:tabular-nums}
+    .bc-media{position:relative;flex:1;min-height:0;overflow:hidden;background:radial-gradient(70% 70% at 50% 60%, rgba(var(--g),.45), transparent 70%)}
+    .bc-media img,.bc-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:var(--space-16);transition:transform .7s var(--ease)}
+    .bc-media.cover img,.bc-media.cover video{object-fit:cover;padding:0}
+    .bc-info{position:relative;z-index:2;padding:var(--space-16) 18px 18px;background:linear-gradient(0deg, rgba(5,7,15,.9), rgba(5,7,15,.6))}
+    .bc-info h2{margin:0;font-family:var(--cond);font-weight:800;font-style:italic;text-transform:uppercase;font-size:2.4rem;line-height:.95;letter-spacing:.005em}
+    .bc-card:nth-child(1) .bc-info h2{font-size:3.4rem}
+    .bc-info p{margin:var(--space-8) 0 0;color:var(--on-dark-muted);font-size:var(--fs-14);line-height:var(--lh-ui)}
+    /* Shine sweep on hover */
+    .bc-card::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.18) 50%, transparent 65%);transform:translateX(-120%)}
+    @media (hover:hover) and (pointer:fine){
+      .bc-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.3)}
+      .bc-card:hover::after{transform:translateX(120%);transition:transform .8s var(--ease)}
+      .bc-card:hover .bc-media img,.bc-card:hover .bc-media video{transform:scale(1.04)}
+    }
+    .bc-card:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+    /* Entrance: every graphic slides in on its own beat */
+    .js .bc-in{opacity:0;transform:translateX(-40px)}
+    .is-played .bc-in{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .7s var(--ease);transition-delay:var(--d, 0ms)}
+    .bc-replay{position:fixed;right:var(--space-16);bottom:var(--space-16);z-index:60}
+
+    @media (max-width:1023px){
+      .bc-l3{grid-template-columns:1fr}
+      .bc-stats{justify-self:start;grid-template-columns:repeat(2, auto)}
+      .bc-stat:nth-child(3){border-left:0}
+      .bc-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1)}
+      .bc-grid{grid-template-columns:1fr 1fr}
+      .bc-card,.bc-card:nth-child(n){grid-column:span 1;min-height:380px}
+      .bc-card:nth-child(1){grid-column:span 2}
+    }
+    @media (max-width:639px){
+      .bc-grid{grid-template-columns:1fr}
+      .bc-card:nth-child(n){grid-column:span 1}
+      .bc-info h2,.bc-card:nth-child(1) .bc-info h2{font-size:2.4rem}
+      .bc-stat{padding:12px 16px}
+      .bc-stat b{font-size:2rem}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .bc-sky i{animation:none}
+      .bc-wipe{display:none}
+      .js .bc-in{opacity:1;transform:none}
+    }
+
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header on-dark" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="bc-sky" aria-hidden="true"><i></i></div>
+  <div class="bc-wipe" aria-hidden="true"><i></i><i></i></div>
+  <main id="main" class="container bc">
+    <section class="bc-l3" aria-label="Introduction">
+      <div>
+        <div class="bc-name bc-in" style="--d:350ms"><h1>Carson O'Hara</h1></div><br>
+        <span class="bc-tag bc-in" style="--d:500ms"><span class="dot" aria-hidden="true"></span>Designer · Contio</span>
+        <p class="bc-one bc-in" style="--d:620ms">I design and build products.</p>
+      </div>
+      <dl class="bc-stats bc-in" style="--d:720ms">
+        <div class="bc-stat"><dt class="visually-hidden">Case studies</dt><dd style="margin:0"><b data-count="5">5</b><span>Case studies</span></dd></div>
+        <div class="bc-stat"><dt class="visually-hidden">Current team</dt><dd style="margin:0"><b>Contio</b><span>Current team</span></dd></div>
+        <div class="bc-stat"><dt class="visually-hidden">Seasons of SCAD men's tennis</dt><dd style="margin:0"><b data-count="4">4</b><span>Seasons · SCAD tennis</span></dd></div>
+        <div class="bc-stat"><dt class="visually-hidden">Degree</dt><dd style="margin:0"><b>BFA</b><span>UX Design · SCAD</span></dd></div>
+      </dl>
+    </section>
+    <section class="bc-grid" aria-label="Projects">
+      <a class="bc-card bc-in" href="case-study-contio.html" style="--d:900ms;--g:94,72,214">
+        <span class="bc-bug"><span class="st live">Live</span><span class="yr">2026–now</span></span>
+        <span class="bc-media cover" aria-hidden="true"><video muted playsinline loop autoplay preload="metadata" poster="images/case-study-contio/benny-film-poster.webp"><source src="images/case-study-contio/benny-film.mp4" type="video/mp4"></video></span>
+        <span class="bc-info"><h2>Contio</h2><p>Brand, website and launch films for an AI meeting platform</p></span>
+      </a>
+      <a class="bc-card bc-in" href="case-study-coral-keepers.html" style="--d:990ms;--g:20,184,166">
+        <span class="bc-bug"><span class="st live">Live</span><span class="yr">2026</span></span>
+        <span class="bc-media" aria-hidden="true"><img src="images/case-study-coral-keepers/hero-banner.webp" alt="" width="1600" height="1306" loading="lazy"></span>
+        <span class="bc-info"><h2>Coral Keepers</h2><p>Classroom coral restoration, with an AI that knows the tank</p></span>
+      </a>
+      <a class="bc-card bc-in" href="case-study-finra.html" style="--d:1080ms;--g:30,79,255">
+        <span class="bc-bug"><span class="st">Handed off</span><span class="yr">Winter 2026</span></span>
+        <span class="bc-media cover" aria-hidden="true"><img src="images/case-study-finra/prototype-dashboard.webp" alt="" width="1456" height="814" loading="lazy"></span>
+        <span class="bc-info"><h2>FINRA x SCADpro</h2><p>Redesigning FINRA’s ecosystem for role-based experiences</p></span>
+      </a>
+      <a class="bc-card bc-in" href="case-study-bigbus.html" style="--d:1170ms;--g:217,119,6">
+        <span class="bc-bug"><span class="st">Concept</span><span class="yr">Fall 2025</span></span>
+        <span class="bc-media" aria-hidden="true"><img src="images/case-study-bigbus/bigbusheroimage.webp" alt="" width="1600" height="1113" loading="lazy"></span>
+        <span class="bc-info"><h2>Big Bus Savannah</h2><p>Reimagining Savannah tours with interactive AR storytelling</p></span>
+      </a>
+      <a class="bc-card bc-in" href="case-study-mose.html" style="--d:1260ms;--g:124,131,255">
+        <span class="bc-bug"><span class="st">Concept</span><span class="yr">Winter 2025</span></span>
+        <span class="bc-media" aria-hidden="true"><img src="images/case-study-mose/header.webp" alt="" width="1600" height="1164" loading="lazy"></span>
+        <span class="bc-info"><h2>Mose</h2><p>Balancing independence and oversight in dementia care</p></span>
+      </a>
+    </section>
+  </main>
+  <button type="button" class="gbtn bc-replay">Replay intro</button>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Sport 1 · Player intro</div>
+  <script>
+  // Glass highlight follows the cursor (shared)
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    addEventListener('pointermove', e => {
+      document.querySelectorAll('.glass').forEach(g => {
+        const b = g.getBoundingClientRect();
+        g.style.setProperty('--gx', (e.clientX - b.left) + 'px');
+        g.style.setProperty('--gy', (e.clientY - b.top) + 'px');
+      });
+    }, {passive:true});
+  })();
+
+  (function(){
+    const root = document.documentElement;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function play(){
+      root.classList.remove('is-played', 'is-playing');
+      void root.offsetWidth;
+      if(reduce){ root.classList.add('is-played'); return; }
+      root.classList.add('is-playing');
+      setTimeout(() => root.classList.add('is-played'), 250);
+      // Numbers count up like a broadcast stat
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const n = +el.dataset.count, t0 = performance.now() + 700;
+        const tick = now => { const u = Math.min(1, Math.max(0, (now - t0) / 700)); el.textContent = Math.round(n * u); if(u < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      });
+      setTimeout(() => root.classList.remove('is-playing'), 1400);
+    }
+    document.querySelector('.bc-replay').addEventListener('click', () => { scrollTo({top:0}); play(); });
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(play);
+  })();
+
+  </script>
+</body>
+</html>

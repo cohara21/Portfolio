@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,800;0,900;1,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* Shared: the dark glass world */
+    :root{--ease:cubic-bezier(.16,1,.3,1);--night:#070b16;--on-dark:#fff;--on-dark-muted:rgba(255,255,255,.68);--on-dark-line:rgba(255,255,255,.12)}
+    html,body{background:var(--night);color:var(--on-dark)}
+    ::selection{background:var(--accent);color:#fff}
+    .glass{position:relative;border-radius:var(--r-24);
+      background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      -webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.04), 0 30px 80px rgba(0,0,0,.35)}
+    /* Light that follows the cursor across glass */
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(420px circle at var(--gx, -999px) var(--gy, -999px), rgba(255,255,255,.12), transparent 60%)}
+    .gbtn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);min-height:var(--tap, 44px);padding:0 var(--space-16);
+      border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+      -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--on-dark);font:600 var(--fs-14)/1 var(--ff-sans);text-decoration:none;cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease)}
+    .gbtn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+    .gbtn:active{transform:scale(.96)}
+    .gbtn.solid{background:var(--on-dark);color:var(--ink);border-color:transparent}
+    .gbtn.solid:hover{background:#e8edf7}
+    .gbtn svg{width:16px;height:16px;flex:none}
+    main a:focus-visible,main button:focus-visible,.gbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .label{margin:0;font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted)}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    .site-footer{background:transparent;color:var(--on-dark-muted);border-top:1px solid var(--on-dark-line)}
+    .site-footer a{color:var(--on-dark)}
+    @media (prefers-reduced-motion: reduce){ .dot{animation:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:#fff;color:var(--ink);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+
+    /* ── Drop page (preview): every project is a release, SNKRS-style ─── */
+    :root{--cond:'Barlow Condensed', 'Inter', sans-serif}
+    html,body{background:#0a0a0c}
+    .dp{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden}
+    .dp-track{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+    .dp-track::-webkit-scrollbar{display:none}
+    .dp-slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;overflow:hidden;display:grid;place-items:center}
+    .dp-glow{position:absolute;left:50%;top:52%;width:70vmax;height:70vmax;translate:-50% -50%;border-radius:50%;
+      background:radial-gradient(closest-side, rgba(var(--g),.75), rgba(var(--g),.25) 45%, transparent 70%);filter:blur(30px);transform:scale(var(--gs, .8));transition:transform 1.2s var(--ease)}
+    .dp-slide.is-on .dp-glow{--gs:1}
+    .dp-word{position:absolute;left:50%;top:50%;translate:-50% -58%;margin:0;white-space:nowrap;pointer-events:none;
+      font-family:var(--cond);font-weight:900;text-transform:uppercase;font-size:clamp(7rem, 22vw, 26rem);line-height:.8;letter-spacing:-.02em;
+      color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.22);transform:translateX(var(--wx, 12%));transition:transform 1.4s var(--ease)}
+    .dp-word b{color:#fff;-webkit-text-stroke:0;font-weight:900;clip-path:inset(0 100% 0 0);display:inline-block;transition:clip-path 1.1s var(--ease) .15s}
+    .dp-slide.is-on .dp-word{--wx:0%}
+    .dp-slide.is-on .dp-word b{clip-path:inset(0 0 0 0)}
+    .dp-art{position:relative;z-index:2;width:min(58vw, 820px);aspect-ratio:16 / 10;transform:translateY(24px) scale(.94);opacity:.4;transition:transform 1.1s var(--ease),opacity .8s var(--ease)}
+    .dp-slide.is-on .dp-art{transform:none;opacity:1}
+    .dp-art img,.dp-art video{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 40px 60px rgba(0,0,0,.5))}
+    .dp-art.cover{width:min(44vw, 620px)}
+    .dp-art.cover img,.dp-art.cover video{object-fit:cover;border-radius:var(--r-12);box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+
+    .dp-ui{position:absolute;inset:0;z-index:5;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--space-96) - 4px) 0 var(--space-32)}
+    .dp-ui .container{pointer-events:auto}
+    .dp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-16)}
+    .dp-top h1{margin:0;font-size:var(--fs-16);font-weight:600}
+    .dp-top p{margin:2px 0 0;font-size:var(--fs-14);color:var(--on-dark-muted)}
+    .dp-count{white-space:nowrap;font-family:var(--cond);font-weight:800;font-size:1.5rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+    .dp-count span{color:var(--on-dark-muted)}
+    .dp-bottom{display:grid;grid-template-columns:minmax(0, 1fr) auto;align-items:end;gap:var(--space-24)}
+    .dp-drop{display:inline-flex;align-items:center;gap:var(--space-8);padding:6px 12px;background:#fff;color:#0a0a0c;font-family:var(--cond);font-weight:800;font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase}
+    .dp-drop.live{background:#4ade80}
+    .dp-cap h2{margin:var(--space-16) 0 0;font-family:var(--cond);font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(2.5rem, 1.5rem + 3vw, 4.5rem);line-height:.9}
+    .dp-cap p{margin:var(--space-8) 0 0;max-width:44ch;color:rgba(255,255,255,.8);font-size:var(--fs-16);line-height:var(--lh-ui)}
+    .dp-cap .gbtn{margin-top:var(--space-16)}
+    .dp-cap > *{transition:opacity .3s var(--ease),transform .5s var(--ease)}
+    .dp-cap.is-out > *{opacity:0;transform:translateY(10px)}
+    .dp-rail{display:flex;gap:var(--space-8)}
+    .dp-rail button{width:72px;height:52px;padding:0;border-radius:var(--r-8);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06) center / cover no-repeat;cursor:pointer;opacity:.55;
+      transition:opacity var(--motion-speed) var(--motion-ease),transform var(--motion-slow) var(--ease),border-color var(--motion-speed) var(--motion-ease)}
+    .dp-rail button:hover{opacity:.9}
+    .dp-rail button[aria-current="true"]{opacity:1;border-color:#fff;transform:translateY(-4px)}
+    .dp-arrows{display:flex;gap:var(--space-8);margin-top:var(--space-8);justify-content:flex-end}
+    .dp-arrows .gbtn{width:44px;padding:0}
+    .dp-more{padding:var(--space-64) 0 var(--space-96)}
+    .dp-more .glass{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--space-24);padding:var(--space-32)}
+    .dp-more img{width:64px;height:64px;border-radius:50%}
+    .dp-more p{margin:0;color:var(--on-dark-muted);line-height:var(--lh-prose)}
+    .dp-more .gbtns{display:flex;gap:var(--space-8);flex-wrap:wrap}
+    @media (max-width:767px){
+      .dp-art,.dp-art.cover{width:86vw}
+      .dp-bottom{grid-template-columns:1fr}
+      .dp-rail button{width:52px;height:40px}
+      .dp-arrows{display:none}
+      .dp-more .glass{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .dp-track{scroll-behavior:auto}
+      .dp-word,.dp-word b,.dp-art,.dp-glow{transition:none}
+    }
+
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header on-dark" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="dp" aria-roledescription="carousel" aria-label="Projects">
+      <div class="dp-track" tabindex="0" aria-label="Projects, use arrow keys">
+      <div class="dp-slide is-on" data-i="0" style="--g:94,72,214" aria-hidden="true">
+        <div class="dp-glow"></div>
+        <p class="dp-word"><b>Contio</b></p>
+        <div class="dp-art cover"><video muted playsinline loop preload="metadata" poster="images/case-study-contio/benny-film-poster.webp"><source src="images/case-study-contio/benny-film.mp4" type="video/mp4"></video></div>
+      </div>
+      <div class="dp-slide" data-i="1" style="--g:20,184,166" aria-hidden="true">
+        <div class="dp-glow"></div>
+        <p class="dp-word"><b>Coral</b></p>
+        <div class="dp-art"><img src="images/case-study-coral-keepers/hero-banner.webp" alt="" width="1600" height="1306" loading="lazy" draggable="false"></div>
+      </div>
+      <div class="dp-slide" data-i="2" style="--g:30,79,255" aria-hidden="true">
+        <div class="dp-glow"></div>
+        <p class="dp-word"><b>FINRA</b></p>
+        <div class="dp-art cover"><img src="images/case-study-finra/prototype-dashboard.webp" alt="" width="1456" height="814" loading="lazy" draggable="false"></div>
+      </div>
+      <div class="dp-slide" data-i="3" style="--g:217,119,6" aria-hidden="true">
+        <div class="dp-glow"></div>
+        <p class="dp-word"><b>Big Bus</b></p>
+        <div class="dp-art"><img src="images/case-study-bigbus/bigbusheroimage.webp" alt="" width="1600" height="1113" loading="lazy" draggable="false"></div>
+      </div>
+      <div class="dp-slide" data-i="4" style="--g:124,131,255" aria-hidden="true">
+        <div class="dp-glow"></div>
+        <p class="dp-word"><b>Mose</b></p>
+        <div class="dp-art"><img src="images/case-study-mose/header.webp" alt="" width="1600" height="1164" loading="lazy" draggable="false"></div>
+      </div>
+      </div>
+      <div class="dp-ui">
+        <div class="container dp-top">
+          <div><h1>Carson O'Hara</h1><p>I design and build products. Currently designing at Contio.</p></div>
+          <p class="dp-count" aria-hidden="true"><span class="dp-n">01</span> <span>/ 05</span></p>
+        </div>
+        <div class="container dp-bottom">
+          <div class="dp-cap" aria-live="polite">
+            <span class="dp-drop"></span>
+            <h2 class="dp-title"></h2>
+            <p class="dp-desc"></p>
+            <a class="gbtn solid dp-go" href="#">View the drop <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+          </div>
+          <div>
+            <div class="dp-rail" role="group" aria-label="Choose a project">
+          <button type="button" data-i="0" aria-label="Contio" aria-current="true" style="background-image:url('images/case-study-contio/card.webp')"></button>
+          <button type="button" data-i="1" aria-label="Coral Keepers" aria-current="false" style="background-image:url('images/work/CoralKeepersHeader.webp')"></button>
+          <button type="button" data-i="2" aria-label="FINRA x SCADpro" aria-current="false" style="background-image:url('images/case-study-finra/finra header.webp')"></button>
+          <button type="button" data-i="3" aria-label="Big Bus Savannah" aria-current="false" style="background-image:url('images/work/bigbusheader.webp')"></button>
+          <button type="button" data-i="4" aria-label="Mose" aria-current="false" style="background-image:url('images/work/moseheader.webp')"></button>
+            </div>
+            <div class="dp-arrows">
+              <button type="button" class="gbtn dp-prev" aria-label="Previous project"><svg aria-hidden="true"><use href="#icon-arrow-left"></use></svg></button>
+              <button type="button" class="gbtn dp-next" aria-label="Next project"><svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container dp-more">
+      <div class="glass">
+        <img src="images/index/headshotanimation.webp" alt="" width="64" height="64">
+        <p>I’m a product designer, former college athlete, and Boise native. Driven by a competitive discipline and a natural curiosity for complex systems, I turn messy digital problems into clean, high-performance experiences that people can depend on.</p>
+        <div class="gbtns"><a class="gbtn" href="about.html">More about me</a><a class="gbtn" href="mailto:carsonohara78@gmail.com"><svg aria-hidden="true"><use href="#i-mail"></use></svg>Email</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Sport 3 · Drop page</div>
+  <script>
+  // Glass highlight follows the cursor (shared)
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    addEventListener('pointermove', e => {
+      document.querySelectorAll('.glass').forEach(g => {
+        const b = g.getBoundingClientRect();
+        g.style.setProperty('--gx', (e.clientX - b.left) + 'px');
+        g.style.setProperty('--gy', (e.clientY - b.top) + 'px');
+      });
+    }, {passive:true});
+  })();
+
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const P = [{"title": "Contio", "meta": "Current role \u00b7 Brand + marketing design \u00b7 Live", "desc": "Brand, website and launch films for an AI meeting platform", "href": "case-study-contio.html", "status": "Live", "year": "2026\u2013now"}, {"title": "Coral Keepers", "meta": "Senior capstone \u00b7 Design + front-end \u00b7 Live", "desc": "Classroom coral restoration, with an AI that knows the tank", "href": "case-study-coral-keepers.html", "status": "Live", "year": "2026"}, {"title": "FINRA x SCADpro", "meta": "Industry client \u00b7 Research + prototype \u00b7 Handed off", "desc": "Redesigning FINRA\u2019s ecosystem for role-based experiences", "href": "case-study-finra.html", "status": "Handed off", "year": "Winter 2026"}, {"title": "Big Bus Savannah", "meta": "Class project \u00b7 UX design + research \u00b7 Concept", "desc": "Reimagining Savannah tours with interactive AR storytelling", "href": "case-study-bigbus.html", "status": "Concept", "year": "Fall 2025"}, {"title": "Mose", "meta": "Class project \u00b7 UX research + design \u00b7 Concept", "desc": "Balancing independence and oversight in dementia care", "href": "case-study-mose.html", "status": "Concept", "year": "Winter 2025"}];
+    const track = document.querySelector('.dp-track');
+    const slides = [...document.querySelectorAll('.dp-slide')];
+    const rail = [...document.querySelectorAll('.dp-rail button')];
+    const cap = document.querySelector('.dp-cap');
+    let cur = -1, t;
+    function mark(i){
+      if(i === cur) return; cur = i;
+      slides.forEach((s, k) => {
+        s.classList.toggle('is-on', k === i);
+        const v = s.querySelector('video'); if(v){ k === i && !reduce ? v.play().catch(() => {}) : v.pause(); }
+      });
+      rail.forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
+      document.querySelector('.dp-n').textContent = String(i + 1).padStart(2, '0');
+      cap.classList.add('is-out'); clearTimeout(t);
+      t = setTimeout(() => {
+        const p = P[i], d = cap.querySelector('.dp-drop');
+        d.textContent = (p.status === 'Live' ? 'Live now' : p.status) + ' · ' + p.year;
+        d.classList.toggle('live', p.status === 'Live');
+        cap.querySelector('.dp-title').textContent = p.title;
+        cap.querySelector('.dp-desc').textContent = p.desc;
+        const g = cap.querySelector('.dp-go'); g.href = p.href; g.setAttribute('aria-label', 'Open the ' + p.title + ' case study');
+        cap.classList.remove('is-out');
+      }, reduce ? 0 : 160);
+    }
+    const goTo = i => { i = Math.max(0, Math.min(slides.length - 1, i)); track.scrollTo({left:i * track.clientWidth, behavior:reduce ? 'auto' : 'smooth'}); mark(i); };
+    track.addEventListener('scroll', () => mark(Math.round(track.scrollLeft / track.clientWidth)), {passive:true});
+    rail.forEach(b => b.addEventListener('click', () => goTo(+b.dataset.i)));
+    document.querySelector('.dp-prev').addEventListener('click', () => goTo(cur - 1));
+    document.querySelector('.dp-next').addEventListener('click', () => goTo(cur + 1));
+    track.addEventListener('keydown', e => { if(e.key === 'ArrowRight'){ e.preventDefault(); goTo(cur + 1); } if(e.key === 'ArrowLeft'){ e.preventDefault(); goTo(cur - 1); } });
+    // A vertical wheel over the stage flips drops instead of scrolling the page, until the last one
+    let lock = 0;
+    track.addEventListener('wheel', e => {
+      if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      const next = cur + (e.deltaY > 0 ? 1 : -1);
+      if(next < 0 || next >= slides.length) return;
+      e.preventDefault();
+      const now = performance.now(); if(now - lock < 700) return; lock = now;
+      goTo(next);
+    }, {passive:false});
+    mark(0);
+  })();
+
+  </script>
+</body>
+</html>

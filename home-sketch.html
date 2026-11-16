@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── Sketch to shipped (preview) ────────────────────────────────────
+       Every project card is a comparison: where it started on the left,
+       where it ended up on the right. Hover (or drag, or use the arrow keys)
+       to move the line. */
+    :root{--ease:cubic-bezier(.16,1,.3,1)}
+    .ss-hero{padding:calc(var(--space-96) + var(--space-48)) 0 var(--space-64)}
+    .ss-id{display:flex;align-items:center;gap:var(--space-16);margin:0 0 var(--space-24)}
+    .ss-id img{width:56px;height:56px;border-radius:50%;background:var(--surface-sunken)}
+    .ss-id h1{margin:0;font-size:var(--fs-20);font-weight:600}
+    .ss-line{margin:0;max-width:16ch;font-size:clamp(2.75rem, 1.4rem + 5.2vw, 6rem);font-weight:700;line-height:1.02;letter-spacing:-0.04em;text-wrap:balance}
+    /* The one-liner does what the cards do: "design" is drawn, "build" is solid */
+    .ss-line .sk{color:transparent;-webkit-text-stroke:1.5px var(--ink);text-stroke:1.5px var(--ink)}
+    .ss-line .bd{color:var(--accent)}
+    .ss-sub{margin:var(--space-24) 0 0;font-size:var(--fs-24);line-height:var(--lh-heading);color:var(--ink-muted)}
+    .ss-sub a{color:var(--accent);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+    .ss-hint{display:inline-flex;align-items:center;gap:var(--space-8);margin:var(--space-32) 0 0;font-size:var(--fs-14);color:var(--ink-muted)}
+    .ss-hint svg{width:28px;height:16px;color:var(--accent)}
+
+    .ss-grid{display:grid;grid-template-columns:1fr;gap:var(--space-48) var(--space-24)}
+    @media (min-width:769px){ .ss-grid{grid-template-columns:1fr 1fr} .ss-card--feature{grid-column:1 / -1} }
+
+    .ss-compare{position:relative;aspect-ratio:16 / 10;border-radius:var(--r-12);overflow:hidden;background:var(--surface-sunken);
+      touch-action:pan-y;cursor:ew-resize;user-select:none;-webkit-user-select:none;--x:50%}
+    .ss-card--feature .ss-compare{aspect-ratio:16 / 8}
+    .ss-compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos, 50% 0%);pointer-events:none;-webkit-user-drag:none}
+    .ss-before{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+    .ss-before.is-contain{object-fit:contain;background:var(--surface)}
+    .ss-after.is-contain{object-fit:contain;background:var(--surface-sunken);padding:var(--space-16)}
+    .ss-handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:var(--surface);box-shadow:0 0 0 1px rgba(15,23,42,.12);pointer-events:none}
+    .ss-knob{position:absolute;top:50%;left:50%;translate:-50% -50%;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+      background:var(--surface);color:var(--ink);box-shadow:var(--shadow-3);transition:scale var(--motion-speed) var(--motion-ease)}
+    .ss-knob svg{width:22px;height:22px}
+    .ss-compare:hover .ss-knob,.ss-compare.is-drag .ss-knob{scale:1.08}
+    .ss-compare:has(.ss-range:focus-visible) .ss-knob{outline:2px solid var(--accent);outline-offset:3px}
+    .ss-tag{position:absolute;top:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-pill);
+      background:rgba(15,23,42,.72);color:var(--surface);font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;
+      -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);pointer-events:none;transition:opacity var(--motion-speed) var(--motion-ease)}
+    .ss-tag.l{left:var(--space-16)} .ss-tag.r{right:var(--space-16)}
+    .ss-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;pointer-events:none}
+
+    .ss-text{padding:var(--space-16) 0 0}
+    .ss-text .card-meta{margin:0 0 var(--space-4)}
+    .ss-text h3{margin:0;font-size:var(--fs-24);font-weight:700;line-height:var(--lh-heading)}
+    .ss-card--feature .ss-text h3{font-size:var(--fs-32);letter-spacing:-0.02em}
+    .ss-text h3 a{color:var(--ink);text-decoration:none}
+    .ss-text h3 a:hover{color:var(--accent)}
+    .ss-text p.muted{margin:var(--space-8) 0 0}
+    .ss-text .ss-more{display:inline-flex;align-items:center;gap:var(--space-4);margin-top:var(--space-8);font-size:var(--fs-14);font-weight:600;color:var(--accent);text-decoration:none}
+    .ss-text .ss-more:hover{text-decoration:underline;text-underline-offset:.2em}
+
+    @media (prefers-reduced-motion: reduce){ .ss-knob{transition:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:var(--ink);color:var(--surface);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-lr" viewBox="0 0 24 24"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="ss-hero container">
+      <div class="ss-id"><img src="images/index/headshotanimation.webp" alt="" width="56" height="56"><h1>Carson O'Hara</h1></div>
+      <p class="ss-line">I <span class="sk">design</span> and <span class="bd">build</span> products.</p>
+      <p class="ss-sub">Currently designing at <a href="case-study-contio.html">Contio</a>.</p>
+      <p class="ss-hint"><svg viewBox="0 0 28 16" aria-hidden="true"><path d="M7 3L2 8l5 5M21 3l5 5-5 5M2 8h24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Move across any project to see where it started.</p>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-head">
+        <h2 class="section-title">My Favorite Projects</h2>
+        <a href="work.html" class="see-all-link">See all <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+      <div class="ss-grid">
+        <article class="ss-card ss-card--feature">
+          <div class="ss-compare">
+            <img class="ss-after" src="images/case-study-contio/recreated.webp" alt="The same MeetingOS screen rebuilt in code" width="1400" height="1042">
+            <img class="ss-before" src="images/case-study-contio/real-app.webp" alt="The real MeetingOS app during a live meeting" width="1400" height="1045">
+            <span class="ss-tag l" aria-hidden="true">The real app</span><span class="ss-tag r" aria-hidden="true">Rebuilt in code</span>
+            <span class="ss-handle" aria-hidden="true"><span class="ss-knob"><svg><use href="#i-lr"></use></svg></span></span>
+            <input class="ss-range" type="range" min="0" max="100" value="50" aria-label="Compare the real Contio app with my rebuild in code">
+          </div>
+          <div class="ss-text">
+            <p class="card-meta">Current role · Brand + marketing design · Live</p>
+            <h3><a href="case-study-contio.html">Contio</a></h3>
+            <p class="muted">Brand, website and launch films for an AI meeting platform</p>
+            <a class="ss-more" href="case-study-contio.html" aria-hidden="true" tabindex="-1">Read the case study <svg width="14" height="14" viewBox="0 0 24 24"><use href="#icon-arrow-right"></use></svg></a>
+          </div>
+        </article>
+
+        <article class="ss-card">
+          <div class="ss-compare">
+            <img class="ss-after" src="images/case-study-coral-keepers/student-home.webp" alt="The finished Coral Keepers student home screen" width="1567" height="751">
+            <img class="ss-before" src="images/case-study-coral-keepers/sketches-wireframes.webp" alt="Hand-drawn wireframe sketches of the tank display and dashboard" width="1600" height="1088" style="--pos:50% 30%">
+            <span class="ss-tag l" aria-hidden="true">Sketches</span><span class="ss-tag r" aria-hidden="true">Final screen</span>
+            <span class="ss-handle" aria-hidden="true"><span class="ss-knob"><svg><use href="#i-lr"></use></svg></span></span>
+            <input class="ss-range" type="range" min="0" max="100" value="50" aria-label="Compare Coral Keepers sketches with the final screen">
+          </div>
+          <div class="ss-text">
+            <p class="card-meta">Senior capstone · Design + front-end · Live</p>
+            <h3><a href="case-study-coral-keepers.html">Coral Keepers</a></h3>
+            <p class="muted">Classroom coral restoration, with an AI that knows the tank</p>
+          </div>
+        </article>
+
+        <article class="ss-card">
+          <div class="ss-compare">
+            <img class="ss-after" src="images/case-study-finra/prototype-dashboard.webp" alt="The FINRA prototype dashboard" width="1456" height="814">
+            <img class="ss-before" src="images/case-study-finra/Finrateamphoto.webp" alt="The FINRA x SCADpro team" width="1600" height="1200" style="--pos:50% 40%">
+            <span class="ss-tag l" aria-hidden="true">The team</span><span class="ss-tag r" aria-hidden="true">Prototype</span>
+            <span class="ss-handle" aria-hidden="true"><span class="ss-knob"><svg><use href="#i-lr"></use></svg></span></span>
+            <input class="ss-range" type="range" min="0" max="100" value="50" aria-label="Compare the FINRA team photo with the prototype">
+          </div>
+          <div class="ss-text">
+            <p class="card-meta">Industry client · Research + prototype · Handed off</p>
+            <h3><a href="case-study-finra.html">FINRA x SCADpro</a></h3>
+            <p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p>
+          </div>
+        </article>
+
+        <article class="ss-card">
+          <div class="ss-compare">
+            <img class="ss-after is-contain" src="images/case-study-bigbus/bigbusheroimage.webp" alt="The finished Big Bus Savannah app" width="1600" height="1113">
+            <img class="ss-before" src="images/case-study-bigbus/sketchesbrainstorming.webp" alt="Concept sketches and the affinity map from the Big Bus research" width="2000" height="1080" style="--pos:0% 50%">
+            <span class="ss-tag l" aria-hidden="true">Process board</span><span class="ss-tag r" aria-hidden="true">Final design</span>
+            <span class="ss-handle" aria-hidden="true"><span class="ss-knob"><svg><use href="#i-lr"></use></svg></span></span>
+            <input class="ss-range" type="range" min="0" max="100" value="50" aria-label="Compare the Big Bus process board with the final design">
+          </div>
+          <div class="ss-text">
+            <p class="card-meta">Class project · UX design + research · Concept</p>
+            <h3><a href="case-study-bigbus.html">Big Bus Savannah</a></h3>
+            <p class="muted">Reimagining Savannah tours with interactive AR storytelling</p>
+          </div>
+        </article>
+
+        <article class="ss-card">
+          <div class="ss-compare">
+            <img class="ss-after is-contain" src="images/case-study-mose/header.webp" alt="The finished Mose app" width="1600" height="1164">
+            <img class="ss-before is-contain" src="images/case-study-mose/BRANDING.webp" alt="The Mose brand system: typography and colour" width="2052" height="580">
+            <span class="ss-tag l" aria-hidden="true">Brand system</span><span class="ss-tag r" aria-hidden="true">Final design</span>
+            <span class="ss-handle" aria-hidden="true"><span class="ss-knob"><svg><use href="#i-lr"></use></svg></span></span>
+            <input class="ss-range" type="range" min="0" max="100" value="50" aria-label="Compare the Mose brand system with the final design">
+          </div>
+          <div class="ss-text">
+            <p class="card-meta">Class project · UX research + design · Concept</p>
+            <h3><a href="case-study-mose.html">Mose</a></h3>
+            <p class="muted">Balancing independence and oversight in dementia care</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-brief container">
+      <div class="about-inner">
+        <div class="about-photo">
+          <article class="about-profile-card">
+            <div class="about-profile-media"><img src="images/index/headshot.jpg" alt="Carson O'Hara" width="372" height="560"></div>
+            <div class="about-profile-footer">
+              <div class="about-profile-meta">
+                <p class="about-profile-username">@carson-ohara</p>
+                <a class="about-profile-link" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+              <a class="btn primary" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">+ Connect</a>
+            </div>
+          </article>
+        </div>
+        <div class="about-copy">
+          <h2>About Me</h2>
+          <p class="muted">I’m a product designer, former college athlete, and Boise native. Driven by a competitive discipline and a natural curiosity for complex systems, I turn messy digital problems into clean, high-performance experiences that people can depend on.</p>
+          <p><a class="btn outline" href="about.html">More About Me</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Concept 5 · Sketch to shipped</div>
+
+  <script>
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+    document.querySelectorAll('.ss-compare').forEach((cmp, n) => {
+      const range = cmp.querySelector('.ss-range');
+      const tagL = cmp.querySelector('.ss-tag.l'), tagR = cmp.querySelector('.ss-tag.r');
+      let x = 50, target = 50, raf = null, dragging = false;
+      const paint = v => {
+        cmp.style.setProperty('--x', v.toFixed(2) + '%');
+        range.value = Math.round(v);
+        // Labels step aside when the line reaches them
+        tagL.style.opacity = v < 22 ? 0 : 1; tagR.style.opacity = v > 78 ? 0 : 1;
+      };
+      // Follow with a short ease so the line feels weighted, not glued to the cursor
+      const tick = () => {
+        x += (target - x) * (reduce ? 1 : .22);
+        if(Math.abs(target - x) < .05) x = target;
+        paint(x);
+        raf = x !== target ? requestAnimationFrame(tick) : null;
+      };
+      const go = v => { target = Math.max(0, Math.min(100, v)); if(!raf) raf = requestAnimationFrame(tick); };
+      const fromEvent = e => { const b = cmp.getBoundingClientRect(); return (e.clientX - b.left) / b.width * 100; };
+      if(fine) cmp.addEventListener('pointermove', e => { if(e.pointerType === 'mouse') go(fromEvent(e)); });
+      // Touch and pen: drag sideways; a vertical swipe still scrolls the page
+      let start = null;
+      cmp.addEventListener('pointerdown', e => {
+        if(e.pointerType === 'mouse'){ go(fromEvent(e)); return; }
+        start = {x:e.clientX, y:e.clientY, id:e.pointerId};
+      });
+      cmp.addEventListener('pointermove', e => {
+        if(!start || e.pointerId !== start.id) return;
+        if(!dragging && Math.abs(e.clientX - start.x) > 6 && Math.abs(e.clientX - start.x) > Math.abs(e.clientY - start.y)){
+          dragging = true; cmp.classList.add('is-drag'); cmp.setPointerCapture(e.pointerId);
+        }
+        if(dragging){ x = target = Math.max(0, Math.min(100, fromEvent(e))); paint(x); }
+      });
+      const end = () => { start = null; dragging = false; cmp.classList.remove('is-drag'); };
+      cmp.addEventListener('pointerup', end); cmp.addEventListener('pointercancel', end);
+      // A tap without dragging jumps the line there
+      cmp.addEventListener('click', e => { if(!fine) go(fromEvent(e)); });
+      // Keyboard: the range input carries focus and arrow keys
+      range.addEventListener('input', () => { x = target = +range.value; paint(x); });
+
+      // First time a card comes into view, the line sweeps once to show it moves
+      if(!reduce && 'IntersectionObserver' in window){
+        const io = new IntersectionObserver(([en]) => {
+          if(!en.isIntersecting) return; io.disconnect();
+          const t0 = performance.now() + n % 2 * 180, keys = [[0, 50], [650, 78], [1350, 24], [2000, 50]];
+          const sweep = now => {
+            if(target !== x && raf) return;           // the visitor took over
+            const t = now - t0; if(t < 0){ requestAnimationFrame(sweep); return; }
+            let k = 0; while(k < keys.length - 2 && t > keys[k + 1][0]) k++;
+            const [ta, va] = keys[k], [tb, vb] = keys[k + 1];
+            const u = Math.min(1, (t - ta) / (tb - ta)), e = u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+            x = target = va + (vb - va) * e; paint(x);
+            if(t < keys[keys.length - 1][0]) requestAnimationFrame(sweep);
+          };
+          requestAnimationFrame(sweep);
+        }, {threshold:.6});
+        io.observe(cmp);
+      }
+      paint(50);
+    });
+  })();
+  </script>
+</body>
+</html>

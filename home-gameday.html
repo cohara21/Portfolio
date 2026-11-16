@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#04060c" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* Shared: the dark glass world */
+    :root{--ease:cubic-bezier(.16,1,.3,1);--night:#070b16;--on-dark:#fff;--on-dark-muted:rgba(255,255,255,.68);--on-dark-line:rgba(255,255,255,.12)}
+    html,body{background:var(--night);color:var(--on-dark)}
+    ::selection{background:var(--accent);color:#fff}
+    .glass{position:relative;border-radius:var(--r-24);
+      background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      -webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.04), 0 30px 80px rgba(0,0,0,.35)}
+    /* Light that follows the cursor across glass */
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(420px circle at var(--gx, -999px) var(--gy, -999px), rgba(255,255,255,.12), transparent 60%)}
+    .gbtn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);min-height:var(--tap, 44px);padding:0 var(--space-16);
+      border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+      -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--on-dark);font:600 var(--fs-14)/1 var(--ff-sans);text-decoration:none;cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease)}
+    .gbtn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+    .gbtn:active{transform:scale(.96)}
+    .gbtn.solid{background:var(--on-dark);color:var(--ink);border-color:transparent}
+    .gbtn.solid:hover{background:#e8edf7}
+    .gbtn svg{width:16px;height:16px;flex:none}
+    main a:focus-visible,main button:focus-visible,.gbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .label{margin:0;font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted)}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    .site-footer{background:transparent;color:var(--on-dark-muted);border-top:1px solid var(--on-dark-line)}
+    .site-footer a{color:var(--on-dark)}
+    @media (prefers-reduced-motion: reduce){ .dot{animation:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:#fff;color:var(--ink);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+
+    /* ── Game day (preview): a broadcast matchup graphic, a score ticker, a box score ── */
+    :root{--cond:'Barlow Condensed', 'Inter', sans-serif;--blue:#1E4FFF}
+    html,body{background:#04060c}
+    .gd{position:relative;height:calc(100svh - 56px);min-height:600px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;padding-top:0}
+    /* Left: the player. Right: up next. A diagonal seam between them. */
+    .gd-player{position:relative;overflow:hidden;clip-path:polygon(0 0, 100% 0, 88% 100%, 0 100%);z-index:2}
+    .gd-player img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%;filter:grayscale(1) contrast(1.15) brightness(.9)}
+    .gd-player::before{content:"";position:absolute;inset:0;z-index:1;background:var(--blue);mix-blend-mode:multiply}
+    .gd-player::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg, rgba(4,6,12,.92) 0%, rgba(4,6,12,.2) 55%, rgba(4,6,12,.5) 100%)}
+    .gd-name{position:absolute;z-index:2;left:clamp(24px, 5vw, 80px);bottom:clamp(40px, 8vh, 96px);right:14%}
+    .gd-name .pos{display:inline-block;padding:4px 12px;background:#fff;color:#04060c;font-family:var(--cond);font-weight:800;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase}
+    .gd-name h1{margin:12px 0 0;font-family:var(--cond);font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(4rem, 2rem + 7vw, 10rem);line-height:.82;letter-spacing:-.01em}
+    .gd-name h1 span{display:block}
+    .gd-name h1 span:last-child{color:transparent;-webkit-text-stroke:2px #fff}
+    .gd-name p{margin:var(--space-16) 0 0;font-size:var(--fs-20);color:rgba(255,255,255,.85)}
+    .gd-next{position:relative;margin-left:-12%;padding:calc(var(--space-96) + var(--space-16)) clamp(24px, 5vw, 80px) var(--space-48) calc(12% + clamp(24px, 4vw, 64px));
+      display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(80% 70% at 60% 45%, rgba(94,72,214,.35), transparent 70%)}
+    .gd-label{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:4px 12px;background:var(--blue);font-family:var(--cond);font-weight:800;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase}
+    .gd-screen{position:relative;margin:var(--space-16) 0;aspect-ratio:16 / 10;border-radius:var(--r-8);overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.14), 0 40px 90px rgba(0,0,0,.5)}
+    .gd-screen video{width:100%;height:100%;object-fit:cover;display:block}
+    .gd-next h2{margin:0;font-family:var(--cond);font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(2.5rem, 1.5rem + 2.6vw, 4.5rem);line-height:.9}
+    .gd-next .row{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-16);flex-wrap:wrap}
+    .gd-next p{margin:var(--space-8) 0 0;color:rgba(255,255,255,.72)}
+
+    /* Entrances: the two halves slam in from opposite sides */
+    .js .gd-player{transform:translateX(-100%)}
+    .js .gd-next{transform:translateX(100%)}
+    .js .gd-name > *{opacity:0;transform:translateX(-30px)}
+    .gd-go .gd-player,.gd-go .gd-next{transform:none;transition:transform .9s cubic-bezier(.8,0,.2,1)}
+    .gd-go .gd-next{transition-delay:.12s}
+    .gd-go .gd-name > *{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .7s var(--ease)}
+    .gd-go .gd-name > :nth-child(1){transition-delay:.7s}
+    .gd-go .gd-name > :nth-child(2){transition-delay:.8s}
+    .gd-go .gd-name > :nth-child(3){transition-delay:.95s}
+
+    /* The bottom line: a score ticker of the work */
+    .gd-ticker{position:relative;z-index:5;display:flex;height:56px;background:#fff;color:#04060c;overflow:hidden}
+    .gd-ticker .tag{flex:none;display:flex;align-items:center;padding:0 20px 0 clamp(16px, 3vw, 32px);background:var(--blue);color:#fff;font-family:var(--cond);font-weight:900;font-style:italic;font-size:1.4rem;letter-spacing:.04em;text-transform:uppercase;clip-path:polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%)}
+    .gd-roll{flex:1;overflow:hidden;display:flex}
+    .gd-roll ul{display:flex;align-items:center;flex:none;margin:0;padding:0;list-style:none;animation:roll 38s linear infinite}
+    .gd-ticker:hover .gd-roll ul,.gd-ticker:focus-within .gd-roll ul{animation-play-state:paused}
+    @keyframes roll{to{transform:translateX(-100%)}}
+    .gd-roll a{display:flex;align-items:center;gap:12px;height:56px;padding:0 28px;border-right:1px solid rgba(4,6,12,.12);color:inherit;text-decoration:none;white-space:nowrap;font-family:var(--cond);font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em}
+    .gd-roll a:hover{background:#eef2f7}
+    .gd-roll a:focus-visible{outline:2px solid var(--blue);outline-offset:-4px}
+    .gd-roll .st{padding:2px 8px;background:#04060c;color:#fff;font-size:.95rem;letter-spacing:.08em}
+    .gd-roll .st.live{background:#16a34a}
+    .gd-roll .yr{color:#64748b;font-weight:700}
+
+    /* Box score */
+    .gd-box{padding:var(--space-64) 0 var(--space-96)}
+    .gd-box h2{margin:0 0 var(--space-16);font-family:var(--cond);font-weight:900;font-style:italic;text-transform:uppercase;font-size:2.5rem;line-height:1}
+    .gd-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+    .gd-table th{padding:10px 12px;text-align:left;background:#fff;color:#04060c;font-family:var(--cond);font-weight:800;font-size:1rem;letter-spacing:.1em;text-transform:uppercase}
+    .gd-table td{padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.1);font-size:var(--fs-14);color:rgba(255,255,255,.8)}
+    .gd-table tr{transition:background-color var(--motion-speed) var(--motion-ease)}
+    .gd-table tbody tr:hover{background:rgba(30,79,255,.14)}
+    .gd-table td:first-child a{font-family:var(--cond);font-weight:800;font-size:1.5rem;text-transform:uppercase;color:#fff;text-decoration:none}
+    .gd-table td:first-child a:hover{color:#9db4ff}
+    .gd-table .live{color:#4ade80;font-weight:600}
+
+    @media (max-width:899px){
+      .gd{grid-template-columns:1fr;grid-template-rows:auto auto;height:auto}
+      .gd-player{min-height:78svh;clip-path:polygon(0 0, 100% 0, 100% 92%, 0 100%)}
+      .gd-next{margin:-6svh 0 0;padding:calc(6svh + var(--space-24)) var(--space-16) var(--space-32)}
+      .js .gd-player,.js .gd-next{transform:none}
+      .gd-name{right:var(--space-16);left:var(--space-16)}
+      .gd-table thead{display:none}
+      .gd-table,.gd-table tbody,.gd-table tr,.gd-table td{display:block}
+      .gd-table tr{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+      .gd-table td{padding:2px 0;border:0}
+      .gd-table td[data-k]::before{content:attr(data-k) "  ";color:rgba(255,255,255,.45);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .js .gd-player,.js .gd-next,.js .gd-name > *{transform:none;opacity:1}
+      .gd-roll ul{animation:none}
+    }
+
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header on-dark" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="gd" aria-label="Introduction">
+      <div class="gd-player">
+        <img src="images/about/PlayingPic2.webp" alt="Carson playing tennis" width="1200" height="1120">
+        <div class="gd-name">
+          <span class="pos">Designer · Contio</span>
+          <h1><span>Carson</span><span>O'Hara</span></h1>
+          <p>I design and build products.</p>
+        </div>
+      </div>
+      <div class="gd-next">
+        <span class="gd-label"><span class="dot" aria-hidden="true"></span>Now playing</span>
+        <div class="gd-screen"><video muted playsinline loop autoplay preload="metadata" poster="images/case-study-contio/benny-film-poster.webp" aria-label="The Benny launch film for Contio"><source src="images/case-study-contio/benny-film.mp4" type="video/mp4"></video></div>
+        <div class="row">
+          <div><h2>Contio</h2><p>Brand, website and launch films for an AI meeting platform</p></div>
+          <a class="gbtn solid" href="case-study-contio.html">Read the case study <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+        </div>
+      </div>
+    </section>
+    <nav class="gd-ticker" aria-label="All projects">
+      <span class="tag" aria-hidden="true">The work</span>
+      <div class="gd-roll"><ul><li><a href="case-study-contio.html"><span>Contio</span><span class="st live">Live</span><span class="yr">2026–now</span></a></li><li><a href="case-study-coral-keepers.html"><span>Coral Keepers</span><span class="st live">Live</span><span class="yr">2026</span></a></li><li><a href="case-study-finra.html"><span>FINRA x SCADpro</span><span class="st">Handed off</span><span class="yr">Winter 2026</span></a></li><li><a href="case-study-bigbus.html"><span>Big Bus Savannah</span><span class="st">Concept</span><span class="yr">Fall 2025</span></a></li><li><a href="case-study-mose.html"><span>Mose</span><span class="st">Concept</span><span class="yr">Winter 2025</span></a></li></ul><ul aria-hidden="true"><li><a tabindex="-1" href="case-study-contio.html"><span>Contio</span><span class="st live">Live</span><span class="yr">2026–now</span></a></li><li><a tabindex="-1" href="case-study-coral-keepers.html"><span>Coral Keepers</span><span class="st live">Live</span><span class="yr">2026</span></a></li><li><a tabindex="-1" href="case-study-finra.html"><span>FINRA x SCADpro</span><span class="st">Handed off</span><span class="yr">Winter 2026</span></a></li><li><a tabindex="-1" href="case-study-bigbus.html"><span>Big Bus Savannah</span><span class="st">Concept</span><span class="yr">Fall 2025</span></a></li><li><a tabindex="-1" href="case-study-mose.html"><span>Mose</span><span class="st">Concept</span><span class="yr">Winter 2025</span></a></li></ul></div>
+    </nav>
+    <section class="container gd-box" aria-labelledby="box-h">
+      <h2 id="box-h">Box score</h2>
+      <table class="gd-table">
+        <thead><tr><th scope="col">Project</th><th scope="col">Year</th><th scope="col">Role</th><th scope="col">Length</th><th scope="col">Team</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+        <tr><td><a href="case-study-contio.html">Contio</a></td><td data-k="Year">2026–now</td><td data-k="Role">Brand + marketing</td><td data-k="Length">Ongoing</td><td data-k="Team">1 of 2 designers</td><td data-k="Status" class="live">Live</td></tr>
+        <tr><td><a href="case-study-coral-keepers.html">Coral Keepers</a></td><td data-k="Year">2026</td><td data-k="Role">Design + front-end</td><td data-k="Length">20 weeks</td><td data-k="Team">5-person capstone</td><td data-k="Status" class="live">Live</td></tr>
+        <tr><td><a href="case-study-finra.html">FINRA x SCADpro</a></td><td data-k="Year">Winter 2026</td><td data-k="Role">Research + prototype</td><td data-k="Length">10 weeks</td><td data-k="Team">SCADpro team</td><td data-k="Status">Handed off</td></tr>
+        <tr><td><a href="case-study-bigbus.html">Big Bus Savannah</a></td><td data-k="Year">Fall 2025</td><td data-k="Role">UX design + research</td><td data-k="Length">10 weeks</td><td data-k="Team">4-person team</td><td data-k="Status">Concept</td></tr>
+        <tr><td><a href="case-study-mose.html">Mose</a></td><td data-k="Year">Winter 2025</td><td data-k="Role">UX research + design</td><td data-k="Length">10 weeks</td><td data-k="Team">Class team</td><td data-k="Status">Concept</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Sport · Game day</div>
+  <script>
+  // Glass highlight follows the cursor (shared)
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    addEventListener('pointermove', e => {
+      document.querySelectorAll('.glass').forEach(g => {
+        const b = g.getBoundingClientRect();
+        g.style.setProperty('--gx', (e.clientX - b.left) + 'px');
+        g.style.setProperty('--gy', (e.clientY - b.top) + 'px');
+      });
+    }, {passive:true});
+  })();
+
+  (function(){
+    const go = () => requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('gd-go')));
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(go);
+  })();
+
+  </script>
+</body>
+</html>

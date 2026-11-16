@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── The ⌘K home page (preview) ─────────────────────────────────────
+       The home page is a command bar. Every result is real content from the
+       site; the suggestions show before anyone types. Opening a project grows
+       its preview to fill the screen, then navigates. */
+    :root{--ease:cubic-bezier(.16,1,.3,1)}
+    body{background:var(--surface-sunken)}
+    .ck{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;
+      padding:calc(var(--space-96) + var(--space-8)) var(--space-16) var(--space-64)}
+    .ck-id{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:var(--space-24)}
+    .ck-id img{width:56px;height:56px;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-1);margin-bottom:var(--space-16)}
+    .ck-id h1{margin:0;font-size:clamp(2.25rem, 1.4rem + 3vw, 3.5rem);font-weight:700;line-height:var(--lh-display);letter-spacing:-0.03em}
+    .ck-id p{margin:var(--space-8) 0 0;font-size:var(--fs-20);line-height:var(--lh-heading);color:var(--ink-muted)}
+
+    /* The palette */
+    .ck-pal{width:min(100%, 920px);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-24);box-shadow:var(--shadow-4);overflow:hidden;
+      opacity:0;transform:translateY(16px) scale(.98);animation:ck-in .7s var(--ease) .15s forwards}
+    @keyframes ck-in{to{opacity:1;transform:none}}
+    .ck-bar{display:flex;align-items:center;gap:var(--space-16);padding:0 var(--space-24);border-bottom:1px solid var(--line)}
+    .ck-bar > svg{width:22px;height:22px;flex:none;color:var(--ink-muted)}
+    .ck-bar label{flex:1;display:flex;min-width:0}
+    .ck-input{flex:1;min-width:0;height:72px;border:0;background:transparent;font:500 var(--fs-20)/1 var(--ff-sans);color:var(--ink);outline:none;caret-color:var(--accent)}
+    .ck-input::placeholder{color:var(--ink-muted)}
+    .ck-input:focus,.ck-input:focus-visible{outline:none}   /* the bar's accent underline is the focus indicator */
+    .ck-kbd{flex:none;display:inline-flex;align-items:center;gap:2px;padding:2px var(--space-8);border:1px solid var(--line);border-radius:var(--r-4);
+      font-size:var(--fs-12);font-weight:600;color:var(--ink-muted);background:var(--surface-sunken)}
+    .ck-bar:focus-within{box-shadow:inset 0 -3px 0 var(--accent)}
+
+    .ck-body{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);min-height:440px}
+    .ck-list{margin:0;padding:var(--space-8);list-style:none;overflow:auto;max-height:520px;border-right:1px solid var(--line)}
+    .ck-group{margin:var(--space-16) var(--space-8) var(--space-4);font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--ink-muted)}
+    .ck-group:first-child{margin-top:var(--space-8)}
+    .ck-opt{display:flex;align-items:center;gap:12px;min-height:52px;padding:var(--space-8) 12px;border-radius:var(--r-12);cursor:pointer;color:var(--ink);text-decoration:none;
+      transition:background-color 120ms linear}
+    .ck-opt[aria-selected="true"]{background:var(--surface-sunken)}
+    .ck-opt[aria-selected="true"] .ck-go{opacity:1;transform:none}
+    .ck-ic{flex:none;width:36px;height:36px;border-radius:var(--r-8);background:var(--surface-sunken) center / cover no-repeat;display:grid;place-items:center;color:var(--ink)}
+    .ck-ic svg{width:18px;height:18px}
+    .ck-opt[aria-selected="true"] .ck-ic:not([style]){background:var(--surface)}
+    .ck-txt{flex:1;min-width:0}
+    .ck-txt b{display:block;font-size:var(--fs-16);font-weight:600;line-height:1.3}
+    .ck-txt span{display:block;font-size:var(--fs-14);color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ck-txt mark{background:color-mix(in srgb, var(--accent) 16%, transparent);color:inherit;border-radius:2px}
+    .ck-go{flex:none;display:flex;align-items:center;gap:var(--space-4);font-size:var(--fs-12);font-weight:600;color:var(--ink-muted);opacity:0;transform:translateX(-4px);transition:opacity var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease)}
+    .ck-empty{padding:var(--space-24) var(--space-16);color:var(--ink-muted)}
+    .ck-empty b{color:var(--ink)}
+
+    /* Preview of the highlighted result */
+    .ck-prev{position:relative;padding:var(--space-24);display:flex;flex-direction:column;min-width:0}
+    .ck-shot{position:relative;aspect-ratio:16 / 10;border-radius:var(--r-12);background:var(--surface-sunken) center / cover no-repeat;overflow:hidden}
+    .ck-prev .card-meta{margin:var(--space-16) 0 var(--space-4)}
+    .ck-prev h2{margin:0;font-size:var(--fs-32);font-weight:700;line-height:var(--lh-display);letter-spacing:-0.02em}
+    .ck-prev p.desc{margin:var(--space-8) 0 var(--space-16);color:var(--ink-muted);line-height:var(--lh-prose)}
+    .ck-prev .btn{align-self:flex-start;margin-top:auto}
+    .ck-prev > *{transition:opacity 160ms linear}
+    .ck-prev.is-swapping > *{opacity:0}
+    .ck-foot{display:flex;align-items:center;gap:var(--space-16);padding:12px var(--space-24);border-top:1px solid var(--line);font-size:var(--fs-12);color:var(--ink-muted)}
+    .ck-foot span{display:inline-flex;align-items:center;gap:var(--space-8)}
+    .ck-foot .ck-kbd{padding:0 6px}
+    .ck-foot .right{margin-left:auto}
+
+    .ck-toast{position:fixed;z-index:60;left:50%;bottom:var(--space-32);translate:-50% 16px;padding:var(--space-8) var(--space-16);border-radius:var(--r-pill);
+      background:var(--ink);color:var(--surface);font-size:var(--fs-14);font-weight:600;box-shadow:var(--shadow-3);opacity:0;pointer-events:none;
+      transition:opacity var(--motion-speed) var(--motion-ease),translate var(--motion-slow) var(--ease)}
+    .ck-toast.is-on{opacity:1;translate:-50% 0}
+
+    /* The grow-into-the-project transition */
+    .ck-zoom{position:fixed;z-index:80;left:0;top:0;border-radius:var(--r-12);background:var(--surface-sunken) center / cover no-repeat;pointer-events:none}
+
+    @media (max-width:767px){
+      .ck{padding-top:calc(var(--space-96) + var(--space-8))}
+      .ck-body{grid-template-columns:1fr;min-height:0}
+      .ck-list{border-right:0;max-height:none}
+      .ck-prev{display:none}
+      .ck-input{height:60px;font-size:var(--fs-16)}
+      .ck-bar{padding:0 var(--space-16)}
+      .ck-bar .ck-kbd,.ck-foot{display:none}
+      .ck-go{display:none}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .ck-pal{animation:none;opacity:1;transform:none}
+      .ck-prev > *{transition:none}
+    }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:var(--ink);color:var(--surface);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5.5 5.8c3 2.2 3 10.2 0 12.4M18.5 5.8c-3 2.2-3 10.2 0 12.4" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" fill="none"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" fill="none"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" fill="none"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="ck">
+    <div class="ck-id">
+      <img src="images/index/headshotanimation.webp" alt="" width="72" height="72">
+      <h1>Carson O'Hara</h1>
+      <p>I design and build products. Currently designing at Contio.</p>
+    </div>
+
+    <div class="ck-pal">
+      <div class="ck-bar">
+        <svg aria-hidden="true"><use href="#i-search"></use></svg>
+        <label for="ck-q" class="visually-hidden">Search my work</label>
+        <input id="ck-q" class="ck-input" type="text" role="combobox" autocomplete="off" spellcheck="false"
+          aria-expanded="true" aria-controls="ck-list" aria-autocomplete="list" placeholder="Search my work, or try “email”">
+        <span class="ck-kbd" aria-hidden="true">⌘K</span>
+      </div>
+      <div class="ck-body">
+        <!-- Without JS this is a plain list of links -->
+        <ul class="ck-list" id="ck-list" role="listbox" aria-label="Results">
+          <li><a href="case-study-contio.html">Contio</a></li>
+          <li><a href="case-study-coral-keepers.html">Coral Keepers</a></li>
+          <li><a href="case-study-finra.html">FINRA x SCADpro</a></li>
+          <li><a href="case-study-bigbus.html">Big Bus Savannah</a></li>
+          <li><a href="case-study-mose.html">Mose</a></li>
+          <li><a href="about.html">About me</a></li>
+          <li><a href="mailto:carsonohara78@gmail.com">Email Carson</a></li>
+        </ul>
+        <div class="ck-prev" aria-live="polite">
+          <div class="ck-shot"></div>
+          <p class="card-meta"></p>
+          <h2></h2>
+          <p class="desc"></p>
+          <a class="btn primary" href="#">Open</a>
+        </div>
+      </div>
+      <div class="ck-foot" aria-hidden="true">
+        <span><span class="ck-kbd">↑</span><span class="ck-kbd">↓</span> to move</span>
+        <span><span class="ck-kbd">↵</span> to open</span>
+        <span class="right">Type anything: “AI”, “research”, “built in code”</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="ck-toast" role="status"></div>
+  <div class="variant-tag" aria-hidden="true">Concept 4 · The ⌘K home page</div>
+
+  <script>
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const EMAIL = 'carsonohara78@gmail.com';
+    // Every item is real site content. Keywords only use words the case studies support.
+    const ITEMS = [
+      {group:'Work', id:'contio', title:'Contio', sub:'Brand, website and launch films for an AI meeting platform',
+        meta:'Current role · Brand + marketing design · Live', img:'images/case-study-contio/card.webp', href:'case-study-contio.html',
+        desc:'I run brand and marketing design for MeetingOS: the website, launch films, email and the app launch. The product animations are the real UI, rebuilt in code.',
+        keys:'current job work brand marketing website launch films video email ai meetings meetingos startup built code animation designer'},
+      {group:'Work', id:'coral', title:'Coral Keepers', sub:'Classroom coral restoration, with an AI that knows the tank',
+        meta:'Senior capstone · Design + front-end · Live', img:'images/work/CoralKeepersHeader.webp', href:'case-study-coral-keepers.html',
+        desc:'A senior capstone for classroom coral restoration, with an AI assistant, Cory, that knows the tank. I designed it and built the front end.',
+        keys:'capstone school education students teachers ai assistant cory built code front-end frontend coral reef ocean hardware'},
+      {group:'Work', id:'finra', title:'FINRA x SCADpro', sub:'Redesigning FINRA’s ecosystem for role-based experiences',
+        meta:'Industry client · Research + prototype · Handed off', img:'images/case-study-finra/finra header.webp', href:'case-study-finra.html',
+        desc:'An industry project with FINRA through SCADpro: research and a prototype for role-based experiences, handed off to the client.',
+        keys:'client industry finance fintech research prototype enterprise dashboard roles scadpro handoff'},
+      {group:'Work', id:'bigbus', title:'Big Bus Savannah', sub:'Reimagining Savannah tours with interactive AR storytelling',
+        meta:'Class project · UX design + research · Concept', img:'images/work/bigbusheader.webp', href:'case-study-bigbus.html',
+        desc:'A class concept that moves a guided tour onto the guest’s phone: narration, captions, AR at landmarks and collectable artifacts.',
+        keys:'class concept ar augmented reality tourism travel accessibility captions research mobile app gamification'},
+      {group:'Work', id:'mose', title:'Mose', sub:'Balancing independence and oversight in dementia care',
+        meta:'Class project · UX research + design · Concept', img:'images/work/moseheader.webp', href:'case-study-mose.html',
+        desc:'A class concept for dementia care that balances a person’s independence with oversight from the people caring for them.',
+        keys:'class concept health healthcare dementia care caregivers research mobile app accessibility'},
+      {group:'More', id:'allwork', title:'All work', sub:'Every project, including side projects', icon:'i-grid', href:'work.html',
+        meta:'Work', desc:'Every project on the site, including graphic design, photography and side projects.', keys:'all projects portfolio side projects graphic design photography'},
+      {group:'More', id:'about', title:'About me', sub:'Background, skills and tennis', icon:'i-user', href:'about.html',
+        meta:'About', desc:'I’m a product designer, former college athlete, and Boise native.', img:'images/index/headshot.jpg', keys:'about bio background tennis athlete boise scad skills who'},
+      {group:'More', id:'resume', title:'Resume', sub:'PDF, opens in a new tab', icon:'i-doc', href:'images/index/CarsonOHara_Resume2026.pdf', ext:true,
+        meta:'Resume', desc:'My resume as a PDF.', keys:'resume cv pdf experience hire'},
+      {group:'Contact', id:'email', title:'Email Carson', sub:EMAIL, icon:'i-mail', href:'mailto:' + EMAIL,
+        meta:'Contact', desc:'Opens your email app with my address filled in.', keys:'email contact mail hire reach message'},
+      {group:'Contact', id:'copy', title:'Copy email address', sub:'Copies to your clipboard', icon:'i-copy', action:'copy',
+        meta:'Contact', desc:'Copies ' + EMAIL + ' so you can paste it anywhere.', keys:'copy email address clipboard contact'},
+      {group:'Contact', id:'linkedin', title:'LinkedIn', sub:'Opens in a new tab', icon:'i-link', href:'https://www.linkedin.com/in/carson-ohara-225512292', ext:true,
+        meta:'Contact', desc:'Connect with me on LinkedIn.', keys:'linkedin social connect network'},
+      {group:'Play', id:'pong', title:'Tennis Pong', sub:'A small game I made', icon:'i-ball', href:'tennis-pong/index.html',
+        meta:'Side project', desc:'A tennis take on Pong that I built.', keys:'game play tennis pong fun side project'},
+    ];
+    const input = document.getElementById('ck-q');
+    const list = document.getElementById('ck-list');
+    const prev = document.querySelector('.ck-prev');
+    const shot = prev.querySelector('.ck-shot');
+    const toast = document.querySelector('.ck-toast');
+    let results = [], active = 0;
+
+    const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    function hl(text, q){
+      if(!q) return esc(text);
+      const i = text.toLowerCase().indexOf(q.toLowerCase());
+      return i < 0 ? esc(text) : esc(text.slice(0, i)) + '<mark>' + esc(text.slice(i, i + q.length)) + '</mark>' + esc(text.slice(i + q.length));
+    }
+    // Score: title match beats subtitle beats keyword; every word must hit somewhere
+    function score(it, q){
+      if(!q) return 1;
+      const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+      const hay = [it.title, it.sub, it.meta, it.keys].join(' ').toLowerCase();
+      let s = 0;
+      for(const w of words){
+        const stem = w.replace(/(ing|ed|s)$/, '');
+        if(it.title.toLowerCase().startsWith(w)) s += 10;
+        else if(it.title.toLowerCase().includes(w)) s += 6;
+        else if(hay.includes(w) || (stem.length > 2 && hay.includes(stem))) s += 2;
+        else if(['me','my','you','your','show','something','the','a','an','i','in','of','with','what','that'].includes(w)) s += 0;
+        else return 0;
+      }
+      return s;
+    }
+    function render(){
+      const q = input.value.trim();
+      results = ITEMS.map(it => ({it, s:score(it, q)})).filter(r => r.s > 0);
+      if(q) results.sort((a, b) => b.s - a.s);
+      results = results.map(r => r.it);
+      active = Math.min(active, Math.max(results.length - 1, 0));
+      if(!results.length){
+        list.innerHTML = `<li class="ck-empty" role="presentation">Nothing matches <b>“${esc(q)}”</b>. Try “AI”, “research” or “email”.</li>`;
+        input.removeAttribute('aria-activedescendant');
+        return;
+      }
+      let html = '', last = null;
+      results.forEach((it, i) => {
+        if(!q && it.group !== last){ html += `<li class="ck-group" role="presentation">${it.group}</li>`; last = it.group; }
+        const ic = it.img && it.group === 'Work' ? `<span class="ck-ic" style="background-image:url('${it.img}')"></span>`
+                 : `<span class="ck-ic"><svg aria-hidden="true"><use href="#${it.icon || 'i-doc'}"></use></svg></span>`;
+        html += `<li class="ck-opt" role="option" id="opt-${it.id}" data-i="${i}" aria-selected="${i === active}">${ic}
+          <span class="ck-txt"><b>${hl(it.title, q)}</b><span>${hl(it.sub, q)}</span></span>
+          <span class="ck-go" aria-hidden="true">${it.action ? 'Copy' : it.ext ? 'Open' : 'Go'} <svg width="14" height="14" viewBox="0 0 24 24"><use href="#${it.ext ? 'icon-external' : 'icon-arrow-right'}"></use></svg></span></li>`;
+      });
+      list.innerHTML = html;
+      select(active, false);
+    }
+    let swapT;
+    function select(i, scroll = true){
+      active = i;
+      list.querySelectorAll('.ck-opt').forEach(o => o.setAttribute('aria-selected', String(+o.dataset.i === i)));
+      const it = results[i]; if(!it) return;
+      input.setAttribute('aria-activedescendant', 'opt-' + it.id);
+      const el = document.getElementById('opt-' + it.id);
+      if(scroll && el) el.scrollIntoView({block:'nearest'});
+      // Preview
+      clearTimeout(swapT);
+      const fillPrev = () => {
+        shot.style.backgroundImage = it.img ? `url('${it.img}')` : '';
+        shot.style.display = it.img ? '' : 'none';
+        prev.querySelector('.card-meta').textContent = it.meta;
+        prev.querySelector('h2').textContent = it.title;
+        prev.querySelector('.desc').textContent = it.desc;
+        const b = prev.querySelector('.btn');
+        b.textContent = it.action === 'copy' ? 'Copy email' : it.group === 'Work' ? 'Open case study' : 'Open';
+        b.href = it.href || '#';
+        b.target = it.ext ? '_blank' : '';
+        b.onclick = e => { e.preventDefault(); run(it); };
+        prev.classList.remove('is-swapping');
+      };
+      if(reduce || prev.dataset.id === undefined){ fillPrev(); }
+      else { prev.classList.add('is-swapping'); swapT = setTimeout(fillPrev, 120); }
+      prev.dataset.id = it.id;
+    }
+    function say(msg){ toast.textContent = msg; toast.classList.add('is-on'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('is-on'), 1800); }
+    function run(it){
+      if(it.action === 'copy'){
+        (navigator.clipboard ? navigator.clipboard.writeText(EMAIL) : Promise.reject()).then(() => say('Email copied'), () => say(EMAIL));
+        return;
+      }
+      if(it.ext){ window.open(it.href, '_blank', 'noopener'); return; }
+      if(it.href.startsWith('mailto:')){ location.href = it.href; return; }
+      // Grow the preview image to fill the screen, then go
+      const from = shot.offsetParent && it.img && it.group === 'Work' ? shot.getBoundingClientRect() : null;
+      if(reduce || !from){ location.href = it.href; return; }
+      const z = document.createElement('div'); z.className = 'ck-zoom';
+      Object.assign(z.style, {width:from.width + 'px', height:from.height + 'px', transform:`translate(${from.left}px, ${from.top}px)`, backgroundImage:`url('${it.img}')`});
+      document.body.appendChild(z);
+      z.animate([
+        {transform:`translate(${from.left}px, ${from.top}px)`, width:from.width + 'px', height:from.height + 'px', borderRadius:'12px'},
+        {transform:'translate(0px, 0px)', width:innerWidth + 'px', height:innerHeight + 'px', borderRadius:'0px'}
+      ], {duration:520, easing:'cubic-bezier(.16,1,.3,1)', fill:'forwards'}).finished.then(() => { location.href = it.href; });
+    }
+
+    input.addEventListener('input', () => { active = 0; render(); });
+    input.addEventListener('keydown', e => {
+      if(e.key === 'ArrowDown'){ e.preventDefault(); if(results.length) select((active + 1) % results.length); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); if(results.length) select((active - 1 + results.length) % results.length); }
+      else if(e.key === 'Enter'){ e.preventDefault(); if(results[active]) run(results[active]); }
+      else if(e.key === 'Escape'){ if(input.value){ input.value = ''; active = 0; render(); } else input.blur(); }
+    });
+    list.addEventListener('mousemove', e => { const o = e.target.closest('.ck-opt'); if(o && +o.dataset.i !== active) select(+o.dataset.i, false); });
+    list.addEventListener('click', e => { const o = e.target.closest('.ck-opt'); if(o) run(results[+o.dataset.i]); });
+    // ⌘K / Ctrl+K or "/" from anywhere focuses the bar
+    addEventListener('keydown', e => {
+      if((e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && document.activeElement !== input)){
+        e.preventDefault(); input.focus(); input.select();
+      }
+    });
+    // Back/forward cache: clear the zoom layer if the visitor comes back
+    addEventListener('pageshow', () => document.querySelectorAll('.ck-zoom').forEach(z => z.remove()));
+    if(/Mac|iPhone|iPad/.test(navigator.platform) === false) document.querySelector('.ck-bar .ck-kbd').textContent = 'Ctrl K';
+    render();
+    // Focus the bar on desktop so typing just works; not on touch, where it would open the keyboard
+    if(matchMedia('(hover:hover) and (pointer:fine)').matches) input.focus({preventScroll:true});
+  })();
+  </script>
+</body>
+</html>

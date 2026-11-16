@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* Shared: the dark glass world */
+    :root{--ease:cubic-bezier(.16,1,.3,1);--night:#070b16;--on-dark:#fff;--on-dark-muted:rgba(255,255,255,.68);--on-dark-line:rgba(255,255,255,.12)}
+    html,body{background:var(--night);color:var(--on-dark)}
+    ::selection{background:var(--accent);color:#fff}
+    .glass{position:relative;border-radius:var(--r-24);
+      background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+      -webkit-backdrop-filter:blur(28px) saturate(170%);backdrop-filter:blur(28px) saturate(170%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28), inset 0 -1px 0 rgba(255,255,255,.04), 0 30px 80px rgba(0,0,0,.35)}
+    /* Light that follows the cursor across glass */
+    .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(420px circle at var(--gx, -999px) var(--gy, -999px), rgba(255,255,255,.12), transparent 60%)}
+    .gbtn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-8);min-height:var(--tap, 44px);padding:0 var(--space-16);
+      border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+      -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--on-dark);font:600 var(--fs-14)/1 var(--ff-sans);text-decoration:none;cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.2);transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease)}
+    .gbtn:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3)}
+    .gbtn:active{transform:scale(.96)}
+    .gbtn.solid{background:var(--on-dark);color:var(--ink);border-color:transparent}
+    .gbtn.solid:hover{background:#e8edf7}
+    .gbtn svg{width:16px;height:16px;flex:none}
+    main a:focus-visible,main button:focus-visible,.gbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+    .label{margin:0;font-size:var(--fs-12);font-weight:600;letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--on-dark-muted)}
+    .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    .site-footer{background:transparent;color:var(--on-dark-muted);border-top:1px solid var(--on-dark-line)}
+    .site-footer a{color:var(--on-dark)}
+    @media (prefers-reduced-motion: reduce){ .dot{animation:none} }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:#fff;color:var(--ink);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+
+    /* ── Premium (preview): Stripe's gradient, Vercel's precision ───────── */
+    html,body{background:#fff;color:var(--ink)}
+    ::selection{background:color-mix(in srgb, var(--accent) 22%, transparent);color:inherit}
+    main a:focus-visible,main button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .pm-hero{position:relative;padding:calc(var(--space-96) + var(--space-48)) 0 var(--space-96);overflow:hidden}
+    /* The band: a slow, living gradient on a skew */
+    .pm-band{position:absolute;left:0;right:0;top:-40%;height:120%;transform:skewY(-9deg);transform-origin:0 0;overflow:hidden;z-index:0}
+    .pm-band i{position:absolute;inset:-20%;
+      background:
+        radial-gradient(40% 50% at 20% 40%, #1E4FFF 0%, transparent 60%),
+        radial-gradient(35% 45% at 55% 30%, #7c5cff 0%, transparent 60%),
+        radial-gradient(40% 50% at 85% 55%, #06b6d4 0%, transparent 60%),
+        radial-gradient(30% 40% at 45% 75%, #ff5fa2 0%, transparent 60%),
+        #a5b4fc;
+      filter:blur(40px) saturate(140%);animation:pmflow 18s ease-in-out infinite alternate}
+    @keyframes pmflow{
+      0%{transform:translate(0,0) rotate(0deg) scale(1)}
+      50%{transform:translate(-6%, 4%) rotate(8deg) scale(1.1)}
+      100%{transform:translate(5%, -3%) rotate(-6deg) scale(1.05)}}
+    .pm-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 60%, rgba(255,255,255,.0))}
+    .pm-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0, 1.05fr) minmax(0, 1fr);gap:var(--space-48);align-items:center}
+    .pm-id{display:inline-flex;align-items:center;gap:12px;margin-bottom:var(--space-24);padding:6px 14px 6px 6px;border-radius:var(--r-pill);background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:var(--fs-14);font-weight:600}
+    .pm-id img{width:28px;height:28px;border-radius:50%;background:#fff}
+    .pm-id .dot{margin-left:4px}
+    .pm-line{margin:0;font-size:clamp(3rem, 1.4rem + 5.4vw, 6rem);font-weight:700;line-height:.98;letter-spacing:-0.045em;color:#0f172a;mix-blend-mode:color-burn}
+    .pm-sub{margin:var(--space-24) 0 0;max-width:38ch;font-size:var(--fs-20);line-height:var(--lh-heading);color:#1e293b}
+    .pm-sub h1{display:inline;font:inherit;margin:0}
+    .pm-cta{display:flex;gap:var(--space-8);flex-wrap:wrap;margin-top:var(--space-32)}
+    .pm-btn{display:inline-flex;align-items:center;gap:var(--space-8);min-height:44px;padding:0 var(--space-16) 0 20px;border-radius:var(--r-pill);background:#0f172a;color:#fff;font-weight:600;text-decoration:none;transition:background-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease)}
+    .pm-btn:hover{background:var(--accent)}
+    .pm-btn svg{width:16px;height:16px;transition:transform var(--motion-speed) var(--motion-ease)}
+    .pm-btn:hover svg{transform:translateX(3px)}
+    .pm-btn.ghost{background:rgba(255,255,255,.6);color:#0f172a;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+    .pm-btn.ghost:hover{background:#fff}
+
+    /* Floating stack of real project screens */
+    .pm-stack{position:relative;height:clamp(360px, 38vw, 520px);perspective:1400px}
+    .pm-card{position:absolute;display:block;border-radius:14px;overflow:hidden;background:#fff;text-decoration:none;color:inherit;
+      box-shadow:0 50px 100px -20px rgba(50,50,93,.35), 0 30px 60px -30px rgba(0,0,0,.4);
+      transform:rotateY(-14deg) rotateX(6deg) translate3d(var(--tx, 0), var(--ty, 0), 0);transform-style:preserve-3d;
+      transition:transform .7s var(--ease),box-shadow .4s var(--ease);animation:pmfloat 7s ease-in-out infinite alternate;animation-delay:var(--fd, 0s)}
+    @keyframes pmfloat{to{translate:0 -10px}}
+    .pm-card img,.pm-card video{display:block;width:100%;height:100%;object-fit:cover}
+    .pm-card span{position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:var(--r-pill);background:rgba(255,255,255,.92);font-size:12px;font-weight:600;color:#0f172a;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .pm-card:nth-child(1){width:78%;aspect-ratio:1400 / 1042;left:18%;top:0;z-index:3}
+    .pm-card:nth-child(2){width:52%;aspect-ratio:1456 / 814;left:0;top:44%;z-index:4;--fd:-2s}
+    .pm-card:nth-child(3){width:36%;aspect-ratio:1567 / 751;right:-4%;top:62%;z-index:5;--fd:-4s}
+    .pm-card:hover{z-index:9;transform:rotateY(-6deg) rotateX(2deg) translate3d(0, -8px, 60px);box-shadow:0 60px 120px -20px rgba(50,50,93,.45), 0 36px 70px -30px rgba(0,0,0,.45)}
+
+    /* The index: precise grid, hairlines, small mono labels */
+    .pm-index{padding:var(--space-64) 0 var(--space-96)}
+    .pm-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-16);padding-bottom:var(--space-16);border-bottom:1px solid var(--line)}
+    .pm-head h2{margin:0;font-size:var(--fs-24);font-weight:700;letter-spacing:-0.02em}
+    .pm-mono{font:500 12px/1.4 'JetBrains Mono', ui-monospace, monospace;letter-spacing:.02em;color:var(--ink-muted);text-transform:uppercase}
+    .pm-list{list-style:none;margin:0;padding:0}
+    .pm-row{display:grid;grid-template-columns:120px minmax(0, 1fr) 220px 140px 32px;align-items:center;gap:var(--space-24);padding:var(--space-24) 0;border-bottom:1px solid var(--line);
+      color:inherit;text-decoration:none;position:relative}
+    .pm-row::before{content:"";position:absolute;inset:0 -16px;border-radius:var(--r-12);background:var(--surface-sunken);opacity:0;transition:opacity var(--motion-speed) var(--motion-ease);z-index:-1}
+    .pm-row:hover::before{opacity:1}
+    .pm-row .th{width:120px;aspect-ratio:16 / 10;border-radius:var(--r-8);background:var(--surface-sunken) center / cover no-repeat;box-shadow:0 0 0 1px var(--line)}
+    .pm-row h3{margin:0;font-size:var(--fs-20);font-weight:600;letter-spacing:-0.01em}
+    .pm-row p{margin:var(--space-4) 0 0;color:var(--ink-muted);font-size:var(--fs-14)}
+    .pm-row .st{display:inline-flex;align-items:center;gap:6px}
+    .pm-row .st i{width:6px;height:6px;border-radius:50%;background:var(--ink-muted)}
+    .pm-row .st.live i{background:#16a34a}
+    .pm-row svg{width:18px;height:18px;color:var(--ink-muted);transition:transform var(--motion-speed) var(--motion-ease),color var(--motion-speed) var(--motion-ease)}
+    .pm-row:hover svg{transform:translateX(4px);color:var(--accent)}
+    .site-footer{color:var(--ink-muted);border-top:1px solid var(--line)}
+    .site-footer a{color:var(--ink)}
+    .variant-tag{background:var(--ink);color:#fff}
+
+    @media (max-width:1023px){
+      .pm-in{grid-template-columns:1fr}
+      .pm-stack{height:clamp(300px, 62vw, 460px)}
+      .pm-row{grid-template-columns:96px minmax(0, 1fr) 24px}
+      .pm-row .th{width:96px}
+      .pm-row .pm-mono{display:none}
+    }
+    @media (prefers-reduced-motion: reduce){ .pm-band i,.pm-card{animation:none} }
+
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pm-hero">
+      <div class="pm-band" aria-hidden="true"><i></i></div>
+      <div class="container pm-in">
+        <div>
+          <span class="pm-id"><img src="images/index/headshotanimation.webp" alt="" width="28" height="28">Carson O'Hara<span class="dot" aria-hidden="true"></span></span>
+          <h1 class="visually-hidden">Carson O'Hara</h1>
+          <p class="pm-line">I design and build products.</p>
+          <p class="pm-sub">Currently designing at Contio: the brand, the website and the launch films for MeetingOS.</p>
+          <div class="pm-cta">
+            <a class="pm-btn" href="#work">See the work <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+            <a class="pm-btn ghost" href="mailto:carsonohara78@gmail.com">Get in touch</a>
+          </div>
+        </div>
+        <div class="pm-stack" aria-label="Featured projects">
+          <a class="pm-card" href="case-study-contio.html"><img src="images/case-study-contio/recreated.webp" alt="" width="1400" height="1042"><span>Contio</span></a>
+          <a class="pm-card" href="case-study-finra.html"><img src="images/case-study-finra/prototype-dashboard.webp" alt="" width="1456" height="814"><span>FINRA x SCADpro</span></a>
+          <a class="pm-card" href="case-study-coral-keepers.html"><img src="images/case-study-coral-keepers/student-home.webp" alt="" width="1567" height="751"><span>Coral Keepers</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="container pm-index" id="work">
+      <div class="pm-head"><h2>Selected work</h2><span class="pm-mono">5 case studies · 2025-2026</span></div>
+      <ul class="pm-list">
+        <li><a class="pm-row" href="case-study-contio.html">
+          <span class="th" style="background-image:url('images/case-study-contio/card.webp')" aria-hidden="true"></span>
+          <span><h3>Contio</h3><p>Brand, website and launch films for an AI meeting platform</p></span>
+          <span class="pm-mono">Brand + marketing · 2026–now</span>
+          <span class="pm-mono st live"><i aria-hidden="true"></i>Live</span>
+          <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a></li>
+        <li><a class="pm-row" href="case-study-coral-keepers.html">
+          <span class="th" style="background-image:url('images/work/CoralKeepersHeader.webp')" aria-hidden="true"></span>
+          <span><h3>Coral Keepers</h3><p>Classroom coral restoration, with an AI that knows the tank</p></span>
+          <span class="pm-mono">Design + front-end · 2026</span>
+          <span class="pm-mono st live"><i aria-hidden="true"></i>Live</span>
+          <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a></li>
+        <li><a class="pm-row" href="case-study-finra.html">
+          <span class="th" style="background-image:url('images/case-study-finra/finra header.webp')" aria-hidden="true"></span>
+          <span><h3>FINRA x SCADpro</h3><p>Redesigning FINRA’s ecosystem for role-based experiences</p></span>
+          <span class="pm-mono">Research + prototype · Winter 2026</span>
+          <span class="pm-mono st"><i aria-hidden="true"></i>Handed off</span>
+          <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a></li>
+        <li><a class="pm-row" href="case-study-bigbus.html">
+          <span class="th" style="background-image:url('images/work/bigbusheader.webp')" aria-hidden="true"></span>
+          <span><h3>Big Bus Savannah</h3><p>Reimagining Savannah tours with interactive AR storytelling</p></span>
+          <span class="pm-mono">UX design + research · Fall 2025</span>
+          <span class="pm-mono st"><i aria-hidden="true"></i>Concept</span>
+          <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a></li>
+        <li><a class="pm-row" href="case-study-mose.html">
+          <span class="th" style="background-image:url('images/work/moseheader.webp')" aria-hidden="true"></span>
+          <span><h3>Mose</h3><p>Balancing independence and oversight in dementia care</p></span>
+          <span class="pm-mono">UX research + design · Winter 2025</span>
+          <span class="pm-mono st"><i aria-hidden="true"></i>Concept</span>
+          <svg aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Premium · Stripe-style</div>
+  <script>
+  // Glass highlight follows the cursor (shared)
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    addEventListener('pointermove', e => {
+      document.querySelectorAll('.glass').forEach(g => {
+        const b = g.getBoundingClientRect();
+        g.style.setProperty('--gx', (e.clientX - b.left) + 'px');
+        g.style.setProperty('--gy', (e.clientY - b.top) + 'px');
+      });
+    }, {passive:true});
+  })();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Carson O'Hara | Product Designer</title>
+  <meta name="description" content="Carson O&#x27;Hara is a product designer at Contio who designs and builds products. Case studies, resume and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── Projects inside the letters (preview) ──────────────────────────
+       "products." is a window. The work plays inside the letters, tinted
+       ink-to-accent so the word always reads. Scrolling flies through the
+       word into the work at full colour. */
+    :root{--ease:cubic-bezier(.16,1,.3,1)}
+    .lt-hero{position:relative;height:260vh}
+    .lt-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+
+    /* The fill: project media, then two blend layers that turn it into an
+       ink-to-accent duotone. The duotone fades out as the word opens up. */
+    .lt-fill{position:absolute;inset:0;isolation:isolate;background:var(--ink)}
+    .lt-media{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease)}
+    .lt-media.is-on{opacity:1}
+    .lt-media img,.lt-media video{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;
+      translate:var(--mx,0px) var(--my,0px);animation:lt-drift 18s ease-in-out infinite alternate}
+    @keyframes lt-drift{from{scale:1.02}to{scale:1.1}}
+    .lt-mono{position:absolute;inset:0;pointer-events:none}
+    .lt-media img,.lt-media video{filter:grayscale(calc(1 - var(--color, 0))) contrast(1.08)}
+    .lt-mono.m1{background:var(--accent);mix-blend-mode:multiply;opacity:calc(1 - var(--color, 0))}
+    .lt-mono.m2{background:var(--ink);mix-blend-mode:screen;opacity:calc(1 - var(--color, 0))}
+
+    /* The knockout: white paper with the word cut out of it */
+    .lt-knock{position:absolute;inset:0;background:var(--surface);color:#000;mix-blend-mode:screen;
+      transform-origin:var(--ox, 50%) var(--oy, 50%)}
+    .lt-knock span{position:absolute;left:0;top:0;white-space:nowrap}
+    .lt-word,.lt-knock span{font-weight:800;line-height:.9;letter-spacing:-0.055em}
+
+    /* Everything else sits on top, in normal ink */
+    .lt-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;
+      padding-top:var(--space-64)}
+    .lt-id{display:flex;align-items:center;gap:var(--space-16);margin:0 0 var(--space-24)}
+    .lt-id img{width:48px;height:48px;border-radius:50%;background:var(--surface-sunken)}
+    .lt-id h1{margin:0;font-size:var(--fs-20);font-weight:600;line-height:var(--lh-heading)}
+    .lt-line{margin:0;font-size:clamp(2.25rem, 1rem + 5vw, 6rem);font-weight:700;line-height:1;letter-spacing:-0.04em;color:var(--ink)}
+    .lt-word{display:inline-block;visibility:hidden;margin-top:.02em;padding-bottom:.14em;white-space:nowrap}   /* holds the space; the cut-out is drawn in .lt-knock */
+    .lt-row{display:flex;align-items:center;justify-content:space-between;gap:var(--space-16) var(--space-32);flex-wrap:wrap;margin-top:var(--space-24)}
+    .lt-sub{margin:0;font-size:var(--fs-20);line-height:var(--lh-heading);color:var(--ink-muted)}
+    .lt-sub a{color:var(--accent);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+
+    .lt-picker{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap;margin:0;padding:0;list-style:none}
+    .lt-picker button{min-height:var(--tap, 44px);padding:0 var(--space-16);border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);
+      font:500 var(--fs-14)/1 var(--ff-sans);color:var(--ink);cursor:pointer;
+      transition:background-color var(--motion-speed) var(--motion-ease),color var(--motion-speed) var(--motion-ease),border-color var(--motion-speed) var(--motion-ease),transform var(--motion-speed) var(--motion-ease)}
+    .lt-picker button:hover{border-color:var(--accent);color:var(--accent)}
+    .lt-picker button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+    .lt-picker button:active{transform:scale(.96)}
+    .lt-picker .lt-pause{width:44px;padding:0;display:grid;place-items:center}
+    .lt-pause svg{width:16px;height:16px}
+    .lt-now{position:absolute;right:0;bottom:0;margin:0}
+
+    /* After the fly-through: the project at full colour with its caption */
+    .lt-cap{position:absolute;z-index:3;left:0;right:0;bottom:var(--space-48);color:var(--surface);opacity:0;pointer-events:none}
+    .lt-cap.is-live{pointer-events:auto}
+    .lt-cap .container{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-24);flex-wrap:wrap}
+    .lt-cap .card-meta{color:rgba(255,255,255,.8)}
+    .lt-cap h2{margin:0;font-size:clamp(2.5rem, 1.5rem + 4vw, 5rem);font-weight:700;line-height:1;letter-spacing:-0.04em}
+    .lt-cap p.desc{margin:var(--space-8) 0 0;font-size:var(--fs-20);line-height:var(--lh-heading)}
+    .lt-scrim{position:absolute;z-index:2;inset:0;background:linear-gradient(to top, rgba(15,23,42,.85), rgba(15,23,42,0) 55%);opacity:0;pointer-events:none}
+    .lt-cap a.btn:focus-visible{outline-color:var(--surface)}
+
+    /* The work list below */
+    .lt-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+    .lt-list li{border-bottom:1px solid var(--line)}
+    .lt-list a{display:grid;grid-template-columns:minmax(0,1fr) 220px;align-items:center;gap:var(--space-24);padding:var(--space-24) 0;color:inherit;text-decoration:none}
+    .lt-list h3{margin:0;font-size:clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);font-weight:700;line-height:var(--lh-display);letter-spacing:-0.02em;transition:color var(--motion-speed) var(--motion-ease)}
+    .lt-list .card-meta{margin:0 0 var(--space-4)}
+    .lt-list p.muted{margin:var(--space-8) 0 0;font-size:var(--fs-16)}
+    .lt-list .thumb{aspect-ratio:16 / 10;border-radius:var(--r-12);background:var(--surface-sunken) center / cover no-repeat;transition:transform var(--motion-slow) var(--ease)}
+    .lt-list a:hover h3{color:var(--accent)}
+    @media (hover:hover) and (pointer:fine){ .lt-list a:hover .thumb{transform:scale(1.04)} }
+    .lt-list a:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:var(--r-4)}
+    @media (max-width:639px){
+      .lt-list a{grid-template-columns:1fr}
+      .lt-list .thumb{grid-row:1}
+      .lt-picker{gap:var(--space-4)}
+      .lt-picker button{padding:0 var(--space-8) 0 12px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .lt-hero{height:auto}
+      .lt-stage{position:relative;height:auto;min-height:100svh}
+      .lt-media img,.lt-media video{animation:none;translate:none}
+      .lt-media{transition:none}
+      .lt-cap,.lt-scrim{display:none}
+    }
+    .variant-tag{position:fixed;z-index:70;left:var(--space-16);bottom:var(--space-16);padding:var(--space-4) var(--space-8);border-radius:var(--r-4);background:var(--ink);color:var(--surface);font-size:var(--fs-12);font-weight:600}
+    @media (max-width:639px){ .variant-tag{display:none} }
+  </style>
+</head>
+<body id="top">
+  <svg aria-hidden="true" style="display:none">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="index.html" aria-label="Carson O'Hara home"><img src="images/index/headshotanimation.webp" alt="" width="36" height="36"></a>
+      <div class="nav-shell">
+        <nav id="primary-nav" class="primary-nav" data-visible="false" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="work.html" class="nav-link">Work</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener" class="nav-link nav-link--resume">Resume</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="nav-tag" href="images/index/CarsonOHara_Resume2026.pdf" target="_blank" rel="noopener">Resume <svg class="icon" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="hamburger"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="lt-hero">
+      <div class="lt-stage">
+        <div class="lt-fill" aria-hidden="true">
+          <div class="lt-media is-on" data-key="contio"><video muted playsinline loop preload="metadata" poster="images/case-study-contio/benny-film-poster.webp"><source src="images/case-study-contio/benny-film.mp4" type="video/mp4"></video></div>
+          <div class="lt-media" data-key="coral"><img src="images/case-study-coral-keepers/student-home.webp" alt=""></div>
+          <div class="lt-media" data-key="finra"><img src="images/case-study-finra/prototype-dashboard.webp" alt=""></div>
+          <div class="lt-media" data-key="bigbus"><img src="images/work/bigbusheader.webp" alt=""></div>
+          <div class="lt-media" data-key="mose"><img src="images/work/moseheader.webp" alt=""></div>
+          <div class="lt-mono m1"></div><div class="lt-mono m2"></div>
+        </div>
+        <div class="lt-knock" aria-hidden="true"><span>products.</span></div>
+        <div class="lt-scrim" aria-hidden="true"></div>
+
+        <div class="container lt-copy">
+          <div class="lt-id"><img src="images/index/headshotanimation.webp" alt="" width="48" height="48"><h1>Carson O'Hara</h1></div>
+          <p class="lt-line">I design and build<br><span class="lt-word">products.</span></p>
+          <div class="lt-row">
+            <p class="lt-sub">Currently designing at <a href="case-study-contio.html">Contio</a>.</p>
+            <ul class="lt-picker" aria-label="Show a project inside the word">
+              <li><button type="button" data-key="contio" aria-pressed="true">Contio</button></li>
+              <li><button type="button" data-key="coral" aria-pressed="false">Coral Keepers</button></li>
+              <li><button type="button" data-key="finra" aria-pressed="false">FINRA x SCADpro</button></li>
+              <li><button type="button" data-key="bigbus" aria-pressed="false">Big Bus Savannah</button></li>
+              <li><button type="button" data-key="mose" aria-pressed="false">Mose</button></li>
+              <li><button type="button" class="lt-pause" aria-label="Pause">
+                <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg>
+              </button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lt-cap" aria-hidden="true">
+          <div class="container">
+            <div>
+              <p class="card-meta"></p>
+              <h2></h2>
+              <p class="desc"></p>
+            </div>
+            <a class="btn primary" href="#" tabindex="-1">Read the case study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-head">
+        <h2 class="section-title">My Favorite Projects</h2>
+        <a href="work.html" class="see-all-link">See all <svg class="icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+      </div>
+      <ul class="lt-list">
+        <li><a href="case-study-contio.html"><div><p class="card-meta">Current role · Brand + marketing design · Live</p><h3>Contio</h3><p class="muted">Brand, website and launch films for an AI meeting platform</p></div><span class="thumb" style="background-image:url('images/case-study-contio/card.webp')"></span></a></li>
+        <li><a href="case-study-coral-keepers.html"><div><p class="card-meta">Senior capstone · Design + front-end · Live</p><h3>Coral Keepers</h3><p class="muted">Classroom coral restoration, with an AI that knows the tank</p></div><span class="thumb" style="background-image:url('images/work/CoralKeepersHeader.webp')"></span></a></li>
+        <li><a href="case-study-finra.html"><div><p class="card-meta">Industry client · Research + prototype · Handed off</p><h3>FINRA x SCADpro</h3><p class="muted">Redesigning FINRA’s ecosystem for role-based experiences</p></div><span class="thumb" style="background-image:url('images/case-study-finra/finra header.webp')"></span></a></li>
+        <li><a href="case-study-bigbus.html"><div><p class="card-meta">Class project · UX design + research · Concept</p><h3>Big Bus Savannah</h3><p class="muted">Reimagining Savannah tours with interactive AR storytelling</p></div><span class="thumb" style="background-image:url('images/work/bigbusheader.webp')"></span></a></li>
+        <li><a href="case-study-mose.html"><div><p class="card-meta">Class project · UX research + design · Concept</p><h3>Mose</h3><p class="muted">Balancing independence and oversight in dementia care</p></div><span class="thumb" style="background-image:url('images/work/moseheader.webp')"></span></a></li>
+      </ul>
+    </section>
+
+    <section class="section about-brief container">
+      <div class="about-inner">
+        <div class="about-photo">
+          <article class="about-profile-card">
+            <div class="about-profile-media"><img src="images/index/headshot.jpg" alt="Carson O'Hara" width="372" height="560"></div>
+            <div class="about-profile-footer">
+              <div class="about-profile-meta">
+                <p class="about-profile-username">@carson-ohara</p>
+                <a class="about-profile-link" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+              <a class="btn primary" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">+ Connect</a>
+            </div>
+          </article>
+        </div>
+        <div class="about-copy">
+          <h2>About Me</h2>
+          <p class="muted">I’m a product designer, former college athlete, and Boise native. Driven by a competitive discipline and a natural curiosity for complex systems, I turn messy digital problems into clean, high-performance experiences that people can depend on.</p>
+          <p><a class="btn outline" href="about.html">More About Me</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">© <span id="year"></span> Carson O'Hara</div>
+      <div class="footer-right">
+        <a class="social" href="https://www.linkedin.com/in/carson-ohara-225512292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="mailto:carsonohara78@gmail.com">carsonohara78@gmail.com</a>
+        <a class="back-to-top" href="#top">Back to Top</a>
+      </div>
+    </div>
+  </footer>
+  <div class="variant-tag" aria-hidden="true">Concept 3 · Inside the letters</div>
+
+  <script>
+  (function(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    const seg = (p, a, b) => clamp((p - a) / (b - a));
+    const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const hero = document.querySelector('.lt-hero');
+    const stage = document.querySelector('.lt-stage');
+    const knock = document.querySelector('.lt-knock');
+    const cut = knock.querySelector('span');
+    const word = document.querySelector('.lt-word');
+    const copy = document.querySelector('.lt-copy');
+    const fill = document.querySelector('.lt-fill');
+    const scrim = document.querySelector('.lt-scrim');
+    const cap = document.querySelector('.lt-cap');
+    const capBtn = cap.querySelector('.btn');
+    const medias = [...document.querySelectorAll('.lt-media')];
+    const picks = [...document.querySelectorAll('.lt-picker [data-key]')];
+    const pauseBtn = document.querySelector('.lt-pause');
+    const video = document.querySelector('.lt-media video');
+
+    const INFO = {
+      contio:{meta:'Current role · Brand + marketing design · Live', title:'Contio', desc:'Brand, website and launch films for an AI meeting platform', href:'case-study-contio.html'},
+      coral:{meta:'Senior capstone · Design + front-end · Live', title:'Coral Keepers', desc:'Classroom coral restoration, with an AI that knows the tank', href:'case-study-coral-keepers.html'},
+      finra:{meta:'Industry client · Research + prototype · Handed off', title:'FINRA x SCADpro', desc:'Redesigning FINRA’s ecosystem for role-based experiences', href:'case-study-finra.html'},
+      bigbus:{meta:'Class project · UX design + research · Concept', title:'Big Bus Savannah', desc:'Reimagining Savannah tours with interactive AR storytelling', href:'case-study-bigbus.html'},
+      mose:{meta:'Class project · UX research + design · Concept', title:'Mose', desc:'Balancing independence and oversight in dementia care', href:'case-study-mose.html'},
+    };
+
+    // ── The cut-out sits exactly over the placeholder word, sized to fill the line
+    let fs = 100;
+    function fit(){
+      const w = copy.clientWidth - parseFloat(getComputedStyle(copy).paddingLeft) - parseFloat(getComputedStyle(copy).paddingRight);
+      word.style.fontSize = '100px';
+      const natural = word.getBoundingClientRect().width;
+      fs = Math.min(100 * w / natural, innerHeight * .34);
+      word.style.fontSize = fs + 'px';
+      cut.style.fontSize = fs + 'px';
+      const s = stage.getBoundingClientRect(), b = word.getBoundingClientRect();
+      cut.style.transform = `translate(${b.left - s.left}px, ${b.top - s.top}px)`;
+      // Zoom into the stem of the "d", so the fly-through lands inside a letter
+      const range = document.createRange();
+      range.setStart(word.firstChild, 3); range.setEnd(word.firstChild, 4);
+      const d = range.getBoundingClientRect();
+      knock.style.setProperty('--ox', (d.right - s.left - fs * .12) + 'px');
+      knock.style.setProperty('--oy', (d.top - s.top + d.height * .55) + 'px');
+    }
+
+    // ── Choosing what plays inside the word
+    let current = 'contio', auto = !reduce, timer = null;
+    function show(key){
+      current = key;
+      medias.forEach(m => m.classList.toggle('is-on', m.dataset.key === key));
+      picks.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+      const i = INFO[key];
+      cap.querySelector('.card-meta').textContent = i.meta;
+      cap.querySelector('h2').textContent = i.title;
+      cap.querySelector('.desc').textContent = i.desc;
+      capBtn.href = i.href;
+      syncVideo();
+    }
+    function syncVideo(){
+      const play = current === 'contio' && !reduce && !paused;
+      if(play && video.paused) video.play().catch(() => {});
+      if(!play && !video.paused) video.pause();
+    }
+    let paused = reduce;
+    function schedule(){
+      clearInterval(timer);
+      if(auto && !paused) timer = setInterval(() => {
+        const keys = Object.keys(INFO);
+        show(keys[(keys.indexOf(current) + 1) % keys.length]);
+      }, 4200);
+    }
+    function setPaused(v){
+      paused = v;
+      pauseBtn.querySelector('.i-pause').style.display = v ? 'none' : '';
+      pauseBtn.querySelector('.i-play').style.display = v ? '' : 'none';
+      pauseBtn.setAttribute('aria-label', v ? 'Play' : 'Pause');
+      syncVideo(); schedule();
+    }
+    picks.forEach(b => {
+      b.addEventListener('click', () => { auto = false; show(b.dataset.key); schedule(); });
+      b.addEventListener('mouseenter', () => { show(b.dataset.key); clearInterval(timer); });
+      b.addEventListener('mouseleave', schedule);
+    });
+    pauseBtn.addEventListener('click', () => setPaused(!paused));
+    setPaused(paused);
+    show('contio');
+
+    // ── The work leans toward the cursor a little
+    if(!reduce) addEventListener('pointermove', e => {
+      fill.style.setProperty('--mx', ((e.clientX / innerWidth - .5) * -24).toFixed(1) + 'px');
+      fill.style.setProperty('--my', ((e.clientY / innerHeight - .5) * -16).toFixed(1) + 'px');
+    }, {passive:true});
+
+    // ── Scroll: fly through the word into the work
+    function render(){
+      if(!reduce){
+        const range = hero.offsetHeight - innerHeight;
+        const p = clamp(-hero.getBoundingClientRect().top / range);
+        const z = ease(seg(p, .05, .55));
+        knock.style.transform = z ? `scale(${1 + z * z * 60})` : '';
+        knock.style.opacity = 1 - seg(p, .42, .56);
+        copy.style.opacity = 1 - seg(p, .02, .16);
+        copy.style.transform = `translateY(${-seg(p, .02, .16) * 40}px)`;
+        copy.style.visibility = p > .16 ? 'hidden' : 'visible';
+        fill.style.setProperty('--color', seg(p, .45, .65).toFixed(3));
+        const c = seg(p, .62, .78);
+        scrim.style.opacity = c; cap.style.opacity = c;
+        cap.style.transform = `translateY(${(1 - c) * 24}px)`;
+        const live = c > .5;
+        cap.classList.toggle('is-live', live);
+        cap.setAttribute('aria-hidden', String(!live));
+        capBtn.tabIndex = live ? 0 : -1;
+        // Stop cycling once we're inside the work
+        if(p > .2 && timer){ clearInterval(timer); timer = null; }
+        if(p < .05 && !timer && auto && !paused) schedule();
+      }
+      requestAnimationFrame(render);
+    }
+    const refit = () => { fit(); };
+    addEventListener('resize', refit);
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(refit);
+    refit();
+    requestAnimationFrame(render);
+  })();
+  </script>
+</body>
+</html>
