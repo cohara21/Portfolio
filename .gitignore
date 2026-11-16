@@ -1,10 +1,13 @@
 # macOS
 .DS_Store
 
-# Agent tooling — local only, not part of the site
-.agents/
-.claude/
-skills-lock.json
+# Agent tooling: the skills and copy hook are shared with cloud threads;
+# notes and local settings stay on this Mac. Pages doesn't publish dot folders.
+.claude/*
+!.claude/skills/
+!.claude/hooks/
+.agents/*
+!.agents/skills/
 
 # Home page direction previews — local only
 home-design.html
